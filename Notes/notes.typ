@@ -3,6 +3,8 @@
   region: "mx",
 )
 
+#let today = datetime.today().display()
+
 #import "@preview/physica:0.9.8": pdv
 
 #let last-date = state("last-date", none)
@@ -101,4 +103,16 @@
     $pdv(u(x,y), x) = pdv(v(x,y), y) quad and quad pdv(u(x, y), y) = -
     pdv(v(x, y), x).$,
   )
+]
+
+#class-entry(date: today)[
+  Esta vez voy a agregar una definición que leí antes de irme a clase.
+
+  #definition()[
+    Decimos que ${z_n}$ es convergente a $beta$ si y solo si
+
+    #math.equation(block: true, $lim_(z -> z_0) {z_n} = beta in CC$)
+
+    esto es que $forall epsilon > 0$ $exists N in NN$ tal que $N < n$ entonces $abs(z_n - beta) < epsilon$.
+  ]
 ]
