@@ -1,0 +1,99 @@
+%! TeX program = lualatex
+\documentclass{fc-hw-template}
+
+\title{Tarea Opc.}
+\author{Marcos López Merino}
+\instructor{Carlos Daniel Velázquez Mendoza}
+\duedate{2026-02-09}
+\assignno{1}
+\group{4346}
+\semester{2026--2}
+\subject{Variable Compleja I}
+
+\begin{document}
+\maketitle
+
+\section*{Cuaterniones}
+
+Los cuaterniones son un sistema numérico que constituye una extensión de los números complejos, y, por ende, de los números reales. Fueron descubiertos en 1843 por el matemático irlandés William Rowan Hamilton. El conjunto de los cuaterniones se denota habitualmente por \(\mathbb{H}\).
+
+El conjunto \(\mathbb{H}\) es un espacio vectorial de dimensión cuatro sobre \(\mathbb{R}\),
+con base estándar \(\bigl\lbrace 1, i, j, k \bigr\rbrace\). La forma general de
+un cuaternión es
+
+\begin{equation*}
+	q = a + bi + cj + dk,
+\end{equation*}
+
+donde \( a, b, c, d\in\mathbb{R}\). En particular, el campo \(\mathbb{R}\) de los
+números reales está contenido en \(\mathbb{H}\) como el subconjunto
+\begin{equation*}
+	\bigl\lbrace a + 0i + 0j + 0k \mid a\in\mathbb{R} \bigr\rbrace.
+\end{equation*}
+
+Un cuaternión de la forma \(a + 0i + 0j + 0k\) se denomina la parte real, mientras que
+uno de la forma \(0 + bi + cj + dk\), con \( b, c,d\in\mathbb{R}\) es la parte
+vectorial. Así, para un para un cuaternión \(q = a + bi + cj + dk \), \(a\) es la parte
+real, denotada por \(\Re{q}\), y \(bi + cj + dk \) es la parte vectorial. El conjunto de
+los cuaterniones puramente imaginarios puede identificarse de manera natural con
+\(\mathbb{R}^{3}\).
+
+La suma de cuaterniones se define componente a componente. Dados \(q = a + bi + cj + dk\) y \(q^{\prime} = a^{\prime} + b^{\prime}i + c^{\prime}j + d^{\prime}k\), se tiene
+
+\begin{equation*}
+	q + q^{\prime} = \bigl(a + a^{\prime}\bigr) + \bigl(b + b^{\prime}\bigr)i + \bigl(c + c^{\prime}\bigr)j + \bigl(d + d^{\prime}\bigr)k.
+\end{equation*}
+
+La multiplicación de cuaterniones extiende la multiplicación usual de los números reales
+y está determinada por las relaciones entre los elementos de la base
+
+\begin{equation*}
+	i^{2} = j^{2} = k^{2} = ijk = -1.
+\end{equation*}
+
+Dicha multiplicación es asociativa y distributiva, pero no conmutativa. Además, un
+cuaternión real conmuta con cualquier otro cuaternión.
+
+La motivación principal para introducir los cuaterniones fue la búsqueda de una
+generalización de los números complejos que permitiera describir rotaciones en el
+espacio tridimensional de manera análoga a como los números complejos describen
+rotaciones en el plano. En este sentido, los cuaterniones proporcionan una herramienta
+natural para representar rotaciones espaciales.
+
+Una de las aplicaciones más importantes de los cuaterniones se encuentra en la
+descripción de rotaciones en tres dimensiones. En comparación con las matrices de rotación,
+las representaciones mediante cuaterniones son más compactas y eficientes de calcular que
+las representaciones con matrices. Además, evitan problemas asociados a otras
+parametrizaciones, como los ángulos de Euler. Por esta razón, los cuaterniones se
+utilizan ampliamente en gráficos por computadora, visión por computadora, robótica,
+teoría de control, etc.
+
+Asimismo, los cuaterniones desempeñan un papel relevante en la física. En particular en
+mecánica cuántica, el estudio del spin del electrón y de otras partículas con masa
+condujo a estructuras algebraicas estrechamente relacionadas con los cuaterniones, como
+las matrices de Pauli, las cuales pueden representarse mediante matrices complejas \(2
+\times 2\) de la forma
+
+\begin{align*}
+	U & = \begin{bNiceMatrix}
+		      1 & 0 \\
+		      0 & 1 \\
+	      \end{bNiceMatrix}, \\
+	I & = \begin{bNiceMatrix}
+		      i & 0  \\
+		      0 & -i \\
+	      \end{bNiceMatrix}, \\
+	J & = \begin{bNiceMatrix}
+		      0  & 1 \\
+		      -1 & 0
+	      \end{bNiceMatrix}, \\
+	K & = \begin{bNiceMatrix}
+		      0 & i \\
+		      i & 0
+	      \end{bNiceMatrix}.
+\end{align*}
+
+Todo esto contribuyó a resaltar la importancia de los cuaterniones tanto desde el punto
+de vista matemático como físico.
+
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{problema}
+	Demuestre que la ecuación
+
+	\begin{equation*}
+		A \abs{z}^{2} + Bz + \overline{B}\overline{z} + C = 0,
+	\end{equation*}
+
+	con \(A,C\in \mathbb{R}\) y \(B\in \mathbb{C}\), no todos cero, describe una recta o una
+	circunferencia en \(\mathbb{C}\).
+
+	\begin{proof}
+		Sean \(A, C \in \mathbb{R}\) y \(B = B_{1} + iB_{2}\in \mathbb{C}\), entonces
+
+		\begin{equation*}
+			A \abs{z}^{2} + Bz + \overline{Bz} + C = 0
+		\end{equation*}
+
+		pues \(\overline{Bz} = \overline{B}\overline{z}\) y además observamos que
+
+		\begin{equation*}
+			\Re(z) = \dfrac{z + \overline{z}}{2}. \quad \therefore\; 2 \Re(Bz) =  Bz + \overline{Bz}.
+		\end{equation*}
+
+		Así,
+
+		\begin{equation}
+			A \abs{z}^{2} + 2\Re(Bz) + C = 0,
+			\label{eq:gral-eq}
+		\end{equation}
+
+		\begin{itemize}
+			\item Si \(A = 0\),
+
+			      \begin{equation*}
+				      Bz + \overline{Bz} + C = 0.
+			      \end{equation*}
+
+			      Por lo tanto, la ecuación describe una recta.
+			\item Si \(A \neq 0\),
+
+			      Desarrollando la \zcref{eq:gral-eq},
+
+			      \begin{align*}
+				      A \bigl(x^{2} + y^{2}\bigr) + 2B_{1}x - 2B_{2}y + C                         & = 0,              \\
+				      x^{2} + y^{2} + 2\dfrac{B_{1}}{A}x - 2\dfrac{B_{2}}{A}y                     & = - \dfrac{C}{A}, \\
+				      \Bigl(x + \tfrac{B_{1}}{A}\Bigr)^{2} + \Bigl(y - \tfrac{B_{2}}{A}\Bigr)^{2} & =
+				      \dfrac{B_{1}^{2} + B_{2}^{2} - CA}{A^{2}},                                                      \\
+				      \Bigl(x + \tfrac{B_{1}}{A}\Bigr)^{2} + \Bigl(y - \tfrac{B_{2}}{A}\Bigr)^{2} & =
+				      \dfrac{\abs{B}^{2} - CA}{A^{2}}.
+			      \end{align*}
+
+			      Por lo tanto, la ecuación describe una circunferencia si \(\abs{B}^{2} - CA \neq 0\).
+		\end{itemize}
+	\end{proof}
+\end{problema}
+\end{document}
