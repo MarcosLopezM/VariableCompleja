@@ -49,26 +49,26 @@
 
 - [x] Problema 1
 - [x] Problema 2
-- [ ] Problema 3
+- [x] Problema 3
 - [x] Problema 4
-- [/] Problema 5
+- [x] Problema 5
 - [x] Problema 6
-- [ ] Problema 7
+- [x] Problema 7
 - [-] Problema 8
 - [-] Problema 9
-- [ ] Problema 10
+- [x] Problema 10
 - [x] Problema 11
-- [ ] Problema 12
+- [x] Problema 12
 - [x] Problema 13
 - [x] Problema 14
-- [ ] Problema 15
-- [ ] Problema 16
+- [x] Problema 15
+- [x] Problema 16
 - [x] Problema 17
 - [x] Problema 18
 - [x] Problema 19
 - [x] Problema 20
-- [ ] Problema 21
-- [ ] Problema 22
-- [ ] Problema 23
-- [ ] Problema 24
-- [ ] Problema 25
+- [x] Problema 21
+- [x] Problema 22
+- [x] Problema 23
+- [x] Problema 24
+- [x] Problema 25
