@@ -105,7 +105,7 @@
   )
 ]
 
-#class-entry(date: today)[
+#class-entry(date: "2026-03-25")[
   Esta vez voy a agregar una definición que leí antes de irme a clase.
 
   #definition()[
@@ -115,4 +115,18 @@
 
     esto es que $forall epsilon > 0$ $exists N in NN$ tal que $N < n$ entonces $abs(z_n - beta) < epsilon$.
   ]
+]
+
+#class-entry(date: "2026-03-26")[ Segundo Examen parcial ]
+
+#class-entry(date: "2026-03-27")[
+  Comenzamos resolviendo el ejercicio 4 del examen. Primero verificamos que relación se
+  satisfacía entre el $cosh^2(z)$ y el $sinh^2(z)$, i.e. verificamos qué función acotaba a
+  cuál función a partir de sus definiciones en términos de la exponencial. A partir de
+  esto se verificó que $abs(sinh(y)) <= abs(sin(z)) <= cosh(y)$.
+
+  Posteriormente, retomamos la prueba sobre la ecuaciones de Cauchy-Riemann y se mostró
+  que si una función es derivable en el sentido de $RR^2$, entonces es derivable en el
+  sentido complejo, i.e. satisface C-R. Y, además, que si una función es derivable compleja,
+  es una función derivable en el sentido de $RR^2$.
 ]
