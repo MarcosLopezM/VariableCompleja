@@ -1,10 +1,30 @@
 \documentclass[digital]{fc-hw-template}
 
+\title{}
 \author{Marcos López Merino}
 \instructor{Carlos Daniel Velázquez Mendoza}
 \subject{Notas de Variable Compleja I}
 
-\usepackage[sepcounters=true,proofref={always, margin}]{phfthm}
+\usepackage[cleveref]{csthm}
+
+\newcommand{\genericdel}[4]{%
+  \ifcase#3\relax
+  \ifx#1.\else#1\fi#4\ifx#2.\else#2\fi\or
+  \bigl#1#4\bigr#2\or
+  \Bigl#1#4\Bigr#2\or
+  \biggl#1#4\biggr#2\or
+  \Biggl#1#4\Biggr#2\else
+  \left#1#4\right#2\fi
+}
+
+\newcommand{\eval}[2][-1]{\genericdel.|{#1}{#2}}
+\newcommand{\sVert}[1][0]{%
+  \ifcase#1\relax
+  \rvert\or\bigr|\or\Bigr|\or\biggr|\or\Biggr
+  \fi
+}
+
+\newcommand*{\classdate}[1]{\DTMDate{#1}}
 
 \begin{document}
 \maketitle
@@ -77,4 +97,6 @@ Esta primera definición tiene las siguientes propiedades:
 		      \end{equation}
 	\end{enumerate}
 \end{proposition}
+
+\subfile{sections/07.04.2026.IntegralesComplejas.tex}
 \end{document}
