@@ -1,0 +1,80 @@
+\documentclass[digital]{fc-hw-template}
+
+\author{Marcos López Merino}
+\instructor{Carlos Daniel Velázquez Mendoza}
+\subject{Notas de Variable Compleja I}
+
+\usepackage[sepcounters=true,proofref={always, margin}]{phfthm}
+
+\begin{document}
+\maketitle
+
+\section{La derivada e integral en \(\mathbb{C}\)}
+\subsection{Derivada compleja}
+
+\begin{corollary}
+	Seam \(u,v \colon \Omega \subset \mathbb{C} \to \mathbb{R}\). Si \(u\) y
+	\(v\) son de clase \(C^{1}\) en \(\Omega\) y satisfacen las ecuaciones de
+	Cauchy-Riemann en cada punto de \(\Omega\), entonces \(f = u + iv\) es
+	derivable para toda \(z \in\Omega\).
+\end{corollary}
+
+\begin{definition}
+	Sea \(f \colon \Omega \subset \mathbb{C} \to \mathbb{C}\). Decimos que f es
+	analítica en \(\Omega\) si \(f\) es derivable para toda \(z \in\Omega\).
+\end{definition}
+
+\subsection{Integral compleja}
+
+\begin{definition}
+	Sea \(f \colon \bigl[a, b\bigr] \to \mathbb{C}\) una función continua, la cual
+	podemos escribir como \(f(t) = u(t) + iv(t)\), donde \(u(t), v(t)\)
+	son funciones
+	reales. Entonces la integral de \(f\) en \(\bigl[a,b\bigr]\) es el
+	número complejo
+
+	\begin{equation}
+		\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t) =
+		\int_{a}^{b}\odif[sep-end=\medspace]{t}
+		u(t) + i \int_{a}^{b}\odif[sep-end=\medspace]{t} v(t).
+	\end{equation}
+\end{definition}
+
+Esta primera definición tiene las siguientes propiedades:
+
+\begin{proposition}
+	Son válidas las siguientes afirmaciones:
+
+	\begin{enumerate}
+		\item La integral es \(\mathbb{C}\)-lineal; es decir para cada
+		      \(\lambda, \mu \in
+		      \mathbb{C}\) y \(f,g\colon \bigl[a, b\bigr] \to \mathbb{C}\)
+		      continuas se tiene
+
+		      \begin{equation}
+			      \int_{a}^{b}\odif[sep-end=\medspace]{t} \bigl(\lambda f(t) +
+			      \mu g(t)\bigr) = \lambda
+			      \int_{a}^{b}\odif[sep-end=\medspace]{t} f(t) + \mu
+			      \int_{a}^{b}\odif[sep-end=\medspace]{t} g(t).
+		      \end{equation}
+		\item Para cada \(f \colon \bigl[a, b\bigr] \to \mathbb{C}\) continua se tiene
+
+		      \begin{equation}
+			      \Re \Biggl(\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)\Biggr) =
+			      \int_{a}^{b}\odif[sep-end=\medspace]{t} \Re(f(t))
+		      \end{equation}
+
+		      y también
+
+		      \begin{equation}
+			      \Im \Biggl(\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)\Biggr) =
+			      \int_{a}^{b}\odif[sep-end=\medspace]{t} \Im(f(t)).
+		      \end{equation}
+		\item Para cada \(f \colon \bigl[a,b\bigr] \to \mathbb{C}\) continua se tiene
+		      \begin{equation}
+			      \abs`\Bigg{\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)} \leq
+			      \int_{a}^{b}\odif[sep-end=\medspace]{t} \abs{f(t)}.
+		      \end{equation}
+	\end{enumerate}
+\end{proposition}
+\end{document}
