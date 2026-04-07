@@ -24,7 +24,8 @@
   \fi
 }
 
-\newcommand*{\classdate}[1]{\DTMDate{#1}}
+\definecolor{cdate}{cmyk}{0,1,1,0.25}
+\newcommand*{\classdate}[1]{\textbf{\textcolor{cdate}{\DTMDate{#1}}}}
 
 \begin{document}
 \maketitle
