@@ -1,0 +1,108 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Funciones armónicas}
+\classdate{2026-04-08}
+
+\begin{definition}
+	Decimos que \(f \colon U \subseteq \mathbb{R}^{2} \to \mathbb{R}\) es armónica
+	\(\bigl(f \in C^{2}\bigr)\) si
+
+	\begin{equation}
+		\Delta{f} = \pdv[order = 2]{f}{x} + \pdv[order = 2]{f}{y} = 0.
+	\end{equation}
+\end{definition}
+
+\begin{proposition}
+	Los siguientes enunciados son equivalentes para \(f \colon U \subseteq \mathbb{C}
+	\to \mathbb{C}\) con \(f = u + iv\),
+
+	\begin{enumerate}
+		\item \(f\) es holomorfa.
+		\item \(u,v\) son armónicas si cumplen Cauchy-Riemann.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\begin{itemize}
+		\item (a) \(\,\implies\,\) (b)
+		      Como \( f\) es holomorfa, \(u\) y \(v\) cumplen Cauchy-Riemann y además son
+		      \(C^{2}\).
+		      Ahora notemos que
+
+		      \begin{align*}
+			      \Delta{u} = \pdv[order = 2]{u}{x} + \pdv[order = 2]{u}{y} & =
+			      \pdv*{\pdv{u}{x}}{x} + \pdv*{\pdv{u}{y}}{y},                                                                        \\
+			                                                                & = \pdv*{\pdv{v}{y}}{x} - \pdv*{\pdv{v}{x}}{y},\nonumber \\
+			                                                                & = \pdv{v}{x,y} - \pdv{v}{x,y} = 0.
+		      \end{align*}
+
+		      Y \(\Delta{v} = 0\) es análogo. Por lo tanto, \(u,v\) son armónicas y cumplen
+		      Cauchy-Riemann.
+
+		\item (b) \(\,\implies\,\) (b)
+
+		      Que \(u\) y \(v\) sean armónicas implica que son \(C^{2}\) y por tanto \(f\) vista como
+		      función \(\mathbb{R}^{2} \to \mathbb{R}^{2}\) es derivable y además como cumple
+		      Cauchy-Riemann, por un teorema visto en clase, \(f\) es holomorfa.
+	\end{itemize}
+\end{proof}
+
+\begin{definition}
+	Decimos que dos funciones armónicas \(u,v \colon U \subseteq \mathbb{R} \to
+	\mathbb{R}\) son conjugadas armónicas una de la otra si cumplen Cauchy-Riemann. O
+	bien, que la función \( f \colon U \subseteq \mathbb{C} \to \mathbb{C}\) dada por
+	\(u + iv\) sea analítica.
+\end{definition}
+
+\begin{example}
+	Sean \(u,v \colon \mathbb{C} \to \mathbb{R}\) con \(u(x + iy) = x^{2} - y^{2}\) y
+	\(v(x + iy) = 2xy\). Entonces,
+
+	\begin{align*}
+		\pdv{u(x, y)}{x} & = \pdv{v(x,y)}{y},   \\
+		\pdv{u(x, y)}{y} & = - \pdv{v(x,y)}{x}.
+	\end{align*}
+
+	Por lo tanto cumplen Cauchy-Riemann y son conjugadas armónicas una de la otra.
+\end{example}
+
+Sea \(u \colon B_{r}(z_{0}) \subseteq \mathbb{C} \to \mathbb{R} \subseteq \mathbb{C},
+z_{0} = u_{0} + iv_{0}\) es armónica y queremos encontrar otra función armónica \(v
+\colon B_{r}(z_{0}) \to \mathbb{R}\) tal que cumpla Cauchy-Riemann.
+Supongamos \(v\), \(\pdv{v(x,y)}{y} = \pdv{u(x, y)}{x}\),
+
+\begin{equation*}
+	v(x, y) = \int_{y_{0}}^{y}\odif[sep-end=\medspace]{dt} \pdv{u(x, t)}{x} + h(x).
+\end{equation*}
+
+Entonces,
+
+\begin{align*}
+	-\pdv{u(x, y)}{y} = \pdv{v(x, y)}{x} & =
+	\pdv{}{x}\int_{y_{0}}^{y}\odif[sep-end=\medspace]{t} \pdv{u(x, t)}{x} +
+	h^{\prime}(x),                                                                       \\
+	                                     & = \int_{y_{0}}^{y}\odif[sep-end=\medspace]{t}
+	\pdv[order = 2]{u(x, t)}{x} +
+	h^{\prime}(x),\shortintertext{pues \(u\) es armónica}
+	                                     & = -
+	\int_{y_{0}}^{y}\odif[sep-end=\medspace]{t}
+	\pdv[order = 2]{u(x, t)}{y} + h^{\prime}(x),                                         \\
+	                                     & = - \pdv{u(x,y)}{y} + \pdv{u(x, y_{0})}{y} +
+	h^{\prime}(x).
+\end{align*}
+
+Por lo que
+
+\begin{align*}
+	h^{\prime}(x) & = - \pdv{u(x, y_{0})}{y},                                                 \\
+	h(x)          & = - \int_{x_{0}}^{x}\odif[sep-end=\medspace]{s} \pdv{u(s, y_{0})}{y} + C.
+\end{align*}
+
+Y por lo tanto,
+
+\begin{equation*}
+	v(x, y) = \int_{y_{0}}^{y}\odif[sep-end=\medspace]{t} \pdv{u(x, t)}{x} -
+	\int_{x_{0}}^{x}\odif[sep-end=\medspace]{s} \pdv{u(s, y_{0})}{y} + C.
+\end{equation*}
+\end{document}
