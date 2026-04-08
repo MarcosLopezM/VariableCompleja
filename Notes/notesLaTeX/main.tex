@@ -6,7 +6,8 @@
 \subject{Notas de Variable Compleja I}
 
 \usepackage[cleveref]{csthm}
-\usepackage[mode=buildnew]{standalone}
+\usepackage[mode=buildmissing]{standalone}
+\graphicspath{{figs/build/}}
 
 \newcommand{\genericdel}[4]{%
   \ifcase#3\relax
@@ -26,7 +27,7 @@
 }
 
 \definecolor{cdate}{cmyk}{0,1,1,0.25}
-\newcommand*{\classdate}[1]{\textbf{\textcolor{cdate}{\DTMDate{#1}}}}
+\newcommand*{\classdate}[1]{\hfill\textbf{\textcolor{cdate}{\DTMDate{#1}}}}
 
 \begin{document}
 \maketitle
@@ -101,4 +102,8 @@ Esta primera definición tiene las siguientes propiedades:
 \end{proposition}
 
 \subfile{sections/07.04.2026.IntegralesComplejas.tex}
+
+\section{Temas extra}
+
+\subfile{sections/08.04.2026.FuncionesArmonicas.tex}
 \end{document}
