@@ -1,0 +1,162 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Proposición para integrales complejas}
+\classdate{2026-04-09}
+
+\begin{proposition}
+	Sean \(f,g \colon \Omega \subseteq \mathbb{C} \to \mathbb{C}\) continuas y \(\gamma
+	\colon [a, b] \subseteq \mathbb{R} \to \mathbb{C}\) suave por pedazos tal que
+	\(\gamma \bigl(\bigl[a, b\bigr]\bigr) \subseteq \Omega\). Entonces,
+
+	\begin{enumerate}[label=(\roman*)]
+		\item Si \(\lambda \in \mathbb{C}\),
+
+		      \begin{equation}
+			      \int_{\gamma}^{}\odif[sep-end=\medspace]{z} \bigl(f + \lambda g\bigr)(z) =
+			      \int_{\gamma}^{}\odif[sep-end=\medspace]{z} f(z) +
+			      \lambda\int_{\gamma}^{}\odif[sep-end=\medspace]{z} g(z)
+		      \end{equation}
+
+		      y
+
+		      \begin{equation}
+			      \int_{\gamma}^{}\odif[sep-end=\medspace]{z} \bigl(f + \lambda g\bigr)(z) =
+			      \int_{\gamma}^{}\abs{\odif[sep-end=\medspace]{z}} f(z) + \lambda
+			      \int_{\gamma}^{}\abs{\odif[sep-end=\medspace]{z}} g(z)
+		      \end{equation}
+
+		\item
+
+		      \begin{equation}
+			      \abs`\Bigg{\int_{\gamma}^{}\odif[sep-end=\medspace]{z} f(z)} \leq
+			      \int_{\gamma}^{}\abs{\odif[sep-end=\medspace]{z}} \abs{f(z)}
+		      \end{equation}
+
+		\item Si \(\delta \colon \bigl[c, d\bigr] \subseteq \mathbb{R}  \to  \mathbb{C}\) es
+		      suave por pedazos tal que \(\delta \bigl(\bigl[c, d\bigr]\bigr) \subseteq \Omega\) y
+		      \(\gamma(b) = \delta(d)\),
+
+		      \begin{equation}
+			      \int_{\gamma + \delta}^{}\odif[sep-end=\medspace]{z} f(z) =
+			      \int_{\gamma}^{}\odif[sep-end=\medspace]{z} f(z) +
+			      \int_{\delta}^{}\odif[sep-end=\medspace]{z} f(z)
+		      \end{equation}
+
+		      y
+
+		      \begin{equation}
+			      \int_{\gamma + \delta}^{}\abs{\odif[sep-end=\medspace]{z}} f(z) =
+			      \int_{\gamma}^{}\abs{\odif[sep-end=\medspace]{z}} f(z) +
+			      \int_{\delta}^{}\abs{\odif[sep-end=\medspace]{z}} f(z)
+		      \end{equation}
+
+		\item Si \(\alpha \colon \bigl[c, d\bigr] \to \bigl[a, b\bigr]\) biyectiva
+		      y de clase \(C^{1}\) y \(\delta = \gamma \circ \alpha\) una
+		      reparametrización, entonces \(\alpha^{\prime}(t) > 0\;\forall t \in
+		      \bigl[c, d\bigr]\) o \(\alpha^{\prime}(t) < 0\;\forall t\in \bigl[c,
+			      d\bigr]\) y
+
+		      \begin{equation}
+			      \int_{\gamma}^{}\abs{\odif[sep-end=\medspace]{z}} f(z) =
+			      \int_{\delta}^{}\abs{\odif[sep-end=\medspace]{z}} f(z)
+		      \end{equation}
+
+		      y
+
+		      \begin{equation}
+			      \int_{\delta}^{}\odif[sep-end=\medspace]{z} f(z) = \begin{dcases}
+				      \int_{\gamma}^{}\odif[sep-end=\medspace]{z}  & \text{si}\;\delta \text{preserva la
+				      orientación}\; \bigl(\alpha^{\prime}(t) > 0\; \forall t\in \bigl[c, d\bigr]\bigr),  \\
+				      -\int_{\gamma}^{}\odif[sep-end=\medspace]{z} & \text{si}\; \delta \text{invierte la
+					      orientación}\; \bigl(\alpha^{\prime}(t) < 0\; \forall t\in
+				      \bigl[c, d\bigr]\bigr).
+			      \end{dcases}
+		      \end{equation}
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	\begin{enumerate}[label=(\roman*), start=2]
+		\item
+
+		      \begin{align*}
+			      \abs`\Bigg{\int_{\gamma}^{}\odif[sep-end=\medspace]{z} f(z)} & =
+			      \abs`\Bigg{\int_{a}^{b}f(\gamma(t))\gamma^{\prime}(t)\odif[sep-end=\medspace]{t}}, \\
+			                                                                   & \leq
+			      \int_{a}^{b}\abs{f(\gamma(t))}\abs{\gamma^{\prime}(t)}\odif[sep-end=\medspace]{t}, \\
+			                                                                   & =
+			      \int_{\gamma}^{}\abs{f(z)}\abs{\odif{z}}.
+		      \end{align*}
+
+		\item
+
+		      \begin{align*}
+			      \int_{\gamma + \delta}^{}\odif[sep-end=\medspace]{z} f(z) & = \int_{a}^{b + \bigl(d -
+				      c\bigr)}f \bigl(\bigl(\gamma + \delta\bigr)(t)\bigr)\bigl(\gamma +
+			      \delta\bigr)^{\prime}(t)\odif{t},                                                                                                          \\
+			                                                                & = \int_{a}^{b}f(\gamma(t))\gamma^{\prime}(t)\odif{t} + \int_{b}^{b + \bigl(d -
+				      c\bigr)}f \bigl(\delta \bigl(c + t - b\bigr)\bigr) \delta^{\prime}\bigl(c + t -
+			      b\bigr)\odif[sep-end=\medspace]{t}.
+		      \end{align*}
+
+		      Haciendo un cambio de variable en el segundo término \(s = c + t - b \implies \odif{s} =
+		      \odif{t}\) y \(s(b) = c \; \wedge\; s \bigl(b + (d - c)\bigr) = d\),
+
+		      \begin{align*}
+			      \int_{\gamma + \delta}^{}\odif[sep-end=\medspace]{z} f(z) & =
+			      \int_{\gamma}^{}\odif[sep-end=\medspace]{z} f(z) +
+			      \int_{c}^{d}f
+			      \bigl(\delta(s)\bigr)\delta^{\prime}(s)\odif[sep-end=\medspace]{s},                                              \\
+			                                                                & = \int_{\gamma}^{}\odif[sep-end=\medspace]{z} f(z) +
+			      \int_{\delta}^{}\odif[sep-end=\medspace]{z} f(z).
+		      \end{align*}
+
+		\item
+
+		      \begin{align*}
+			      \int_{\delta}^{}f(z)\abs{\odif{z}} & = \int_{c}^{d}f
+			      \bigl(\delta(t)\bigr) \abs{\delta^{\prime}(t)}\odif{t},                                  \\
+			                                         & = \int_{c}^{d}f
+			      \bigl(\bigl(\gamma \circ
+				      \alpha\bigr)(t)\bigr)\abs{\bigl(\gamma
+				      \circ
+			      \alpha\bigr)^{\prime}(t)}\odif{t},                                                       \\
+			                                         & = \int_{c}^{d}f
+			      \bigl(\gamma(\alpha(t))\bigr)\abs{\gamma^{\prime}(\alpha(t))\alpha^{\prime}(t)}\odif{t}, \\
+			                                         & = \int_{c}^{d}f
+			      \bigl(\gamma(\alpha(t))\bigr)\abs{\gamma^{\prime}(\alpha(t))}\abs{\alpha^{\prime}(t)}\odif{t}.
+		      \end{align*}
+
+		      Ahora consideremos únicamente el caso en que \(\alpha^{\prime}(t) < 0\;
+		      t\in \bigl[c, d\bigr]\).
+
+		      \begin{equation*}
+			      \int_{\delta}^{}f(z)\abs{\odif{z}} = - \int_{c}^{d}f
+			      \bigl(\gamma(\alpha(t))\bigr)\abs{\gamma^{\prime}(\alpha(t))}\alpha^{\prime}(t)\odif{t}.
+		      \end{equation*}
+
+		      Sea \(s = \alpha(t) \implies \odif{s} = \alpha^{\prime}(t) \odif{t}\; \wedge \; s(c) =
+		      \alpha(c) = b, s(d) = \alpha(d) = a\).
+
+		      \begin{align*}
+			      \int_{\delta}^{}f(z)\abs{\odif{z}} & = - \int_{b}^{a}f
+			      \bigl(\gamma(s)\bigr)\abs{\gamma^{\prime}(s)}\odif{s},                     \\
+			                                         & = \int_{a}^{b}f
+			      \bigl(\gamma(s)\bigr)\abs{\gamma^{\prime}(s)}\odif{s},                     \\
+			                                         & = \int_{\delta}^{}f(z)\abs{\odif{z}}.
+		      \end{align*}
+	\end{enumerate}
+\end{proof}
+
+\begin{proposition}
+	Si \(f \colon \Omega \subseteq \mathbb{C} \to \mathbb{C}\) es continua, \(\gamma
+	\colon  \bigl[a, b\bigr] \subseteq \mathbb{R} \to \Omega\) es suave por pedazos
+	\(\exists F \colon \Omega \subseteq \mathbb{C} \to \mathbb{C}\) analítica tal que
+	\(F^{\prime}(z) = f(z)\; \forall z\in\Omega\),
+
+	\begin{equation*}
+		\int_{\gamma}^{}f(z)\odif{z} = F \bigl(\gamma(b)\bigr) - F \bigl(\gamma(a)\bigr).
+	\end{equation*}
+\end{proposition}
+\end{document}
