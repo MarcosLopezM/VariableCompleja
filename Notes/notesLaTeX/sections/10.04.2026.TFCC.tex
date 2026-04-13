@@ -101,8 +101,10 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
             \gamma_{2}(c)\) y \(\gamma_{1}(b) = \gamma_{2}(d)\), entonces
 
             \begin{equation*}
-                \int_{\gamma_{1}}^{}f(z)\odif{z} = \int_{\gamma_{2}}^{}f(z)\odif{z}.
+                \int_{\gamma_{1}}^{}f(z)\odif{z} = \int_{\gamma_{2}}^{}f(z)\odif{z},
             \end{equation*}
+
+            i.e. la integral no depende de la curva.
     \end{enumerate}
 \end{proposition}
 
@@ -123,6 +125,110 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
                 0 = \int_{\gamma_{1} - \gamma_{2}}^{}f(z)\odif{z} = \int_{\gamma_{1}}^{}f(z)\odif{z} -
                 \int_{\gamma_{2}}^{}f(z)\odif{z}.
             \end{equation*}
+            \classdate{2026-04-13}
+        \item  (II) \(\;\implies\;\) (III) Sea \(z_{0} \in U\) fijo y sea otro \(z \in
+            U\). Definimos
+
+            \begin{equation}
+                F(z) = \int_{z_{0}}^{z}f(z)\odif{z},
+            \end{equation}
+
+            donde por abuso de notación, la integral de la derecha denota la integral a lo largo de
+            cualquier curva en \(U\) que una \(z_{0}\) con \(z\), pues por hipótesis la integral no
+            depende de la curva.
+
+            Sea \(r > 0\) tal que \(B_{r}(z_{0}) \subseteq U\), con \(U\) abierto y conexo. en
+            particular, si tomamos \(h \in \mathbb{R}\) con \(0 < h < r\), se tiene que \(z_{0} + h,
+            z_{0} + ih\in B_{r}(z_{0})\). Entonces,
+
+            \begin{equation*}
+                \pdv{F(z)}{x} = \lim_{h \to 0} \dfrac{F(z + h) - F(z)}{h} = \lim_{h\to
+                0}\dfrac{1}{h}\Biggl(\int_{z_{0}}^{z + h}f(w)\odif{w} -
+                \int_{z_{0}}^{z}f(w)\odif{w}\Biggr).
+            \end{equation*}
+
+            Donde la integral de \(z_{0}\) a \(z +  h\) es
+
+            \begin{align*}
+                \int_{z_{0}}^{z + h}f(w)\odif{w} &= \int_{z_{0}}^{z}f(w)\odif{w} + \int_{z}^{z +
+                h}f(w)\odif{w},\nonumber\\
+                \implies \int_{z}^{z + h}f(w)\odif{w} &= \int_{z_{0}}^{z + h}f(w)\odif{w} -
+                \int_{z_{0}}^{z}f(w)\odif{w},
+            \end{align*}
+
+            tal que
+
+            \begin{equation*}
+                \pdv{F(z)}{x} = \lim_{h\to 0}\dfrac{1}{h}\int_{z}^{z + h}f(w)\odif{w} = \lim_{h\to
+                0}\int_{0}^{d}f(z + t)\odif{t}.
+            \end{equation*}
+
+            Ahora vamos a tomar la parte real e imaginaria de \(f(z + t)\), de tal forma que las
+            siguientes integrales son de funciones reales,
+
+            \begin{equation*}
+                \dfrac{1}{h}\int_{0}^{h}\Re f(z + t)\odif{t}\quad \wedge\quad
+                \dfrac{1}{h}\int_{0}^{h}\Im f(z + t)\odif{t}.
+            \end{equation*}
+
+            Recordando el teorema del valor medio para integrales (T.V.M.I.). \(f \colon
+            [a, b] \to \mathbb{R}\;\exists c\in[a, b]\) tal que
+
+            \begin{equation*}
+                f(c) = \Bigl(\int_{a}^{b}f(x)\odif{x}\Bigr)\bigl(b - a\bigr).
+            \end{equation*}
+
+            Entonces, \(\exists h^{\prime}, h^{\prime\prime}\in[0, h]\) tal que
+
+            \begin{align*}
+                \dfrac{1}{h} \int_{0}^{h}\Re f(z + t)\odif{t} &= \dfrac{1}{h}\Re f(z + h^{\prime})h =
+                \Re f(z + h^{\prime}),\\
+                \dfrac{1}{h} \int_{0}^{h}\Im f(z + t)\odif{t} &= \dfrac{1}{h}\Im f(z + h^{\prime\prime})h =
+                \Im f(z + h^{\prime\prime}).
+            \end{align*}
+
+            Si \(h\to 0\), entonces \(h^{\prime}, h^{\prime\prime} \to 0\). Como es continua
+            obtenemos que
+
+            \begin{align*}
+                \lim_{h^{\prime} \to 0} \Re f(z + h^{\prime}) = \Re f(z),\\
+                \lim_{h^{\prime\prime} \to 0} \Im f(z + h^{\prime\prime}) = \Im f(z).
+            \end{align*}
+
+            Si \(h^{\prime\prime\prime} < \min(h^{\prime}, h^{\prime\prime})\),
+
+            \begin{equation*}
+                \pdv{F(z)}{x} = \lim_{h^{\prime\prime\prime}\to 0}\dfrac{F(z +
+                h^{\prime\prime\prime}) - F(z)}{h^{\prime\prime\prime}} = \Re f(z) + i \Im f(z) =
+                f(z).
+            \end{equation*}
+
+            De manera análoga,
+
+            \begin{equation*}
+                \pdv{F(z)}{y} = \lim_{h\to 0}\dfrac{F(z +
+                ih) - F(z)}{h} = \lim_{h\to 0}\dfrac{1}{h}\int_{z}^{z + ih}f(w)\odif{w} = \lim_{h\to
+                0}\dfrac{1}{h}\int_{0}^{h}f(z + it)i\odif{t}= i f(z).
+            \end{equation*}
+
+            Por lo tanto, notemos que se satisface
+
+            \begin{equation*}
+                \pdv{F}{x} = i \pdv{F}{y},
+            \end{equation*}
+
+            i.e. cumplen las ecuaciones de Cauchy-Riemann en su versión compleja.
+            Además, como \(f\) es continua, por ser analítica, \(\pdv{F}{x}\) y
+            \(\pdv{F}{y}\) son continuas, por lo que \(F\) es de clase \(C^{1}\), lo
+            cual implica que \(F\) es analítica.
+
+            Y además, \(F = u + iv\),
+
+            \begin{equation*}
+                f(z) = \pdv{F(z)}{x} = \pdv{u(z)}{x} + i \pdv{v(z)}{x} = F^{\prime}(z).
+            \end{equation*}
+
+            Por lo tanto, \(F^{\prime} = f\).
     \end{enumerate}
 \end{proof}
 \end{document}
