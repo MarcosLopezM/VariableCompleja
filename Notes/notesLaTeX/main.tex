@@ -10,20 +10,20 @@
 \graphicspath{{figs/build/}}
 
 \newcommand{\genericdel}[4]{%
-  \ifcase#3\relax
-  \ifx#1.\else#1\fi#4\ifx#2.\else#2\fi\or
-  \bigl#1#4\bigr#2\or
-  \Bigl#1#4\Bigr#2\or
-  \biggl#1#4\biggr#2\or
-  \Biggl#1#4\Biggr#2\else
-  \left#1#4\right#2\fi
+    \ifcase#3\relax
+    \ifx#1.\else#1\fi#4\ifx#2.\else#2\fi\or
+    \bigl#1#4\bigr#2\or
+    \Bigl#1#4\Bigr#2\or
+    \biggl#1#4\biggr#2\or
+    \Biggl#1#4\Biggr#2\else
+    \left#1#4\right#2\fi
 }
 
 \newcommand{\eval}[2][-1]{\genericdel.|{#1}{#2}}
 \newcommand{\sVert}[1][0]{%
-  \ifcase#1\relax
-  \rvert\or\bigr|\or\Bigr|\or\biggr|\or\Biggr
-  \fi
+    \ifcase#1\relax
+    \rvert\or\bigr|\or\Bigr|\or\biggr|\or\Biggr
+    \fi
 }
 
 \definecolor{cdate}{cmyk}{0,1,1,0.25}
@@ -36,69 +36,69 @@
 \subsection{Derivada compleja}
 
 \begin{corollary}
-	Seam \(u,v \colon \Omega \subset \mathbb{C} \to \mathbb{R}\). Si \(u\) y
-	\(v\) son de clase \(C^{1}\) en \(\Omega\) y satisfacen las ecuaciones de
-	Cauchy-Riemann en cada punto de \(\Omega\), entonces \(f = u + iv\) es
-	derivable para toda \(z \in\Omega\).
+    Seam \(u,v \colon \Omega \subset \mathbb{C} \to \mathbb{R}\). Si \(u\) y
+    \(v\) son de clase \(C^{1}\) en \(\Omega\) y satisfacen las ecuaciones de
+    Cauchy-Riemann en cada punto de \(\Omega\), entonces \(f = u + iv\) es
+    derivable para toda \(z \in\Omega\).
 \end{corollary}
 
 \begin{definition}
-	Sea \(f \colon \Omega \subset \mathbb{C} \to \mathbb{C}\). Decimos que f es
-	analítica en \(\Omega\) si \(f\) es derivable para toda \(z \in\Omega\).
+    Sea \(f \colon \Omega \subset \mathbb{C} \to \mathbb{C}\). Decimos que f es
+    analítica en \(\Omega\) si \(f\) es derivable para toda \(z \in\Omega\).
 \end{definition}
 
 \subsection{Integral compleja}
 
 \begin{definition}
-	Sea \(f \colon \bigl[a, b\bigr] \to \mathbb{C}\) una función continua, la cual
-	podemos escribir como \(f(t) = u(t) + iv(t)\), donde \(u(t), v(t)\)
-	son funciones
-	reales. Entonces la integral de \(f\) en \(\bigl[a,b\bigr]\) es el
-	número complejo
+    Sea \(f \colon \bigl[a, b\bigr] \to \mathbb{C}\) una función continua, la cual
+    podemos escribir como \(f(t) = u(t) + iv(t)\), donde \(u(t), v(t)\)
+    son funciones
+    reales. Entonces la integral de \(f\) en \(\bigl[a,b\bigr]\) es el
+    número complejo
 
-	\begin{equation}
-		\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t) =
-		\int_{a}^{b}\odif[sep-end=\medspace]{t}
-		u(t) + i \int_{a}^{b}\odif[sep-end=\medspace]{t} v(t).
-	\end{equation}
+    \begin{equation}
+        \int_{a}^{b}\odif[sep-end=\medspace]{t} f(t) =
+        \int_{a}^{b}\odif[sep-end=\medspace]{t}
+        u(t) + i \int_{a}^{b}\odif[sep-end=\medspace]{t} v(t).
+    \end{equation}
 \end{definition}
 
 Esta primera definición tiene las siguientes propiedades:
 
 \begin{proposition}
-	Son válidas las siguientes afirmaciones:
+    Son válidas las siguientes afirmaciones:
 
-	\begin{enumerate}
-		\item La integral es \(\mathbb{C}\)-lineal; es decir para cada
-		      \(\lambda, \mu \in
-		      \mathbb{C}\) y \(f,g\colon \bigl[a, b\bigr] \to \mathbb{C}\)
-		      continuas se tiene
+    \begin{enumerate}
+        \item La integral es \(\mathbb{C}\)-lineal; es decir para cada
+            \(\lambda, \mu \in
+            \mathbb{C}\) y \(f,g\colon \bigl[a, b\bigr] \to \mathbb{C}\)
+            continuas se tiene
 
-		      \begin{equation}
-			      \int_{a}^{b}\odif[sep-end=\medspace]{t} \bigl(\lambda f(t) +
-			      \mu g(t)\bigr) = \lambda
-			      \int_{a}^{b}\odif[sep-end=\medspace]{t} f(t) + \mu
-			      \int_{a}^{b}\odif[sep-end=\medspace]{t} g(t).
-		      \end{equation}
-		\item Para cada \(f \colon \bigl[a, b\bigr] \to \mathbb{C}\) continua se tiene
+            \begin{equation}
+                \int_{a}^{b}\odif[sep-end=\medspace]{t} \bigl(\lambda f(t) +
+                \mu g(t)\bigr) = \lambda
+                \int_{a}^{b}\odif[sep-end=\medspace]{t} f(t) + \mu
+                \int_{a}^{b}\odif[sep-end=\medspace]{t} g(t).
+            \end{equation}
+        \item Para cada \(f \colon \bigl[a, b\bigr] \to \mathbb{C}\) continua se tiene
 
-		      \begin{equation}
-			      \Re \Biggl(\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)\Biggr) =
-			      \int_{a}^{b}\odif[sep-end=\medspace]{t} \Re(f(t))
-		      \end{equation}
+            \begin{equation}
+                \Re \Biggl(\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)\Biggr) =
+                \int_{a}^{b}\odif[sep-end=\medspace]{t} \Re(f(t))
+            \end{equation}
 
-		      y también
+            y también
 
-		      \begin{equation}
-			      \Im \Biggl(\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)\Biggr) =
-			      \int_{a}^{b}\odif[sep-end=\medspace]{t} \Im(f(t)).
-		      \end{equation}
-		\item Para cada \(f \colon \bigl[a,b\bigr] \to \mathbb{C}\) continua se tiene
-		      \begin{equation}
-			      \abs`\Bigg{\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)} \leq
-			      \int_{a}^{b}\odif[sep-end=\medspace]{t} \abs{f(t)}.
-		      \end{equation}
-	\end{enumerate}
+            \begin{equation}
+                \Im \Biggl(\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)\Biggr) =
+                \int_{a}^{b}\odif[sep-end=\medspace]{t} \Im(f(t)).
+            \end{equation}
+        \item Para cada \(f \colon \bigl[a,b\bigr] \to \mathbb{C}\) continua se tiene
+            \begin{equation}
+                \abs`\Bigg{\int_{a}^{b}\odif[sep-end=\medspace]{t} f(t)} \leq
+                \int_{a}^{b}\odif[sep-end=\medspace]{t} \abs{f(t)}.
+            \end{equation}
+    \end{enumerate}
 \end{proposition}
 
 \subfile{sections/07.04.2026.IntegralesComplejas.tex}
@@ -108,4 +108,5 @@ Esta primera definición tiene las siguientes propiedades:
 \section{Temas extra}
 
 \subfile{sections/08.04.2026.FuncionesArmonicas.tex}
+\subfile{sections/13.04.2026.CRVCompleja.tex}
 \end{document}
