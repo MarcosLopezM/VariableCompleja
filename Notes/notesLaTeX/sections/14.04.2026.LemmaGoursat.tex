@@ -1,0 +1,193 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Lema de Goursat}
+\classdate{2026-04-14}
+
+\begin{lemma}
+    Sean \(f \colon \Omega \subseteq \mathbb{C} \to \mathbb{C}\) una función analítica
+    (en \(\Omega\)) y \(R = [a, b] \mul [c, d] \subseteq \Omega\), entonces
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(z)\odif{z} = 0
+    \end{equation*}
+
+    donde \(\gamma\) es una parametrización de \(\partial R =
+    \mathrm{Fr}(R)\) que la recorre en
+    sentido antihorario.
+\end{lemma}
+
+\begin{proof}
+    Para simplificar la notación, escribiremos que
+
+    \begin{equation*}
+        I(R) = \int_{\gamma}^{}f(z)\odif{z}.
+    \end{equation*}
+
+    Y queremos demostrar que \(I(R) = 0\) para lo cual primero necesitamos
+    mostrar que \(\forall
+    \varepsilon > 0,\medspace \abs{I(R)} < \varepsilon\). Además, denotaremos la
+    diagonal de \(R\) por
+
+    \begin{equation*}
+        d(R) = \abs{(a + ic) - (b + id)}
+    \end{equation*}
+
+    y el perímetro de \(R\) por \(l(R)\).
+
+    El primer paso de esta prueba es subdividir el rectángulo en cuatro subrectángulos
+    iguales \(R^{(1)}, R^{(2)}, R^{(3)}\) y \(R^{(4)}\) tales que
+
+    \begin{equation*}
+        R = R^{(1)} \cup R^{(2)} \cup R^{(3)} \cup R^{(4)}\quad \wedge \quad
+        \mathrm{int}(R_{i}) \cap \mathrm{int}(R_{j}) = \phi,\quad \forall i \neq j.
+    \end{equation*}
+
+    Si consideramos \(\gamma_{1}, \gamma_{2}, \gamma_{3}, \gamma_{4}\)
+    parametrizaciones de
+    \(\partial R^{(1)},\partial R^{(2)}, \partial R^{(3)}, \partial R^{(4)}\) en sentido
+    antihorario, tenemos que
+
+    \begin{equation*}
+        I(R) = I(\partial R^{(1)}) + I(\partial R^{(2)}) +I(\partial R^{(3)})
+        +I(\partial
+        R^{(4)}).
+    \end{equation*}
+
+    Entre las 4 integrales, hay una que tiene el módulo más grande, sin pérdida de
+    generalidad, \(\abs{I(R^{(1)})}\) es el más grande. Por la desigualdad del triángulo
+
+    \begin{equation*}
+        \abs{I(R)} \leq \sum_{i = 1}^{4} \abs{I(R^{(i)})} \leq 4 \abs{I(R^{(1)})}.
+    \end{equation*}
+
+    Por lo que \(\abs{I(R^{(1)})} \geq \tfrac{\abs{I(R)}}{4}\).
+
+    Si repetimos el mismo proceso de subdivisión, ahora con el subrectángulo \(R_{1} =
+    R^{(1)}\), tenemos que
+
+    \begin{equation*}
+        \abs{I(R_{1})} \geq \dfrac{\abs{I(R)}}{4}.
+    \end{equation*}
+
+    Siguiendo este procedimiento de manera inductiva obtenemos una sucesión
+    \(\{R_{k}\}\) de
+    rectángulos compactos con las siguientes propiedades:
+
+    \begin{enumerate}[label = \arabic*.]
+        \item \(R_{k + 1} \subseteq R_{k} \subseteq R\quad \forall k\in \mathbb{N}\).
+        \item \(\abs{I(R_{k + 1})} \geq \abs{I(R_{k})}/4\quad \forall k\in
+            \mathbb{N}\).
+        \item  \(d(R_{k + 1}) = d(R_{k})/2\) y \(l(R_{k + 1}) = l(R_{k})/2,\quad
+            \forall k\in \mathbb{N}\).
+    \end{enumerate}
+
+    De los puntos 2. y 3. se sigue que
+
+    \begin{align*}
+        \abs{I(R_{k})} &\leq 4 \abs{I(R_{k + 1})},\\
+        d(R_{k}) &= \dfrac{d(R_{k - 1})}{2} = \dfrac{d(R_{k - 2})}{2^{2}} =
+        \dfrac{d(R)}{2^{k}},\\
+        l(R_{k}) &= \dfrac{l(R)}{2^{k}}.
+    \end{align*}
+
+    Entonces
+
+    \begin{equation*}
+        \abs{I(R)} \leq 4^{1}\abs{I(R_{1})} \leq 4^{2}\abs{I(R_{2})} \leq \cdots
+        4^{k}\abs{I(R_{k})}\quad \forall k\in \mathbb{N}.
+    \end{equation*}
+
+    Y de la primera identidad se deduce que el diámetro de los rectángulos
+    tiende a 0, i.e.
+
+    \begin{equation*}
+        \lim_{k\to \infty}d(R_{k}) = \lim_{k\to \infty}\dfrac{d(R)}{2^{k}} = 0.
+    \end{equation*}
+
+    De modo que por el teorema de los rectángulos anidados, \(\exists
+    z_{0}\in \mathbb{R}\)
+    tal que
+
+    \begin{equation*}
+        \bigcap_{k = 1}^{\infty} R_{k} = \{z_{0}\}.
+    \end{equation*}
+
+    Como \(z_{0}\in R \subseteq \Omega\) y \(f\) es derivable en \(z_{0}\), dado
+    \(\varepsilon > 0\) arbitrario, \(\exists \delta > 0\) tal que
+
+    \begin{align*}
+        \abs`\Bigg{\dfrac{f(z) - f(z_{0})}{z - z_{0}} - f^{\prime}(z_{0})} &<
+        \dfrac{\varepsilon}{d(R)l(R)},\\
+        \abs{f(z) - f(z_{0}) - f^{\prime}(z_{0})\bigl(z - z_{0}\bigr)} &<
+        \dfrac{\varepsilon}{d(R)l(R)}\abs{z - z_{0}},
+    \end{align*}
+
+    \(\forall z\in B_{\delta}(z_{0}) \subseteq \Omega\).
+
+    Ahora notemos que definimos una función auxiliar que tenga primitiva, en particular
+
+    \begin{equation*}
+        g(z) = f(z_{0})z + \dfrac{1}{2}f^{\prime}(z_{0})(z - z_{0}),
+    \end{equation*}
+
+    entonces
+
+    \begin{equation*}
+        g^{\prime}(z) = f(z_{0}) + f^{\prime}(z_{0})(z - z_{0}),\quad \forall
+        z\in \mathbb{C}.
+    \end{equation*}
+
+    Si suponemos que \(\tilde{\gamma}_{k}\) una parametrización de \(\partial R_{k}\) en
+    sentido antihorario, por la \zcref{prop:equiv-affirmations},
+
+    \begin{equation*}
+        \int_{\tilde{\gamma}_{k}}^{}\Bigl(f(z_{0}) + f^{\prime}(z_{0})(z -
+        z_{0})\Bigr)\odif{z} = 0\quad \forall k\in \mathbb{N}.
+    \end{equation*}
+
+    Además, como \(z_{0}\in R_{k}\medspace \forall k\in \mathbb{N}\) y \(d(R_{k})
+    \xlongrightarrow[k\to \infty]{} 0\), existe \( N \subseteq \mathbb{N}\) tal que si
+    \( k \geq N\), entonces \(R_{k} \subseteq B_{\delta}(z_{0})\).
+
+    Con toda la información anterior, si \(k \geq N\), entonces \(\abs{z - z_{0}} \leq
+        d(R_{k})\quad \forall z\in \partial R_{k} \subseteq R_{k} \subseteq
+    B_{\delta}(z_{0})\),
+    por lo tanto
+
+    \begin{align*}
+        \abs{I(R_{k})} &= \abs`\Bigg{\int_{\tilde{\gamma}_{k}}^{}f(z)\odif{z}},\\
+        &= \abs`\Bigg{\int_{\tilde{\gamma}_{k}}^{}f(z)\odif{z} -
+            \int_{\tilde{\gamma}_{k}}^{}\bigl(f(z_{0}) + f^{\prime}(z_{0})(z
+        - z_{0})\bigr)\odif{z}},\\
+        &= \abs`\Bigg{\int_{\tilde{\gamma}_{k}}^{}\bigl(f(z) - f(z_{0}) -
+                f^{\prime}(z_{0})(z
+        - z_{0})\bigr)\odif{z}},\\
+        &\leq \int_{\tilde{\gamma}_{k}}^{}\abs`\Big{f(z) - f(z_{0}) -
+        f^{\prime}(z_{0})\odif{z}},\\
+        &\leq \int_{\tilde{\gamma}_{k}}^{}\abs`\Big{f(z) - f(z_{0}) -
+        f^{\prime}(z_{0})}\abs{\odif{z}},\\
+        &\leq \int_{\tilde{\gamma}_{k}}^{}\dfrac{\varepsilon}{d(R)l(R)}\abs{z -
+        z_{0}}\abs{\odif{z}},\\
+        &\leq \dfrac{\varepsilon
+        d(R_{k})}{d(R)l(R)}\int_{\tilde{\gamma}_{k}}^{}\abs{\odif{z}},\\
+        &= \dfrac{\varepsilon}{d(R)l(R)}d(R_{k})l(R_{k}).
+    \end{align*}
+
+    Usando las desigualdades e identidades obtenidas de los puntos 2. y 3.,
+    concluimos que
+
+    \begin{align*}
+        \abs{I(R)} \leq 4^{k}\abs{I(R_{k})} &\leq
+        4^{k}\dfrac{\varepsilon}{d(R)l(R)}d(R_{k})l(R_{k}),\\
+        &= 4^{k}\dfrac{\varepsilon}{d(R)l(R)}\dfrac{d(R)}{2^{k}}\dfrac{l(R)}{2^{k}},\\
+        &= \varepsilon.
+    \end{align*}
+
+    Y por lo tanto,
+
+    \begin{equation*}
+        I(R) = 0.
+    \end{equation*}
+\end{proof}
+\end{document}
