@@ -13,7 +13,8 @@
     \(F^{\prime}(z) = f(z)\; \forall z\in\Omega\),
 
     \begin{equation*}
-        \int_{\gamma}^{}f(z)\odif{z} = \int_{\gamma}^{}F^{\prime}(z)\odif{z} = F \bigl(\gamma(b)\bigr) - F \bigl(\gamma(a)\bigr).
+        \int_{\gamma}^{}f(z)\odif{z} = \int_{\gamma}^{}F^{\prime}(z)\odif{z}
+        = F \bigl(\gamma(b)\bigr) - F \bigl(\gamma(a)\bigr).
     \end{equation*}
 \end{proposition}
 
@@ -22,16 +23,20 @@
         \int_{\gamma}^{}f(z)\odif{z} & = \int_{a}^{b}f
         \bigl(\gamma(t)\bigr)\gamma^{\prime}(t)\odif{t} =
         \int_{a}^{b}F^{\prime}\bigl(\gamma(t)\bigr)\gamma^{\prime}(t)\odif{t} =
-        \int_{a}^{b}\bigl(F \circ \gamma\bigr)^{\prime}(t)\odif{t},                                         \\
+        \int_{a}^{b}\bigl(F \circ \gamma\bigr)^{\prime}(t)\odif{t},
+        \\
         & = \int_{a}^{b}\Bigl[\Re \bigl(\bigl(F \circ \gamma\bigr)^{\prime}(t)
             \bigr) + i\Im \bigl(\bigl(F \circ \gamma\bigr)^{\prime}(t)
-        \bigr)\Bigr]\odif{t},                                                                               \\
+        \bigr)\Bigr]\odif{t},
+        \\
         & = \int_{a}^{b}\Re \bigl(\bigl(F \circ \gamma\bigr)^{\prime}(t)
         \bigr)\odif{t} + i\int_{a}^{b}\Im \bigl(\bigl(F \circ \gamma\bigr)^{\prime}(t)
-        \bigr)\odif{t},                                                                                     \\
+        \bigr)\odif{t},
+        \\
         & = \Re \bigl(F \bigl(\gamma(b)\bigr)\bigr) - \Re \bigl(F
         \bigl(\gamma(a)\bigr)\bigr) + i \Bigl[\Im\bigl(F\bigl(\gamma(b)\bigr)\bigr) -
-        \Im\bigl(F \bigl(\gamma(a)\bigr)\bigr)\Bigr],                                                       \\
+        \Im\bigl(F \bigl(\gamma(a)\bigr)\bigr)\Bigr],
+        \\
         & = F(\gamma(b)) - F(\gamma(a)).
     \end{align*}
 \end{proof}
@@ -57,16 +62,21 @@ Entonces calculamos la integral usando la definición,
 
 \begin{align*}
     \int_{\gamma}^{}z^{2}\odif{z} & =
-    \int_{0}^{3\pi}\gamma^{2}(t)\gamma^{\prime}(t)\odif{t},                                                      \\
+    \int_{0}^{3\pi}\gamma^{2}(t)\gamma^{\prime}(t)\odif{t},
+    \\
     & = \int_{0}^{\pi}\pi^{2}\mathrm{e}^{2it}\odif{t} + \int_{\pi}^{3\pi}\bigl(t -
-    2\pi\bigr)^{2}\odif{t},                                                                                      \\
+    2\pi\bigr)^{2}\odif{t},
+    \\
     & = i\pi^{3} \int_{0}^{\pi}\mathrm{e}^{3it}\odif{t} +
     \eval{\dfrac{\bigl((t -
-    2\pi)\bigr)^{3}}{3}}_{\pi}^{3\pi},                                                                           \\
+    2\pi)\bigr)^{3}}{3}}_{\pi}^{3\pi},
+    \\
     & = i\pi^{3}\Bigl(\int_{0}^{\pi}\cos\bigl(3t\bigr)\odif{t} + i
-    \int_{0}^{\pi}\sin\bigl(3t\bigr)\odif{t}\Bigr) + \dfrac{2\pi^{3}}{3},                                        \\
+    \int_{0}^{\pi}\sin\bigl(3t\bigr)\odif{t}\Bigr) + \dfrac{2\pi^{3}}{3},
+    \\
     & = -\pi^{3}\Bigl(\eval{-\dfrac{1}{3}\cos\bigl(3t\bigr)}_{0}^{\pi}\Bigr) +
-    \dfrac{2\pi^{3}}{3},                                                                                         \\
+    \dfrac{2\pi^{3}}{3},
+    \\
     & = -\dfrac{\pi^{3}}{3} - \dfrac{\pi^{3}}{3} + \dfrac{2\pi^{3}}{3},            \\
     & = 0.
 \end{align*}
@@ -78,7 +88,7 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
     \int_{\gamma}^{}f(z)\odif{z} = F(\pi) - F(\pi) = 0.
 \end{equation*}
 
-\begin{proposition}
+\begin{proposition}\label{prop:equiv-affirmations}
     Sea \(\Omega\footnote{Subconjunto abierto y conexo} \subseteq \mathbb{C}\) una
     región, \( f \colon \Omega \subseteq \mathbb{C} \to \mathbb{C}\) continua. Las
     siguientes proposiciones son equivalentes:
@@ -90,7 +100,8 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
                 F^{\prime}(z) = f(z),\qquad \forall z\in \mathbb{C}.
             \end{equation*}
 
-        \item Si \(\gamma\) es una curva cerrada, i.e. \(\gamma(a) = \gamma(b)\), entonces
+        \item Si \(\gamma\) es una curva cerrada, i.e. \(\gamma(a) =
+            \gamma(b)\), entonces
 
             \begin{equation*}
                 \int_{\gamma}^{}f(z)\odif{z} = 0.
@@ -118,11 +129,13 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
                 \int_{\gamma}^{}f(z)\odif{z} & = F(\gamma(b)) - F(\gamma(a)),     \\
                 & = F(\gamma(b)) - F(\gamma(b)) = 0.
             \end{align*}
-        \item (II) \(\;\implies\;\) (III) Notemos que \(\gamma_{1} - \gamma(2)\) es una curva
+        \item (II) \(\;\implies\;\) (III) Notemos que \(\gamma_{1} -
+            \gamma(2)\) es una curva
             cerrada y por (II),
 
             \begin{equation*}
-                0 = \int_{\gamma_{1} - \gamma_{2}}^{}f(z)\odif{z} = \int_{\gamma_{1}}^{}f(z)\odif{z} -
+                0 = \int_{\gamma_{1} - \gamma_{2}}^{}f(z)\odif{z} =
+                \int_{\gamma_{1}}^{}f(z)\odif{z} -
                 \int_{\gamma_{2}}^{}f(z)\odif{z}.
             \end{equation*}
             \classdate{2026-04-13}
@@ -133,12 +146,16 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
                 F(z) = \int_{z_{0}}^{z}f(z)\odif{z},
             \end{equation}
 
-            donde por abuso de notación, la integral de la derecha denota la integral a lo largo de
-            cualquier curva en \(U\) que una \(z_{0}\) con \(z\), pues por hipótesis la integral no
+            donde por abuso de notación, la integral de la derecha denota la
+            integral a lo largo de
+            cualquier curva en \(U\) que una \(z_{0}\) con \(z\), pues por
+            hipótesis la integral no
             depende de la curva.
 
-            Sea \(r > 0\) tal que \(B_{r}(z_{0}) \subseteq U\), con \(U\) abierto y conexo. en
-            particular, si tomamos \(h \in \mathbb{R}\) con \(0 < h < r\), se tiene que \(z_{0} + h,
+            Sea \(r > 0\) tal que \(B_{r}(z_{0}) \subseteq U\), con \(U\)
+            abierto y conexo. en
+            particular, si tomamos \(h \in \mathbb{R}\) con \(0 < h < r\), se
+            tiene que \(z_{0} + h,
             z_{0} + ih\in B_{r}(z_{0})\). Entonces,
 
             \begin{equation*}
@@ -150,20 +167,24 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
             Donde la integral de \(z_{0}\) a \(z +  h\) es
 
             \begin{align*}
-                \int_{z_{0}}^{z + h}f(w)\odif{w} &= \int_{z_{0}}^{z}f(w)\odif{w} + \int_{z}^{z +
+                \int_{z_{0}}^{z + h}f(w)\odif{w} &=
+                \int_{z_{0}}^{z}f(w)\odif{w} + \int_{z}^{z +
                 h}f(w)\odif{w},\nonumber\\
-                \implies \int_{z}^{z + h}f(w)\odif{w} &= \int_{z_{0}}^{z + h}f(w)\odif{w} -
+                \implies \int_{z}^{z + h}f(w)\odif{w} &= \int_{z_{0}}^{z +
+                h}f(w)\odif{w} -
                 \int_{z_{0}}^{z}f(w)\odif{w},
             \end{align*}
 
             tal que
 
             \begin{equation*}
-                \pdv{F(z)}{x} = \lim_{h\to 0}\dfrac{1}{h}\int_{z}^{z + h}f(w)\odif{w} = \lim_{h\to
+                \pdv{F(z)}{x} = \lim_{h\to 0}\dfrac{1}{h}\int_{z}^{z +
+                h}f(w)\odif{w} = \lim_{h\to
                 0}\int_{0}^{d}f(z + t)\odif{t}.
             \end{equation*}
 
-            Ahora vamos a tomar la parte real e imaginaria de \(f(z + t)\), de tal forma que las
+            Ahora vamos a tomar la parte real e imaginaria de \(f(z + t)\),
+            de tal forma que las
             siguientes integrales son de funciones reales,
 
             \begin{equation*}
@@ -181,13 +202,16 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
             Entonces, \(\exists h^{\prime}, h^{\prime\prime}\in[0, h]\) tal que
 
             \begin{align*}
-                \dfrac{1}{h} \int_{0}^{h}\Re f(z + t)\odif{t} &= \dfrac{1}{h}\Re f(z + h^{\prime})h =
+                \dfrac{1}{h} \int_{0}^{h}\Re f(z + t)\odif{t} &=
+                \dfrac{1}{h}\Re f(z + h^{\prime})h =
                 \Re f(z + h^{\prime}),\\
-                \dfrac{1}{h} \int_{0}^{h}\Im f(z + t)\odif{t} &= \dfrac{1}{h}\Im f(z + h^{\prime\prime})h =
+                \dfrac{1}{h} \int_{0}^{h}\Im f(z + t)\odif{t} &=
+                \dfrac{1}{h}\Im f(z + h^{\prime\prime})h =
                 \Im f(z + h^{\prime\prime}).
             \end{align*}
 
-            Si \(h\to 0\), entonces \(h^{\prime}, h^{\prime\prime} \to 0\). Como es continua
+            Si \(h\to 0\), entonces \(h^{\prime}, h^{\prime\prime} \to 0\).
+            Como es continua
             obtenemos que
 
             \begin{align*}
@@ -199,7 +223,8 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
 
             \begin{equation*}
                 \pdv{F(z)}{x} = \lim_{h^{\prime\prime\prime}\to 0}\dfrac{F(z +
-                h^{\prime\prime\prime}) - F(z)}{h^{\prime\prime\prime}} = \Re f(z) + i \Im f(z) =
+                h^{\prime\prime\prime}) - F(z)}{h^{\prime\prime\prime}} = \Re
+                f(z) + i \Im f(z) =
                 f(z).
             \end{equation*}
 
@@ -207,7 +232,8 @@ Ahora veamos si llegamos al mismo resultado usando el TFCC. Sea \(F(z) =
 
             \begin{equation*}
                 \pdv{F(z)}{y} = \lim_{h\to 0}\dfrac{F(z +
-                ih) - F(z)}{h} = \lim_{h\to 0}\dfrac{1}{h}\int_{z}^{z + ih}f(w)\odif{w} = \lim_{h\to
+                ih) - F(z)}{h} = \lim_{h\to 0}\dfrac{1}{h}\int_{z}^{z +
+                ih}f(w)\odif{w} = \lim_{h\to
                 0}\dfrac{1}{h}\int_{0}^{h}f(z + it)i\odif{t}= i f(z).
             \end{equation*}
 
