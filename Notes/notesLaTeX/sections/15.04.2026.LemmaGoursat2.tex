@@ -1,0 +1,195 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Lema de Goursat (cont.)}
+\classdate{2026-04-15}
+
+\begin{lemma}[Lema de Goursat 2.0]
+    Sea \(U \subseteq \mathbb{C}\) un conjunto abierto, \(R \subseteq U\) un rectángulo
+    cerrado, \(z_{0}\in \mathrm{int}(R)\) y \(f \colon U\setminus \{z_{0}\}
+    \to \mathbb{C}\) una función analítica, tal que
+
+    \begin{equation*}
+        \lim_{z \to z_{0}}f(z)(z - z_{0}) = 0
+    \end{equation*}
+
+    entonces
+
+    \begin{equation*}
+        \int_{\partial R}^{}f(z)\odif{z} = 0.
+    \end{equation*}
+\end{lemma}
+
+\begin{proof}
+    Por el límite, tenemos que \(\forall \varepsilon > 0\medspace \exists \delta > 0\)
+    tal que \(0 < \abs{z - z_{0}} < \delta\),
+
+    \begin{equation*}
+        \abs{f(z)(z - z_{0})} < \varepsilon\quad \bigvee\quad \abs{f(z)} <
+        \dfrac{\varepsilon}{\abs{z - z_{0}}}.
+    \end{equation*}
+
+    Sea \(R^{\prime}\) un cuadrado de lado \(L\) centrado en \(z_{0}\) tal que \(\forall
+    z\in R^{\prime}\; \abs{z - z_{0}} < R^{\prime}\). Prologando los lados de
+    \(R^{\prime}\)
+    para subdividir \(R\) en nueve rectángulos \(R_{1}, R_{2}, \dots, R_{8},
+    R^{\prime}\). Y
+    por el \zcref{lemma:lem-goursat-v1}, f es analítica en todos los
+    rectángulos, distinto
+    \(R^{\prime}\), de modo que
+
+    \begin{equation*}
+        \int_{\partial R_{1}}^{}f(z)\odif{z} = \int_{\partial
+        R_{2}}^{}f(z)\odif{z} = \cdots =
+        \int_{\partial R_{8}}^{}f(z)\odif{z} = 0.
+    \end{equation*}
+
+    Y como
+
+    \begin{equation*}
+        \int_{\partial R}^{}f(z)\odif{z} = \sum_{i = 1}^{8}\int_{\partial
+        R_{i}}^{}f(z)\odif{z} + \int_{\partial R^{\prime}}^{}f(z)\odif{z}
+    \end{equation*}
+
+    tal que
+
+    \begin{equation*}
+        \int_{\partial R}^{}f(z)\odif{z} = \int_{\partial R^{\prime}}^{}f(z)\odif{z}.
+    \end{equation*}
+
+    De modo que
+    \begin{equation*}
+        \abs`\Bigg{\int_{\partial R}^{}f(z)\odif{z}} = \abs`\Bigg{\int_{\partial
+        R^{\prime}}^{}f(z)\odif{z}} \leq \int_{\partial
+        R^{\prime}}^{}\abs{f(z)}\abs{\odif{z}}
+        \leq \int_{\partial R^{\prime}}^{}\dfrac{\varepsilon}{\abs{z -
+        z_{0}}}\abs{\odif{z}}.
+    \end{equation*}
+
+    pero \(\forall z\in \partial R^{\prime},\; \abs{z - z_{0}} \geq \tfrac{L}{2}\),
+
+    \begin{align*}
+        \int_{\partial R^{\prime}}^{}\dfrac{\varepsilon}{\abs{z -
+        z_{0}}}\abs{\odif{z}} &\leq
+        \int_{\partial R^{\prime}}^{}\dfrac{2}{L}\varepsilon \abs{\odif{z}},\\
+        &= \dfrac{2\varepsilon}{L}\int_{\partial R^{\prime}}^{}\abs{\odif{z}},\\
+        &= \dfrac{2\varepsilon}{L}(4L),\\
+        &= 8\varepsilon.
+    \end{align*}
+
+    Por lo tanto,
+
+    \begin{equation}
+        \abs{\int_{\partial R}^{}f(z)\odif{z}} < 8\varepsilon\quad \forall
+        \varepsilon > 0
+    \end{equation}
+
+    de donde se sigue el resultado
+
+    \begin{equation*}
+        \int_{\partial R}^{}f(z)\odif{z} = 0.
+    \end{equation*}
+\end{proof}
+
+Por inducción tenemos
+
+\begin{corollary}[Goursat 2.1]
+    Sea \(U \subseteq \mathbb{C}\) un conjunto abierto, \(R \subseteq U\), \(z_{1},
+    \dots, z_{n}\in \mathrm{Int}R\) y \( f \colon U\setminus \{z_{1}, \dots, z_{n}\} \to
+    \mathbb{C}\) una función analítica tal que
+
+    \begin{equation*}
+        \lim_{z \to z_{i}}f(z)(z - z_{i}) = 0,\quad \forall i\in \{1, \dots, n\}.
+    \end{equation*}
+
+    Entonces
+
+    \begin{equation*}
+        \int_{\partial R}^{}f(z)\odif{z} = 0.
+    \end{equation*}
+\end{corollary}
+
+\begin{theorem}[Teorema de Cauchy]
+    Sean \(B \subseteq \mathbb{C}\) una bola abierta y \(f \colon B \to \mathbb{C}\) una
+    función analítica. Entonces
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(z)\odif{z} = 0
+    \end{equation*}
+
+    para cualquier curva cerrada \(\gamma\) suave por pedazos, tal que
+    \(\gamma \subseteq
+    B\).
+\end{theorem}
+
+\begin{proof}
+    Usando los primeros dos puntos de la \zcref{prop:equiv-affirmations},
+    basta mostrar que
+    existe \(F \colon B \to \mathbb{C}\) una función analítica tal que
+    \(F^{\prime} = f\).
+
+    Sea \(z_{0}\in  B\) el centro de \(B\) (\(B_{r}(z_{0})\) para algún \(r >
+    0\)) y para
+    \(z\in B\) definimos las curvas \(\gamma_{1} \colon [a, b] \to
+    \mathbb{C}\) dada por la
+    unión de un segmento horizontal y un segmento vertical que une a
+    \(z_{0}\) con \(z\) y, \(\gamma \colon [c, d] \to
+    \mathbb{C}\) la unión de un segmento vertical y uno horizontal que une a
+    \(z_{0}\) con
+    \(z\), tal que \(-\gamma_{2}\) la curva que hace el recorrido en sentido opuesto.
+
+    De esta manera, por el lema de Goursat,
+
+    \begin{align*}
+        0 = \int_{\partial R}^{}f(z)\odif{z} &= \int_{\gamma_{1}}^{}f(z)\odif{z} -
+        \int_{\gamma_{2}}^{}f(z)\odif{z},\\
+        \int_{\gamma_{1}}^{}f(z)\odif{z} &= \int_{\gamma_{2}}^{}f(z)\odif{z}.
+    \end{align*}
+
+    Definimos
+
+    \begin{equation*}
+        F(z) = \int_{\gamma_{1}}^{}f(z)\odif{z} = \int_{\gamma_{2}}^{}f(z)\odif{z}.
+    \end{equation*}
+
+    Con base en esta definición podemos calcular la derivada de \(F\) respecto a \(x\)
+    usando la definición,
+
+    \begin{align*}
+        \pdv{F(z)}{x} &= \lim_{h\to 0}\dfrac{F(z + h) - F(z)}{h},\\
+        &= \lim_{h\to 0}\dfrac{1}{h}\int_{z}^{z + h}f(z)\odif{z},\\
+        &= \lim_{h\to 0}\dfrac{1}{h}\int_{0}^{h}f(z + t)\odif{t} = f(z),
+    \end{align*}
+
+    donde para calcular \(F(z)\) consideramos la curva \(\gamma_{1}\)
+    mencionada, mientras
+    que para calcular \(F(z + h)\) usamos la unión de \(\gamma_{1}\) con un segmento
+    horizontal de \(z\) a \(z + h\), donde la resta \(F(z + h) - F(z)\)
+    representa entonces
+    la integral de \(f\) a lo largo del segmento horizontal que podemos parametrizar por
+    \(\gamma_{1}(t) = z + t\). Y, finalmente, como \(f(z)\) es analítica,
+    \(\pdv{F(z)}{x}\)
+    es continua para toda \(z\).
+
+    De manera análoga (ver \zcref{sec:cr-compleja}),
+
+    \begin{align*}
+        \pdv{F(z)}{y} &= \lim_{h\to 0}\dfrac{F(z + ih) - F(z)}{h},\\
+        &= \lim_{h\to 0}i \int_{0}^{h}f(z + it)\odif{t},\\
+        &= i f(z).
+    \end{align*}
+
+    De donde se obtiene que
+
+    \begin{equation*}
+        \pdv{F(z)}{x} = i \pdv{F(z)}{y},
+    \end{equation*}
+
+    i.e. se cumple cauchy-riemann en su versión compleja. Finalmente, \(F\)
+    es analítica y
+
+    \begin{equation*}
+        F^{\prime}(z) = \pdv{F(z)}{x} = f(z).
+    \end{equation*}
+\end{proof}
+\end{document}
