@@ -1,0 +1,121 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Lema de Goursat con sigularidades}
+\classdate{2026-04-16}
+
+\begin{proposition}[Teorema de Cauchy 2]
+    Sean \(z_{0}\in \mathbb{C},\; r > 0\) y sean \(z_{1}, \dots, z_{n}\in B_{r}(z_{0})\)
+    puntos distintos. Supongamos que \(f \colon B_{r}(z_{0})\setminus \{z_{1}, \dots,
+    z_{n}\} \to \mathbb{C}\) es analítica, tal que
+
+    \begin{equation*}
+        \lim_{z \to z_{k}}\bigl(z - z_{k}\bigr) = 0\quad \forall k\in \{1, \dots, n\}.
+    \end{equation*}
+
+    Entonces \(f\) admite una primitiva en \(\Omega  \coloneqq
+        B_{r}(z_{0})\setminus \{z_{1,
+    \dots, z_{k}}\}\) abierto. En particular, para cualquier \(\gamma\) curva
+    cerrada suave
+    por pedazos, con \(\gamma \subseteq \Omega\),
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(z)\odif{z} = 0.
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    Sea \(w \in \Omega\) fijo. Definimos \(F \colon \Omega \to \mathbb{C}\),
+
+    \begin{equation*}
+        F(z) = \int_{\gamma_{z}}^{}f(\zeta)\odif{\zeta}.
+    \end{equation*}
+
+    Veamos que \(F\) está bien definida. Sean \(\gamma_{1}, \gamma_{2}\) dos
+    poligonales\footnote{La existencia de las poligonales se debe a que el
+    conjunto es abierto.}
+    contenidas en \(\Omega\), con los lados paralelos a los ejes, tales que
+    unen \(z\) con
+    \(w\).
+
+    Consideramos que \(\gamma = \gamma_{1} - \gamma_{2}\) es una curva cerrada suave por
+    pedazos. Basta con probar que
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(\zeta)\odif{\zeta} = 0.
+    \end{equation*}
+
+    Comenzamos con el caso en el que \(\gamma\) es simple\footnote{Curva cerrada que no
+    tiene autointersecciones.}. Denotaremos por \(D\) a la región interior de
+    \(\gamma\).
+    Sean \(I \coloneqq \{k\in \{1, \dots, n\} \mid z_{k}\in D\}\). Si \(I = \emptyset\),
+    entonces \(f\) es analítica en un abierto \(\Omega\) que contiene a \(\overline{D} =
+    D \cup \gamma([a, b])\) (\(D\) cerradura).
+
+    Podemos particionar \(D\) en una cantidad finita de rectángulos como en la imagen
+    prolongando los segmento que definen a la poligonal \(\gamma\). Entonces,
+
+    \begin{equation}
+        \sum_{j = 1}^{\ell} \int_{\partial R_{i}}^{}f(\zeta)\odif{\zeta} =
+        \int_{\phi}^{}f(\zeta)\odif{\zeta}.
+    \end{equation}
+
+    Por el \zcref{lemma:lem-goursat-v1}, \(\int_{\partial
+    R_{i}}^{}f(\zeta)\odif{\zeta} = 0\),
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(\zeta)\odif{\zeta} = 0.
+    \end{equation*}
+
+    Supongamos que \(I \neq \emptyset\). Para cada \(k \in I\), definimos
+    \(d_{k} \coloneqq
+    \mathrm{dist}\bigl(z_{k}, \gamma[a, b]\bigr)\) y \(\delta_{k} \coloneqq \min\{r -
+    \abs{z_{k} - z_{0}}, \abs{ z_{k} - z_{j}} \mid j \neq k\} > 0\). Escogemos
+    \(\varepsilon_{k} > 0\) tal que
+
+    \begin{equation*}
+        0 < \varepsilon_{k} < \dfrac{1}{4}\min\{d_{k}, \delta_{k}\}.
+    \end{equation*}
+
+    Definimos \(Q_{k} \coloneqq \{\zeta\in \mathbb{C} \mid \abs{\Re(\zeta - z_{k})} \leq
+    \varepsilon_{k}\; \abs{\Im(\zeta - z_{k})}\}\). Veamos entonces que estos cuadrados
+    satisfacen las siguientes propiedades
+
+    \begin{enumerate}
+        \item \(Q_{k} \subseteq D\; \forall k\in I\).
+        \item \(Q_{k} \subseteq B_{r}(z_{0})\; \forall k\in I\).
+        \item Los cuadrados \(Q_{k},\; k\in I\) son disjuntos 2 a 2.
+        \item Cada \(Q_{k}\) contiene exactamente una singularidad, \(z_{k}\).
+    \end{enumerate}
+
+    Si \(\zeta \in Q_{k}\),
+
+    \begin{equation*}
+        \abs{\zeta - z_{k}} \leq \abs{\Re(\zeta - z_{k})} + \abs{\Im(\zeta -
+        z_{k})} \leq
+        2\varepsilon_{k} \leq 2 \cdot \dfrac{1}{4}\min\{d_{k}, \delta_{k}\} < d_{k}.
+    \end{equation*}
+
+    Entonces, \(\zeta \notin \gamma([a, b])\). Como \(Q_{k}\) es conexo, tenemos que
+    \(Q_{k} \subseteq D\) o \(Q_{k} \subseteq \mathrm{ext}(\gamma)\). Como \(z_{k}\in
+    Q_{k}\), entonces \(Q_{k} \subseteq D\). Y como \(\abs{\zeta - z_{k}}
+        2\varepsilon_{k}
+    < \delta_{k} \leq r - \abs{z_{k} - z_{0}} < r\),
+
+    \begin{equation*}
+        Q_{k} \subseteq B_{r}(z_{0}).
+    \end{equation*}
+
+    Si \(j \neq k\) y \(\zeta \in Q_{j}\cap Q_{k}\), entonces
+
+    \begin{align*}
+        \abs{z_{j} - z_{k}} \leq \abs{z_{j} - \zeta} + \abs{\zeta - z_{k}} \leq
+        2\varepsilon_{j} + 2\varepsilon_{k} < \dfrac{1}{2}\min\{\delta_{j}, d_{k}\} +
+        \dfrac{1}{2}\min\{\delta_{k}, d_{k}\} &\leq \dfrac{1}{2}\abs{z_{j} - z_{k}} +
+        \dfrac{1}{2}\abs{z_{k} - z_{j}},\\
+        &= \abs{z_{j} - z_{k}},\\
+        \abs{z_{j} - z_{k}} &< \abs{z_{j} - z_{k}} \textcolor{Red}{!}.\\
+        \therefore\; Q_{j}\cap Q_{k} &= \emptyset.
+    \end{align*}
+\end{proof}
+\end{document}
