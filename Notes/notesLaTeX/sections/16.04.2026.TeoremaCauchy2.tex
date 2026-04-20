@@ -117,5 +117,114 @@
         \abs{z_{j} - z_{k}} &< \abs{z_{j} - z_{k}} \textcolor{Red}{!}.\\
         \therefore\; Q_{j}\cap Q_{k} &= \emptyset.
     \end{align*}
+
+    \classdate{2026-04-17}
+
+    Consideramos \(k\colon \overline{D}\setminus \bigcup_{k\in
+    I}\mathrm{int}(Q_{k})\). La
+    frontera de \(k\) está formada por \(\gamma\) y por las curvas \(\partial
+        Q_{k},\; k\in
+    I\).
+
+    Sean \(R_{1}, \dots, R_{n}\) los rectángulos. Por el \zcref{lemma:lem-goursat-v1},
+
+    \begin{align*}
+        \int_{\partial R_{i}}^{}f(\zeta)\odif{\zeta} &= 0,\\
+        \sum_{j = 1}^{m}\int_{R_{j}}^{}f(\zeta)\odif{\zeta} &= 0,\\
+        \therefore\; \int_{\gamma}^{}f(\zeta)\odif{\zeta} - \sum_{k\in I}\int_{\partial
+        Q_{k}}^{}f(\zeta)\odif{\zeta} &= 0.
+    \end{align*}
+
+    Por el \zcref{lemma:lem-goursat-v2}, \(\forall
+    k\in I\),
+
+    \begin{align*}
+        \int_{\partial Q_{k}}^{}f(\zeta)\odif{\zeta} &= 0,\\
+        \therefore\; \int_{\gamma}^{}f(\zeta)\odif{\zeta} &= 0.
+    \end{align*}
+
+    Por lo tanto, \(F\) es analítica.
+
+    Ahora veremos que \(F(z)\) es analítica y \(F^{\prime}(z) = f(z)\). Sea
+    \(z\in \Omega\)
+    y \(\rho > 0\) tal que \(B_{\rho}(z) \subseteq \Omega\). Para \(\abs{h} <
+    \tfrac{\rho}{2}\), definimos la poligonal \(\lambda_{h}\) formada por los segmentos
+    horizontal y vertical que unen \(z\) con \(z + h\). Y como \(F\) está bien definida
+
+    \begin{equation*}
+        F(z + h) = \int_{\gamma_{z} + \lambda_{h}}^{}f(\zeta)\odif{\zeta}.
+    \end{equation*}
+
+    Por aditividad de la integral de línea
+
+    \begin{equation*}
+        F(z + h) = \int_{\gamma_{z}}^{}f(\zeta)\odif{\zeta} +
+        \int_{\lambda_{h}}^{}f(\zeta)\odif{\zeta}.
+    \end{equation*}
+
+    Pero
+
+    \begin{align*}
+        F(z) &= \int_{\gamma_{z}}^{}f(\zeta)\odif{\zeta},\\
+        \therefore\; F(z + h) - F(z) &= \int_{\lambda_{h}}^{}f(\zeta)\odif{\zeta}.
+    \end{align*}
+
+    Por el \zcref{theo:cauchy-local},
+
+    \begin{equation*}
+        \int_{\lambda_{h}}^{}f(\zeta)\odif{\zeta} + \int_{[z + h,
+        z]}^{}f(\zeta)\odif{\zeta} =
+        0.
+    \end{equation*}
+
+    Esto implica que
+
+    \begin{align*}
+        \int_{\lambda_{h}}^{}f(\zeta)\odif{\zeta} &= \int_{[z, z +
+        h]}^{}f(\zeta)\odif{\zeta},\\
+        \therefore\;F(z + h) - F(z) &= \int_{[z, z + h]}^{}f(\zeta)\odif{\zeta}.
+    \end{align*}
+
+    Ahora consideramos las parametrización
+
+    \begin{equation*}
+        \zeta(t) = z + th,\; 0 \leq t \leq 1.
+    \end{equation*}
+
+    Por lo que
+
+    \begin{align*}
+        F(z + h) - F(z) &= \int_{0}^{1}f(z + th)h\odif{t},\\
+        \dfrac{F(z + h) - F(z)}{h} &= \int_{0}^{1}f(z + th)\odif{t}.
+    \end{align*}
+
+    Como \(f\) es continua en \(z\), dada \(\varepsilon > 0,\; \exists\delta>0\) tal que
+
+    \begin{equation*}
+        \abs{\zeta - z} < \delta \implies \abs{f(\zeta) - f(z)} < \varepsilon.
+    \end{equation*}
+
+    Si además \(\abs{h} < \min\{\rho, \delta\}\), entonces \(\forall t\in [0, 1]\),
+
+    \begin{equation*}
+        \abs{z + th - z} = \abs{th} \leq \abs{h} < \delta,
+    \end{equation*}
+
+    entonces \(\abs{f(z + th) - f(z)} < \varepsilon\), tal que
+
+    \begin{align*}
+        \abs`\Bigg{\int_{0}^{1}f(z + th)\odif{t} - f(z)} &=
+        \abs`\Bigg{\int_{0}^{1}\bigl(f(z + th) -
+        f(z)\bigr)\odif{t}},\\
+        &\leq \int_{0}^{1}\abs{f(z + th) -
+        f(z)}\odif{t} \leq \varepsilon.
+    \end{align*}
+
+    Por lo que,
+
+    \begin{align*}
+        \therefore\;\lim_{h \to 0}\int_{0}^{1}f(z + th) - f(z)\odif{t} &= 0,\\
+        \therefore\;\lim_{h\to 0} \dfrac{f(z + h) - f(z)}{h} = f(z).
+    \end{align*}
 \end{proof}
 \end{document}

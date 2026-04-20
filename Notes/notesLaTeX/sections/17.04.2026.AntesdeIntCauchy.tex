@@ -1,0 +1,77 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Antes de la fórmula integral de Cauchy}
+\classdate{2026-04-17}
+
+\begin{lemma}
+    Sean \(\gamma \colon [a, b] \subseteq \mathbb{R} \to \mathbb{C}\) una cuerva cerrada
+    suave por pedazos y \(z_{0} \in \mathbb{C}\setminus \gamma\). Entonces
+
+    \begin{equation*}
+        \int_{\gamma}^{}\dfrac{1}{z - z_{0}}\odif{z} = 2k\pi i,\quad \forall
+        k\in \mathbb{Z}.
+    \end{equation*}
+\end{lemma}
+
+\begin{proof}
+    Sean \(F \colon [a, b] \subseteq \mathbb{R} \to \mathbb{C}\) dada por
+
+    \begin{equation*}
+        F(x) = \int_{a}^{x}\dfrac{\gamma^{\prime}(t)}{\gamma(t) - z_{0}}\odif{t}.
+    \end{equation*}
+
+    Como \(\gamma\) es suave por pedazos y \(z_{0}\notin \gamma([a, b])\), la
+    función \(t
+    \mapsto \tfrac{\gamma^{\prime}(t)}{\gamma(t) - z_{0}}\) es continua por
+    pedazos en \([a,
+    b]\), de modo que \(f\) está bien definida y es continua en \([a, b]\). Además, por
+    TFCC, es de clase \(C^{1}\) en cada subintervalo donde \(\gamma\) lo es.
+
+    \begin{equation*}
+        F^{\prime}(x) = \dfrac{\gamma^{\prime}(x)}{\gamma(x) - z_{0}}.
+    \end{equation*}
+
+    Consideremos \(G \colon [a, b] \to \mathbb{C}\), con \(G(x) =
+    \mathrm{e}^{-F(x)}\bigl(\gamma(x) - z_{0}\bigr)\) y
+
+    \begin{equation*}
+        G^{\prime}(x) = -F^{\prime}(x)\mathrm{e}^{-F(x)}\bigl(\gamma(x) - z_{0}\bigr) +
+        \mathrm{e}^{-F(x)}\gamma^{\prime}(x).
+    \end{equation*}
+
+    Sustituyendo \(F^{\prime}(x)\),
+
+    \begin{equation*}
+        G^{\prime}(x) = -\mathrm{e}^{-F(x)}\dfrac{\gamma^{\prime}(x)}{\gamma(x) -
+        z_{0}}\bigl(\gamma(x) - z_{0}\bigr) + \mathrm{e}^{-F(x)}\gamma^{\prime}(x) = 0.
+    \end{equation*}
+
+    Por lo que \(G\) es constante en cada subintervalo. Como \(G\) es continua en \([a,
+    b]\), concluimos que \(G\) es constante en \([a, b]\) y \(\forall x\in [a, b],\;
+        \mathrm{e}^{-F(x)}\bigl(\gamma(x) - z_{0}\bigr) =
+        \mathrm{e}^{-F(a)}\bigl(\gamma(a)
+    - z_{0}\bigr)\), pero \(F(a) = 0\), tal que
+
+    \begin{equation*}
+        \mathrm{e}^{-F(x)}\bigl(\gamma(x) - z_{0}\bigr) = \gamma(a) - z_{0}.
+    \end{equation*}
+
+    Considerando \(x = b\) y recordando que \(\gamma(b) = \gamma(a)\),
+
+    \begin{align*}
+        \mathrm{e}^{-F(b)}\bigl(\gamma(a) - z_{0}\bigr) &= \gamma(a) - z_{0},\\
+        \mathrm{e}^{-F(b)} &= 1.
+    \end{align*}
+
+    De esta manera, \(\exists k\in \mathbb{Z}\) tal que \(F(b) = 2k\pi i\). Pero
+
+    \begin{align*}
+        F(b) &= \int_{a}^{b}\dfrac{\gamma^{\prime}(t)}{\gamma(t) - z_{0}}\odif{t} =
+        \int_{\gamma}^{}\dfrac{1}{z - z_{0}}\odif{z},\\
+        \therefore\; \int_{\gamma}^{}\dfrac{1}{z - z_{0}}\odif{z} &= 2k\pi
+        i,\quad \text{para
+        alguna}\; k\in \mathbb{Z}.
+    \end{align*}
+\end{proof}
+\end{document}
