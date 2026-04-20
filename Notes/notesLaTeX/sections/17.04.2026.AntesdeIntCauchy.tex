@@ -4,7 +4,7 @@
 \subsection{Antes de la fórmula integral de Cauchy}
 \classdate{2026-04-17}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:closed-curve-multiple}
     Sean \(\gamma \colon [a, b] \subseteq \mathbb{R} \to \mathbb{C}\) una cuerva cerrada
     suave por pedazos y \(z_{0} \in \mathbb{C}\setminus \gamma\). Entonces
 
@@ -73,5 +73,93 @@
         i,\quad \text{para
         alguna}\; k\in \mathbb{Z}.
     \end{align*}
+\end{proof}
+
+\classdate{2026-04-20}
+
+En esta clase se repitió la prueba de \zcref{lemma:closed-curve-multiple}.
+
+\begin{definition}\label{def:indice-n}
+    Sean \(\gamma \colon [a, b] \to \mathbb{C}\) una curva cerrada suave por pedazos y
+    \(z_{0}\in \mathbb{C}\setminus \gamma\). Definimos el índice del punto \(z_{0}\) con
+    respecto a la curva \(\gamma\), como
+
+    \begin{equation*}
+        n(\gamma, z_{0}) = \dfrac{1}{2\pi i} \int_{\gamma}^{}\dfrac{1}{z -
+        z_{0}}\odif{z}.
+    \end{equation*}
+\end{definition}
+
+\begin{remark}
+    En general para cualquier \(\gamma\) cerrada suave por pedazos y \(z_{0}\in
+    \mathbb{C}\setminus\gamma\), \(n(\gamma, z_{0})\in \mathbb{Z}\), ya que
+
+    \begin{equation*}
+        n(\gamma, z_{0}) = \dfrac{1}{2\pi i}\int_{\gamma}^{}\dfrac{1}{z -
+        z_{0}}\odif{z} =
+        \dfrac{1}{2\pi i}\bigl(2k\pi i\bigr) = k,\;\text{para alguna}\; k\in
+        \mathbb{Z}.
+    \end{equation*}
+\end{remark}
+
+Con relación a la \zcref{def:indice-n}, formularemos un par de propiedades:
+
+\begin{enumerate}[label=\arabic*.]
+    \item El conjunto \(\mathbb{C}\setminus\gamma\) es una unión de regiones, es decir,
+        una unión de conjuntos abiertos y conexos y solo una de ellas es no
+        acotada (estas
+        regiones son las llamadas componentes conexas de \(\mathbb{C}\setminus\gamma\)).
+    \item Si \(A \subseteq \mathbb{C}\) es un conjunto abierto y conexo, Entonces
+        dados cualesquiera \(z,w\in A\; \exists z_{1},\dots, z_{n}\in A\) tal que
+
+        \begin{align*}
+            [z, z_{1}] \cup [z_{1}, z_{2}] &\cup \cdots \cup z_{n}\in A,\\
+            \implies\; [z_{i}, z_{n + 1}] &= \{w\in \mathbb{C} \mid w =
+                tz_{i} + (1 - t)z_{i + 1},
+            t \in [0, 1]\}.
+        \end{align*}
+\end{enumerate}
+
+Una vez aclarado lo anterior, formulamos la siguiente
+
+\begin{proposition}
+    Sean \(\gamma \colon [a, b] \to \mathbb{C}\) una curva cerrada suave por pedazos.
+
+    \begin{enumerate}[label=\arabic*.]
+        \item Si \(z_{0}\in \mathbb{C}\) y \(\varepsilon > 0\) son tales que
+            \(\gamma \subseteq
+            B_{\varepsilon}(z_{0})\), entonces \(n(\gamma, w) = 0,\; \forall w\notin
+            B_{\varepsilon}(z_{0})\).
+        \item Si \(z, w\in \mathbb{C}\) pertenecen a la misma componente conexa de
+            \(\mathbb{C}\setminus\gamma\), entonces \(n(\gamma, z) = n(\gamma, w)\).
+        \item Si \(z\) pertenece a la componente conexa no acotada de
+            \(\mathbb{C}\setminus\gamma\), entonces \(n(\gamma, z) = 0\).
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Para la prueba del inciso 1 observe que si \(w\in B_{\varepsilon}(z_{0})\), entonces
+    siempre \(\exists y_{0}\in [0, 2\pi)\) tal que
+
+    \begin{equation*}
+        B_{\varepsilon}(z_{0}) \subseteq \mathbb{C}\setminus\{w + r
+            \bigl(\cos y_{0} + i \sin
+        y_{0}\bigr) \mid r \geq 0\}.
+    \end{equation*}
+
+    De la contensión anterior notemos que la curva \(\gamma\) está dentro del dominio
+    de analiticidad de la función \(\log_{y_{0}}\bigl(z - w\bigr)\) y como
+
+    \begin{equation*}
+        \log_{y_{0}}^{\prime}\bigl(z - w\bigr) = \dfrac{1}{z - w},
+    \end{equation*}
+
+    entonces
+
+    \begin{equation*}
+        \int_{\gamma}^{}\dfrac{1}{z - w}\odif{z} = 0,
+    \end{equation*}
+
+    y por lo tanto que \(n(\gamma, w) = 0\).
 \end{proof}
 \end{document}
