@@ -1,0 +1,273 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Fórmula Integral de Cauchy}
+\classdate{2026-04-18}
+
+Vamos a denotar \(D \coloneqq  B_{r}(z_{0})\) y le llamaremos disco abierto.
+
+\begin{theorem}[Fórmula integral de Cauchy]
+    Sea \(D \subseteq \mathbb{C}\) un disco abierto, \(f \colon D \to \mathbb{C}\) una
+    función analítica, \(z_{0}\in  D\) y \(\gamma\) una curva cerrada suave por pedazos,
+    con \(\gamma \subseteq D\), tal que \(z_{0}\notin \gamma\). Entonces,
+
+    \begin{equation*}
+        n(\gamma, z_{0}) f(z_{0}) = \dfrac{1}{2\pi i}\int_{\gamma}^{}\dfrac{f(z)}{z -
+        z_{0}}\odif{z}.
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    Sea \(z_{0}\in  D\) fijo. Definimos \(F \colon D\setminus \{z_{0}\} \to
+    \mathbb{C}\),
+
+    \begin{equation*}
+        F(z) = \dfrac{f(z) - f(z_{0})}{z - z_{0}}.
+    \end{equation*}
+
+    Notemos que \(F\) es analítica en \(D\setminus \{z_{0}\}\) y
+
+    \begin{align*}
+        \lim_{z \to z_{0}} \bigl(z - z_{0}\bigr)F(z) &= \lim_{z \to z_{0}} \bigl(z -
+        z_{0}\bigr)\Bigl(\dfrac{f(z) - f(z_{0})}{z - z_{0}}\Bigr),\\
+        &= \lim_{z \to z_{0}} \bigl(f(z) - f(z_{0})\bigr) = 0.
+    \end{align*}
+
+    Como \(\gamma \subseteq D\setminus \{z_{0}\}\), \(F\) satisface las hipótesis de la
+    \zcref{prop:caucy-sin-singularidades}
+    (para funciones sin singularidades), entonces
+
+    \begin{align*}
+        0 = \int_{\gamma}^{}F(z)\odif{z} &= \int_{\gamma}^{}\dfrac{f(z) - f(z_{0})}{z -
+        z_{0}}\odif{z},\\
+        &= \int_{\gamma}^{}\dfrac{f(z)}{z - z_{0}}\odif{z} -
+        \int_{\gamma}^{}\dfrac{f(z_{0})}{z - z_{0}}\odif{z}.
+    \end{align*}
+
+    Por lo tanto,
+
+    \begin{align*}
+        \int_{\gamma}^{}\dfrac{f(z)}{z - z_{0}}\odif{z} &=
+        \int_{\gamma}^{}\dfrac{f(z_{0})}{z
+        - z_{0}}\odif{z},\\
+        &= f(z_{0}) \int_{\gamma}^{}\dfrac{1}{z - z_{0}}\odif{z},\\
+        &= f(z_{0})n(\gamma, z_{0})2\pi i,\\
+        \implies\; n(\gamma, z_{0})f(z_{0}) &= \dfrac{1}{2\pi
+        i}\int_{\gamma}^{}\dfrac{f(z)}{z -
+        z_{0}}\odif{z}.
+    \end{align*}
+\end{proof}
+
+\begin{proposition}[Fórmula Integral de Cauchy de orden superior]
+    Sea \(D \subseteq \mathbb{C}\) un disco abierto, \(f \colon D \to \mathbb{C}\)
+    analítica,  \(z_{0}\in  D\) y \(\gamma\) una curva cerrada suave por pedazos, tal
+    que \(\gamma \subseteq D\setminus \{z_{0}\}\). Entonces \(\forall n\in \mathbb{N}\),
+    existe \(f^{(n)}(z_{0})\) y
+
+    \begin{equation*}
+        n(\gamma, z_{0})f^{(n)}(z_{0}) = \dfrac{n!}{2\pi
+        i}\int_{\gamma}^{}\dfrac{f(z)}{\bigl(z - z_{0}\bigr)^{n + 1}}\odif{z}.
+    \end{equation*}
+\end{proposition}
+
+Antes de dar paso a la demostración de esta proposición, vamos a demostrar un
+lema auxiliar.
+
+\begin{lemma}
+    Sea \(\gamma \colon [a, b] \to \mathbb{C}\) una curva cerrada suave por pedazos, y
+    \(\varphi\) una función continua en los puntos de \(\gamma\). Para cada \(n\in
+    \mathbb{N}\), definimos
+
+    \begin{equation*}
+        F_{n}(z) = \int_{\gamma}^{}\dfrac{\varphi(w)}{(w - z)^{n}}\odif{z},\quad z\notin
+        \gamma.
+    \end{equation*}
+
+    Entonces \(F_{n}\) admite derivadas complejas de todos los órdenes en
+    \(\mathbb{C}\setminus \gamma\) y \(F_{n}^{\prime}(z) = nF_{n + 1}(z)\).
+\end{lemma}
+
+\begin{proof}
+    Vamos a proceder por inducción sobre \(n\).
+
+    \begin{enumerate}
+        \item Caso \(n = 1\).
+            Sea
+            \begin{equation*}
+                F_{1}(z) = \int_{\gamma}^{}\dfrac{\varphi(w)}{w - z}\odif{w}
+            \end{equation*}
+
+            una función auxiliar.
+
+            Sea \(z, z_{0} \notin \gamma\). Entonces,
+
+            \begin{align*}
+                F_{1}(z) - F_{1}(z_{0}) &=
+                \int_{\gamma}^{}\dfrac{\varphi(w)}{w - z}\odif{w} -
+                \int_{\gamma}^{}\dfrac{\varphi(w)}{w - z_{0}}\odif{w},\\
+                &= \int_{\gamma}^{}\varphi(w)\Bigl(\dfrac{1}{w - z} - \dfrac{1}{w -
+                z_{0}}\Bigr)\odif{w},\\
+                &= \int_{\gamma}^{}\varphi(w)\dfrac{w - z_{0} - \bigl(w -
+                z\bigr)}{\bigl(w - z\bigr)\bigl(w -
+                z_{0}\bigr)}\odif{w},\\
+                &= \bigl(z -
+                z_{0}\bigr)\int_{\gamma}^{}\dfrac{\varphi(w)}{\bigl(w - z\bigr)\bigl(w -
+                z_{0}\bigr)}\odif{w}.
+            \end{align*}
+
+            Por lo que,
+
+            \begin{equation*}
+                \dfrac{f(z) - f(z_{0})}{z - z_{0}} =
+                \int_{\gamma}^{}\dfrac{\varphi(w)}{\bigl(w -
+                z\bigr)\bigl(w - z_{0}\bigr)}\odif{w} =
+                \textcolor{BlueGreen}{\int_{\gamma}^{}G_{1}(z)\odif{w}}.
+            \end{equation*}
+    \end{enumerate}
+
+    Sea \(\Phi(w) \coloneqq \tfrac{\varphi(w)}{w - z_{0}}\), \(G_{1}(z) \coloneqq
+    \int_{\gamma}^{}\tfrac{\Phi(w)}{w - z}\odif{w}\).
+
+    Si demostramos que \(G_{1}\) es continua en \(z_{0}\), ya acabamos la demostración.
+
+    \textcolor{JungleGreen}{Afirmación.} \(G_{1}\) es continua en \(z_{0}\).
+    Como \(\Phi\)
+    es continua en \(\gamma\) y \(\gamma([a, b])\) es conjunto compacto,
+    \(\exists M > 0\)
+    tal que \(\forall w\in \gamma, \abs{\Phi(w)} \leq M\). Además, existe
+
+    \begin{equation*}
+        d \coloneqq \min{t\in [a, b]} \abs{\gamma(t) - z_{0}} > 0
+    \end{equation*}
+
+    pues \( z\notin \gamma([a, b])\).
+
+    Si \(\abs{z  z_{0}} < \tfrac{d}{2}\), entonces \(\abs{w - z} \geq
+        \tfrac{d}{2}\; \forall
+    w\in \gamma([a, b])\). Si esto no fuera el cierto, \(\abs{w - z} <
+    \tfrac{d}{2}\), entonces
+
+    \begin{equation*}
+        \abs{w - z_{0}} \leq \abs{z - z_{0}} + \abs{w - z} < \dfrac{d}{2} +
+        \dfrac{d}{2} = d
+    \end{equation*}
+
+    lo cual es una contradicción, pues \(\min_{w\in \gamma}\abs{w - z_{0}}\).
+
+    Además, \(\forall w\in \gamma([a, b])\),
+
+    \begin{equation*}
+        \abs{w - z_{0}} \geq d.
+    \end{equation*}
+
+    De esta manera,
+
+    \begin{align*}
+        \abs{G_{1}(z) - G_{1}(z_{0})} &= \abs`\Bigg{\int_{\gamma}^{}\bigl(z -
+        z_{0}\bigr)\dfrac{\Phi(w)}{\bigl(w - z\bigr)\bigl(w - z_{0}\bigr)}\odif{w}},
+        &\leq \abs{z - z_{0}}
+        \abs`\Bigg{\int_{\gamma}^{}\dfrac{\abs{\Phi(w)}}{\abs{w
+        - z}\abs{w - z_{0}}}\abs{\odif{w}}},\\
+        &\leq \abs{z - z_{0}}M \int_{\gamma}^{}\dfrac{1}{\abs{w
+        - z}\abs{w - z_{0}}}\abs{\odif{w}},\\
+        &\leq \abs{z - z_{0}}M
+        \dfrac{2}{d^{2}}\underbrace{\int_{\gamma}^{}\abs{\odif{w}}}_{\mathrm{long}(\gamma)}.
+    \end{align*}
+
+    Por lo que \(G_{1}\) es continua en \(z_{0}\).
+
+\item Paso inductivo: Supongamos que \(F_{n - 1}\) es derivable y \(F_{n -
+    1}^{\prime}(z) = \bigl(n - 1\bigr)F_{n}(z)\).
+
+    Sean \(z, z_{0}\notin \gamma\). Entonces,
+
+    \begin{equation*}
+        F_{n}(z) - F_{n}(z_{0}) = \int_{\gamma}^{}\Biggl(\dfrac{\varphi(w)}{\bigl(w -
+        z\bigr)^{n}} - \dfrac{\varphi(w)}{\bigl(w - z_{0}\bigr)^{n}}\Biggr)\odif{w}.
+    \end{equation*}
+
+    Notemos que
+
+    \begin{equation*}
+        \dfrac{\varphi(w)}{\bigl(w - z\bigr)^{n}} - \dfrac{\varphi(w)}{\bigl(w -
+        z_{0}\bigr)^{n}} = \dfrac{\varphi(w)}{\bigl(w - z\bigr)^{n}} -
+        \dfrac{\varphi(w)}{\bigl(w - z\bigr)^{n - 1}\bigl(w - z_{0}\bigr)} +
+        \dfrac{\varphi(w)}{\bigl(w - z\bigr)^{n - 1}\bigl(w - z_{0}\bigr)} -
+        \dfrac{\varphi(w)}{\bigl(w - z_{0}\bigr)^{n}}.
+    \end{equation*}
+
+    Por lo que,
+
+    \begin{equation*}
+        F_{n}(z) - F_{n}(z_{0}) = \bigl(z -
+        z_{0}\bigr)\int_{\gamma}^{}\dfrac{\varphi(w)}{\bigl(w - z\bigr)^{n}\bigl(w -
+        z_{0}\bigr)}\odif{w} + \bigl(G_{n - 1}(z) - G_{n - 1}(z_{0})\bigr),
+    \end{equation*}
+
+    donde
+
+    \begin{equation*}
+        G_{n - 1}(z) = \int_{\gamma}^{}\dfrac{\varphi(w)}{\bigl(w -
+            z\bigr)^{n - 1}\bigl(w -
+        z_{0}\bigr)}\odif{w} = \int_{\gamma}^{}\dfrac{\Phi(w)}{\bigl(w - z\bigr)^{n -
+        1}}\odif{w}.
+    \end{equation*}
+
+    También vamos a considerar la función
+
+    \begin{equation*}
+        G_{n}(z) \coloneqq \int_{\gamma}^{}\dfrac{\Phi(w)}{\bigl(w -
+        z\bigr)^{n}}\odif{w}.
+    \end{equation*}
+
+    Veamos que \(G_{n}\) es continua en \(z_{0}\), para ello consideramos \(M
+    > 0\) tal que
+    \(\abs{\Phi(w)} \leq M\; \forall w\in \gamma\) y \(d > 0\), tal que
+    \(\abs{w - z_{0}}
+    \geq d\) y si \(\abs{z - z_{0}} < \tfrac{d}{2}\), entonces \(\abs{w - z} \geq
+    \tfrac{d}{2}\; \forall w\in \gamma\).
+
+    \begin{equation*}
+        G_{n}(z) - G_{n}(z_{0}) = \int_{\gamma}^{}\Phi(w)\Biggl(\dfrac{1}{\bigl(w -
+        z\bigr)^{n}} - \dfrac{1}{\bigl(w - z_{0}\bigr)^{n}}\Biggr)\odif{w}.
+    \end{equation*}
+
+    Notemos que
+
+    \begin{equation*}
+        \dfrac{1}{\bigl(w - z\bigr)^{n}} - \dfrac{1}{\bigl(w -
+        z_{0}\bigr)^{n}} = \bigl(z -
+        z_{0}\bigr)\sum_{k = 0}^{n - 1}\dfrac{1}{\bigl(w - z\bigr)^{n - k}\bigl(w -
+        z_{0}\bigr)^{k + 1}}.
+    \end{equation*}
+
+    Por lo que,
+
+    \begin{align*}
+        \abs{G_{n}(z) - G_{n}(z_{0})} \leq \abs{z - z_{0}}\sum_{k = 0}^{n -
+        1}\int_{\gamma}^{}\dfrac{\abs{\Phi(w)}}{\abs{w - z}^{n - k}\abs{w - z_{0}}^{k +
+        1}}\abs{\odif{w}},\\
+        &\leq \abs{z - z_{0}}M \sum_{k = 0}^{n -
+        1}\int_{\gamma}^{}\dfrac{2^{n - k}}{d^{n -
+        k}}\dfrac{1}{d^{k + 1}}\abs{\odif{w}},\\
+        &= \abs{z - z_{0}}M \dfrac{1}{d^{n + 1}}\sum_{k = 0}^{n - 1}2^{n -
+        k}\mathrm{long}(\gamma).
+    \end{align*}
+
+    Por lo tanto, \(G_{n}\) es continua en \(z_{0}\).
+
+    Por hipótesis de inducción \(G_{n - 1}\) es derivable y
+    \(G_{n-1}^{\prime}(z) = \bigl(n
+    - 1\bigr)G_{n}(z)\). Así,
+
+    \begin{align*}
+        F_{n}^{\prime}(z_{0}) &= \lim_{z \to z_{0}} \dfrac{F_{n}(z) - F_{n}(z_{0})}{z -
+        z_{0}},\\
+        &= \lim_{z \to z_{0}} G_{n}(z) + G_{n - 1}^{\prime}(z_{0}) =
+        G_{n}(z_{0}) + G_{n -
+        1}^{\prime}(z_{0}),\\
+        &= G_{n}(z_{0}) + \bigl(n - 1\bigr)G_{n}(z_{0}) = nG_{n}(z_{0}),\\
+        &= n F_{n + 1}(z_{0}).
+    \end{align*}
+\end{proof}
+\end{document}
