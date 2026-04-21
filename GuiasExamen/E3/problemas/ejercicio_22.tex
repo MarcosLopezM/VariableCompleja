@@ -1,0 +1,38 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{problema}
+    Sean \(f,g \colon \Omega \subseteq \mathbb{C} \to \mathbb{C}\) analíticas tales
+    que \(f^{\prime}\) y \(g^{\prime}\) son continuas en \(\Omega\). Pruebe que
+
+    \begin{enumerate}
+        \item Si \(\gamma \colon [a, b] \to \Omega\) es una curva suave por
+            pedazos, entonces
+
+            \begin{equation*}
+                \int_{\gamma}^{}f^{\prime}(z)g(z)\odif{z} = f(\gamma(b))g(\gamma(b)) -
+                f(\gamma(a))g(\gamma(a)) - \int_{\gamma}^{}f(z)g^{\prime}(z)\odif{z}.
+            \end{equation*}
+
+        \item Si \(\gamma \colon [a, b] \to \Omega\) es una curva cerrada suave por
+            pedazos, entonces
+
+            \begin{equation*}
+                \int_{\gamma}^{}f^{\prime}(z)g(z)\odif{z} =
+                \int_{-\gamma}^{}f(z)g^{\prime}(z)\odif{z}.
+            \end{equation*}
+
+        \item Si \(\Omega = B_{r}(z_{0}), z_{1}, z_{2}\in \Omega\) y \(\gamma \subseteq
+            \Omega\setminus [z_{1}, z_{2}]\) es una curva cerrada suave por
+            pedazos, entonces
+
+            \begin{equation*}
+                \int_{\gamma}^{}f^{\prime}(z)\log \Biggl(\dfrac{z - z_{1}}{z
+                - z_{2}}\Biggr)\odif{z} =
+                2\pi i \bigl(n(\gamma, z_{2})f(z_{2}) - n(\gamma, z_{1})f(z_{1})\bigr),
+            \end{equation*}
+
+            en donde \(\log\) es la rama principal del logaritmo.
+    \end{enumerate}
+\end{problema}
+\end{document}

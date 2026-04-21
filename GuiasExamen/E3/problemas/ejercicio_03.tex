@@ -1,0 +1,22 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\begin{problema}
+    Sea \(f \colon \Omega \subseteq \mathbb{C} \to \mathbb{C}\). Para cada \(z\in
+    \Omega\), definimos
+
+    \begin{equation*}
+        \pdv{f(z)}{x} \coloneqq \lim_{h \to 0} \dfrac{f(z + h) - f(z)}{h}\quad
+        \text{y}\quad y \pdv{f(z)}{y} \coloneqq \dfrac{f(z + ih) - f(z)}{h},
+    \end{equation*}
+
+    donde \(h\in \mathbb{R}\setminus \{0\}\). Pruebe que, si \(\pdv{f}{x}\)  y \(
+    \pdv{f}{y}\) existen y son continuas en \(\Omega\), y se satisface que
+
+    \begin{equation*}
+        \pdv{f(z)}{x} = -i \pdv{f(z)}{y}
+    \end{equation*}
+
+    para toda \(z\in \Omega\), entonces \(f\) es analítica en \(\Omega\).
+\end{problema}
+\end{document}
