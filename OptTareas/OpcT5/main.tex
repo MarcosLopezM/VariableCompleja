@@ -10,6 +10,23 @@
 \semester{2026--2}
 \subject{Variable Compleja I}
 
+\newcommand{\genericdel}[4]{%
+    \ifcase#3\relax
+    \ifx#1.\else#1\fi#4\ifx#2.\else#2\fi\or
+    \bigl#1#4\bigr#2\or
+    \Bigl#1#4\Bigr#2\or
+    \biggl#1#4\biggr#2\or
+    \Biggl#1#4\Biggr#2\else
+    \left#1#4\right#2\fi
+}
+
+\newcommand{\eval}[2][-1]{\genericdel.|{#1}{#2}}
+\newcommand{\sVert}[1][0]{%
+    \ifcase#1\relax
+    \rvert\or\bigr|\or\Bigr|\or\biggr|\or\Biggr
+    \fi
+}
+
 \begin{document}
 \maketitle
 
