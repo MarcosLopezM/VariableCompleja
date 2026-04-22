@@ -12,7 +12,7 @@
             \(z_{0}\in  \mathbb{C}\setminus \gamma\) se cumple que
 
             \begin{equation*}
-                \int_{\gamma}^{}\dfrac{1}{z - z_{0}}\odif{z} = 2k\theta i,\;
+                \int_{\gamma}^{}\dfrac{1}{z - z_{0}}\odif{z} = 2k\pi i,\;
                 \text{p.a.}\; k\in \mathbb{Z}.
             \end{equation*}
 
@@ -22,7 +22,7 @@
                 \int_{\gamma}^{}\dfrac{1}{z}\odif{z} = 2\pi i,
             \end{empheq}
 
-            donde \(f(z) = 1, z_{0} = 0\) y \(k = 1\).
+            donde \(z_{0} = 0\) y \(k = 1\).
 
         \item \(\int_{\gamma}^{}\tfrac{1}{\abs{z}}\odif{z}\).
 
@@ -32,7 +32,7 @@
                 \int_{\gamma}^{}\dfrac{1}{\abs{z}}\odif{z} = \int_{\gamma}^{}1\odif{z}.
             \end{equation*}
 
-            Y por el teorema de Cauchy sin singularidades,
+            Y por el teorema de Cauchy en su versión local,
 
             \begin{empheq}[box = \mainresult]{equation*}
                 \int_{\gamma}^{}\odif{z} = 0.
@@ -72,15 +72,14 @@
                 \int_{\gamma}^{}\dfrac{1}{\abs{z}}\abs{\odif{z}}.
             \end{equation*}
 
-            Entonces, del inciso (b) sabemos que \(\tfrac{1}{\abs{z}} = 1\) y
+            Del inciso (b) sabemos que \(\tfrac{1}{\abs{z}} = 1\) y
             del inciso (c),
-            \(\abs{\odif{z}} = \odif{t}\), por lo que tenemos la integral por
-            longitud de arco,
+            \(\abs{\odif{z}} = \odif{t}\), tal que la integral por
+            longitud de arco es
 
             \begin{align*}
-                \int_{0}^{2\pi}1\odif{t} &= \eval{1}_{0}^{2\pi},\\
+                \int_{0}^{2\pi}1\odif{t} &= \eval{t}_{0}^{2\pi},\\
                 &= 2\pi - 0,\\
-                mb
                 \Aboxedmain{\int_{0}^{2\pi}1\odif{t} &= 2\pi.}
             \end{align*}
 
@@ -90,8 +89,8 @@
             analítica y la composición de
             funciones analíticas es analítica, por lo que \(f(z) = z
             \mathrm{e}^{z^{2}}\) es
-            analítica. Por lo que por el teorema de Cauchy sin singularidades
-            tenemos que
+            analítica. Entonces por el teorema de Cauchy en su versión
+            local tenemos que
 
             \begin{empheq}[box = \mainresult]{equation*}
                 \int_{\gamma}^{}z \mathrm{e}^{z^{2}}\odif{z} = 0.
