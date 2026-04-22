@@ -6,10 +6,96 @@
 
     \begin{enumerate}
         \item \(\int_{\gamma}^{}\tfrac{1}{z}\odif{z}\).
+
+            Por un lema visto en clase, tenemos que para una curva cerrada
+            suave por pedazos tal que
+            \(z_{0}\in  \mathbb{C}\setminus \gamma\) se cumple que
+
+            \begin{equation*}
+                \int_{\gamma}^{}\dfrac{1}{z - z_{0}}\odif{z} = 2k\theta i,\;
+                \text{p.a.}\; k\in \mathbb{Z}.
+            \end{equation*}
+
+            Entonces,
+
+            \begin{empheq}[box = \mainresult]{equation*}
+                \int_{\gamma}^{}\dfrac{1}{z}\odif{z} = 2\pi i,
+            \end{empheq}
+
+            donde \(f(z) = 1, z_{0} = 0\) y \(k = 1\).
+
         \item \(\int_{\gamma}^{}\tfrac{1}{\abs{z}}\odif{z}\).
+
+            Notemos que \(\forall z\in \gamma\), \(\abs{z} = 1\), por lo que
+
+            \begin{equation*}
+                \int_{\gamma}^{}\dfrac{1}{\abs{z}}\odif{z} = \int_{\gamma}^{}1\odif{z}.
+            \end{equation*}
+
+            Y por el teorema de Cauchy sin singularidades,
+
+            \begin{empheq}[box = \mainresult]{equation*}
+                \int_{\gamma}^{}\odif{z} = 0.
+            \end{empheq}
+
         \item \(\int_{\gamma}^{}\tfrac{1}{z}\abs{\odif{z}}\).
+
+            Notemos que la integral recuerda a la integral por longitud de arco, i.e.
+
+            \begin{equation*}
+                \int_{\gamma}^{}f(z)\abs{\odif{z}} = \int_{a}^{b}f
+                \bigl(\gamma(t)\bigr)\abs{\gamma^{\prime}(t)}\odif{t}.
+            \end{equation*}
+
+            En particular, \(\gamma(t) = \mathrm{e}^{it},\; t\in [0, 2\pi]\), tal que
+            \(\gamma^{\prime}(t) = i \mathrm{e}^{it}\), y \( f(z) =
+                \tfrac{1}{z} \implies f
+            \bigl(\gamma(t)\bigr) = \mathrm{e}^{-it}\). Así,
+
+            \begin{align*}
+                \int_{\gamma}^{}\dfrac{1}{z}\abs{\odif{z}} &=
+                \int_{0}^{2\pi}\mathrm{e}^{-it}\abs{i
+                \mathrm{e}^{it}}\odif{t},\\
+                &= \int_{0}^{2\pi}\mathrm{e}^{-it}\odif{t},\\
+                &= i\eval{\mathrm{e}^{-it}}_{0}^{2\pi},\\
+                &= i(1 - 1),\\
+                \int_{\gamma}^{}\dfrac{1}{z}\abs{\odif{z}} &= 0.
+            \end{align*}
+
         \item \(\int_{\gamma}^{}\abs`\big{\tfrac{1}{z}\odif{z}}\).
+
+            Por propiedades del módulo complejo podemos escribir la integral como
+
+            \begin{equation*}
+                \int_{\gamma}^{}\abs{\dfrac{1}{z}\odif{z}} =
+                \int_{\gamma}^{}\abs{\dfrac{1}{z}}\abs{\odif{z}} =
+                \int_{\gamma}^{}\dfrac{1}{\abs{z}}\abs{\odif{z}}.
+            \end{equation*}
+
+            Entonces, del inciso (b) sabemos que \(\tfrac{1}{\abs{z}} = 1\) y
+            del inciso (c),
+            \(\abs{\odif{z}} = \odif{t}\), por lo que tenemos la integral por
+            longitud de arco,
+
+            \begin{align*}
+                \int_{0}^{2\pi}1\odif{t} &= \eval{1}_{0}^{2\pi},\\
+                &= 2\pi - 0,\\
+                mb
+                \Aboxedmain{\int_{0}^{2\pi}1\odif{t} &= 2\pi.}
+            \end{align*}
+
         \item \(\int_{\gamma}^{}z \mathrm{e}^{z^{2}}\odif{z}\).
+
+            Sabemos que \(\mathrm{e}^{z}\) es analítica, \(z^{2}\) es
+            analítica y la composición de
+            funciones analíticas es analítica, por lo que \(f(z) = z
+            \mathrm{e}^{z^{2}}\) es
+            analítica. Por lo que por el teorema de Cauchy sin singularidades
+            tenemos que
+
+            \begin{empheq}[box = \mainresult]{equation*}
+                \int_{\gamma}^{}z \mathrm{e}^{z^{2}}\odif{z} = 0.
+            \end{empheq}
     \end{enumerate}
 \end{problema}
 \end{document}
