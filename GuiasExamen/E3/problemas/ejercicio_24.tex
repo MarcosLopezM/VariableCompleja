@@ -7,4 +7,26 @@
     compacto, tales que \(f(z) = g(z)\) para toda \(z\in \mathrm{Fr}(\Omega)\). Pruebe
     que \(f(z) = g(z)\) para toda \(z\in \Omega\).
 \end{problema}
+\startsolution
+
+Vamos a usar el corolario del módulo máximo aplicado a la función \(h = f - g\). Notemos
+que \(\overline{\Omega}\) es compacto, por lo que \(\Omega\) es una región acotada,
+\(h\) es continua en \(\overline{\Omega}\) y analítica en \(\Omega\). Por lo que se
+satisfacen las hipótesis del corolario. Es decir, \(\abs{h}\) alcanza su máximo en
+\(\partial\Omega\).
+
+Pero \( h \equiv 0\) en \(\partial\Omega\) pues por hipótesis, \(f(z) = g(z)\quad
+\forall z\in \partial\Omega\). Entonces, \(\max_{\partial\Omega}\abs{h} = 0\) y
+
+\begin{equation*}
+    \sup_{\Omega}\abs{h} \leq \max_{\overline{\Omega}}\abs{h} =
+    \max_{\Omega}\abs{h} = 0.
+\end{equation*}
+
+Esto implica que \(\sup_{\Omega}\abs{h} = 0\) y además que \(h(z) = 0,\; \forall z\in
+\Omega\). Por lo tanto,
+
+\begin{equation*}
+    f(z) = g(z)\quad \forall z\in \Omega.
+\end{equation*}
 \end{document}
