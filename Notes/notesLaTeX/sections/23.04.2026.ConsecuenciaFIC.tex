@@ -221,4 +221,114 @@ Veremos una consecuencia de la fórmula integral de Cauchy (FIC).
     tanto, \(f\) es
     constante en \(\Omega\).
 \end{proof}
+
+\classdate{2026-04-24}
+
+\begin{corollary}
+    Sean \(\Omega\) una región acotada de \(\mathbb{C}\) y \(f \colon \overline{\Omega}
+    \to \mathbb{C}\) continua en \(\overline{\Omega}\).
+\end{corollary}
+
+\begin{proof}
+    Como \(\Omega\) es acotado, entonces \(\overline{\Omega}\) es acotado. Por lo que
+    \(\overline{\Omega}\) es cerrado y acotado, i.e. \(\overline{\Omega}\) es compacto.
+    Notemos que \(\abs{f} \colon \overline{\Omega} \to  \mathbb{R}\) es una función
+    definida en un compacto, tal que \(\abs{f}\) alcanza su máximo en
+    \(\overline{\Omega}\).
+
+    Ahora si la función alcanza su máximo en \(\partial \Omega\), ya no hay nada que
+    demostrar. Pero si el máximo se alcanza en \(\Omega\), por el
+    \zcref{thm:maximumModulusPrinciple},
+    \(f\) es constante en \(\Omega\). Afirmamos que \(f\) es constante en
+    \(\partial\Omega\)
+    y que ambas constantes coinciden. Y supongamos que \(f \equiv c\) en \(\Omega\). Sea
+    \(z\in \partial\Omega\), entonces existe \(\bigl\lbrace z_{n} \bigr\rbrace_{n\in
+    \mathbb{N}} \subseteq \Omega\) tal que \(z_{n} \to z\). Como \(f\) es continua en
+    \(\overline{\Omega}\), \(f(z_{n}) \to f(z)\), \(c \to f(z)\) y \(f \equiv c\) en
+    \(\overline{\Omega}\). Por lo que \(\exists z_{0}\in \partial\Omega\) tal que
+    \(\underbrace{\abs{f(z)}}_{= c} \leq \underbrace{\abs{f(z_{0})}}_{= c}\;
+        \forall z\in
+    \overline{\Omega}\).
+\end{proof}
+
+\begin{lemma}[de Schwarz]
+    Sean \(D = B_{1}(0)\) el disco unitario y \(f \colon D \to \mathbb{C}\) una función
+    analítica tal que \(\abs{f(z)} \leq 1\; \forall z\in D\) y \(f(0) = 0\). Entonces,
+
+    \begin{enumerate}
+        \item \(\abs{f(z)} \leq \abs{z}\; \forall z\in D\).
+        \item \(\abs{f^{\prime}(0)} \leq 1\).
+    \end{enumerate}
+
+    Si además se cumple que \(\abs{f(z_{0})} = \abs{z_{0}}\) para algún \(z_{0}\in
+    D\setminus \{0\}\) o bien \(\abs{f^{\prime}(0)} = 1\), entonces \(f(z) =
+    cz\) para algún
+    \(z\in \mathbb{C}\) tal que \(\abs{c} = 1\).
+\end{lemma}
+
+\begin{proof}
+    Definimos
+
+    \begin{equation*}
+        g(z) =
+        \begin{dcases}
+            \dfrac{f(z)}{z}, & z \neq 0\\
+            f^{\prime}(0), & z = 0.
+        \end{dcases}
+    \end{equation*}
+
+    Como \(f\) es analítica en \(D\setminus \{0\}\). Además para \(z \neq
+    0\), \(g(z) z =
+    f(z)\). Por lo que,
+
+    \begin{equation*}
+        \lim_{z \to 0} g(z) z = \lim_{z \to 0} f(z_{0}) = f(0) 0.
+    \end{equation*}
+
+    Es decir, \(0\) es una singularidad removible de \(g\). Y \(\exists
+        \tilde{g} \colon D
+    \to \mathbb{C}\) analítica tal que \(\tilde{g}(z) = g(z)\; \forall z \neq 0\).
+\end{proof}
+
+Por otro lado, como \(f(0) = 0\), para \(z \neq 0\),
+
+\begin{align*}
+    g(z) &= \dfrac{f(z)}{z} = \dfrac{f(z) - f(0)}{z - 0},\\
+    \implies\;\lim_{z \to 0} g(z) &= \lim_{z \to 0} \dfrac{f(z) - f(0)}{z -
+    0} = f^{\prime}(0).
+\end{align*}
+
+Por lo que \(g\) es continua en 0 y \(g = \tilde{g}\) en todo \(D\). Entonces, \(g\) es
+analítica en todo el disco.
+
+Consideremos ahora \(r < 1\) y \(B_{r}(0) \subsetneq D\). Si \( \abs{z} = r\), entonces
+
+\begin{equation*}
+    \abs{g(z)} = \dfrac{\abs{f(z)}}{\abs{z}} \leq \dfrac{1}{r}.
+\end{equation*}
+
+Por el corolario anterior, \(\abs{g(z)} \leq \tfrac{1}{r}\; \forall z\in
+\overline{B_{r}(0)}\).
+
+Tomando \( r \to 1^{-}\), tenemos que \(\abs{g(z)} \leq 1\; \forall z\in D\). En
+particular,
+
+\begin{equation*}
+    \abs{f(z)} \leq \abs{z}\; \forall z\in D\setminus \{0\}
+\end{equation*}
+
+y \(\abs{f^{\prime}(0)} \leq 1\). Recordando que \(f(0) = 0\).
+
+Si \(\abs{f(z_{0})} = \abs{z_{0}}\) para algún \(z_{0}\in  D\setminus \{0\}\), entonces
+\(\abs{g(z_{0})} = 1\). Por lo que el módulo máximo de \(g\) se alcanza en un punto de
+\(D\). Por el principio del módulo máximo \(g\) es constante. De manera, análoga, si
+\(\abs{f^{\prime}(0)} = 1\), entonces \(\abs{g(0)} = 1\) y nuevamente \(g\) es
+constante. En ambos casos, \(\exists c\in \mathbb{C}\) tal que \(\abs{g(z)} = c\;
+\forall z\in D\). Pero \(1 = \abs{g(z)} = c\), lo cual implica que \(\abs{c} = 1\) y
+además, que \(\forall z \neq 0\), \(c = g(z) = \tfrac{f(z)}{z} \implies f(z) = cz\). Y
+si \(z = 0\), \(f(z) = 0 = c \cdot 0 = cz\). Por lo tanto,
+
+\begin{equation*}
+    f(z) = cz\; \forall z\in D.
+\end{equation*}
 \end{document}
