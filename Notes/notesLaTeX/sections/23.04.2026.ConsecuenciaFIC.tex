@@ -1,0 +1,224 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Consecuencia de la fórmula integral de Cauchy y Principio del Módulo Máximo}
+\classdate{2026-04-23}
+
+Veremos una consecuencia de la fórmula integral de Cauchy (FIC).
+
+\begin{remark}
+    Recordemos la condición
+
+    \begin{equation*}
+        \lim_{z \to z_{0}} f(z)\bigl(z - z_{0}\bigr) = 0
+    \end{equation*}
+
+    que pedimos en el \zcref{lemma:lem-goursat-v2},
+    para el cual reservamos un nombre especial: singularidad removible.
+\end{remark}
+
+\begin{definition}
+    Sean \(\omega \subseteq \mathbb{C}\) abierto, \(z_{0}\in  \Omega\) y \(f \colon
+    \Omega\setminus \{z_{0}\} \to \mathbb{C}\) analítica. Decimos que \(z_{0}\) es una
+    singularidad removible de \(f\) si y solo si
+
+    \begin{equation*}
+        \lim_{z \to z_{0}} f(z)\bigl(z - z_{0}\bigr) = 0.
+    \end{equation*}
+\end{definition}
+
+\begin{proposition}
+    Sean \(\Omega \subseteq \mathbb{C}\) abierto, \(z_{0}\in \Omega\) y \(f \colon
+    \Omega\setminus \{z_{0}\} \to \mathbb{C}\) una función analítica. \(z_{0}\) es una
+    singularidad removible de \(f\) si y solo si \(\exists \tilde{f} \colon \Omega \to
+    \mathbb{C}\) tal que \(\tilde{f}(z) = f(z)\; \forall z\in \Omega\setminus
+    \{z_{0}\}\).
+\end{proposition}
+
+\begin{proof}
+    \begin{itemize}
+        \item Si \(\exists \tilde{f} \implies z_{0}\) es una singularidad removible
+
+            Supongamos que \(\exists \tilde{f}\colon \Omega \to
+            \mathbb{C}\) analítica tal que
+            \(\tilde{f}(z) = f(z)\; \forall z\in \Omega\setminus \{z_{0}\}\). Entonces,
+            \(\tilde{f}\) es continua en \(z_{0}\) y por lo tanto,
+
+            \begin{equation*}
+                \lim_{z \to z_{0}} f(z)(z - z_{0}) = \lim_{z \to z_{0}}
+                \tilde{f}(z)(z - z_{0}) =
+                \tilde{f}(z_{0})(0) = 0.
+            \end{equation*}
+
+            por lo que \(z_{0}\) es una singularidad removible.
+
+        \item Si \(z_{0}\) es una singularidad removible, entonces \(\exists \tilde{f}\)
+
+            Supongamos que \(z_{0}\) es una singularidad removible, es decir,
+
+            \begin{equation*}
+                \lim_{z \to z_{0}} f(z)(z - z_{0}) = 0.
+            \end{equation*}
+
+            Usando la FIC definimos
+
+            \begin{equation*}
+                \tilde{f}(z) = \dfrac{1}{2\pi
+                i}\int_{\gamma}^{}\dfrac{f(w)}{w - z}\odif{z},
+            \end{equation*}
+
+            donde \(\gamma  \colon [a, b] \to \Omega\) es una curva cerrada
+            simple suave por pedazos
+            (que rodea una vez a \(z_{0}\)). De esta manera, \(\forall z\in
+            \Omega\), \(z \neq
+            z_{0}, z\in \gamma, \tilde{f}(z) = f(z)\) y por el
+            \zcref{lemma:lem-aux}, \(\tilde{f}\) es
+            analítica y está definida en \(z_{0}\).
+    \end{itemize}
+\end{proof}
+
+\begin{theorem}[Principio del módulo máximo]\label{thm:maximumModulusPrinciple}
+    Sea \(\Omega\) una región y \(f \colon \Omega \to \mathbb{C}\) una función
+    analítica. Si \(\abs{f(z)}\) alcanza su valor máximo en \(z_{0}\in \Omega\),
+    entonces \(f\) es constante.
+\end{theorem}
+
+\begin{proof}
+    Primero mostraremos que \(f\) es constante en un disco abierto centrado en
+    \(z_{0}\). Si \(\gamma \colon [0, 2\pi] \to D\), \(\gamma(t) = z_{0} + r
+    \mathrm{e}^{it}\), con \( r < \mathrm{radio}(D)\). \(\gamma\) es una
+    curva cerrada simple
+    suave por pedazos, que da una vuelta a \(z_{0}\). Por la FIC,
+
+    \begin{align*}
+        f(z_{0}) &= \dfrac{1}{2\pi i}\int_{\gamma}^{}\dfrac{f(z)}{z - z_{0}}\odif{z},\\
+        &= \dfrac{1}{2\pi i}\int_{0}^{2\pi}\dfrac{f(\gamma(t))}{\gamma(t) -
+        z_{0}}\gamma^{\prime}(t)\odif{t},\\
+        &= \dfrac{1}{2\pi i}\int_{0}^{2\pi}\dfrac{f(z_{0} + r \mathrm{e}^{it})}{r
+        \mathrm{e}^{it}}ri \mathrm{e}^{it}\odif{t},\\
+        &= \dfrac{1}{2\pi}\int_{0}^{2\pi}f(z_{0} + r \mathrm{e}^{it})\odif{t}.
+    \end{align*}
+
+    Tomemos módulos
+
+    \begin{equation*}
+        \abs{f(z_{0})} \leq \dfrac{1}{2\pi}\int_{0}^{2\pi}\abs{f(z_{0} + r
+        \mathrm{e}^{it})}\odif{t} \leq
+        \dfrac{1}{2\pi}\int_{0}^{2\pi}\abs{f(z_{0})}\odif{t} =
+        \abs{f(z_{0})},
+    \end{equation*}
+
+    pero entonces
+
+    \begin{equation*}
+        \abs{f(z_{0})} = \dfrac{1}{2\pi} \int_{0}^{2\pi}\abs{f(z_{0} + r
+        \mathrm{e}^{it})}\odif{t} = 0.
+    \end{equation*}
+
+    Como el integrando es continuo y mayor o igual a 0, tenemos que \(\abs{f(z_{0})} =
+    \abs{f(z_{0} + r \mathrm{e}^{it})}\). Por lo que \(\abs{f}\) es constante en la
+    circunferencia de radio \(r\) centrada en \(z_{0}\), donde \(r <
+    \mathrm{radio}(D)\).
+
+    Denotamos por \(\gamma_{r}\) a esta circunferencia. Como \(D\setminus \{z_{0}\} =
+    \bigcup_{r < \mathrm{radio}(D)}\gamma_{r}\), concluimos que \(\abs{f}\)
+    es constante en
+    \(D\setminus \{z_{0}\}\) (la constante \(\abs{f(z_{0})}\)). Por lo que
+    \(\abs{f}\) es
+    constante en \(D\).
+
+    Veamos que esto implica que \(f\) es constante en \(D\). Escribimos \(f = u + iv\),
+    \(\abs{f}^{2} = u^{2} + v^{2} = C = \abs{f(z_{0})}^{2}\). Si
+    \(\abs{f(z_{0})}^{2} \geq
+    0\), entonces \(\abs{f(z)} \leq \abs{f(z_{0})} = 0\), lo cual implica que
+    \(f(z) = 0\;
+    \forall z\in \mathbb{C}\), por lo que \(f\) es constante.
+
+    Supongamos que \(C > 0\). Derivamos parcialmente \(u^{2} + v^{2} = C\)
+    respecto a \(x\),
+
+    \begin{equation*}
+        \pdv*{\bigl(u^{2} + v^{2}\bigr)}{x} = \pdv{c}{k} = 0.
+    \end{equation*}
+
+    Es decir,
+
+    \begin{align*}
+        2u \pdv{u}{x} + 2v \pdv{v}{x} &= 0,\\
+        u \pdv{u}{x} + v \pdv{v}{x} &= 0.
+    \end{align*}
+
+    Análogamente, derivamos respecto a \(y\),
+
+    \begin{equation*}
+        u \pdv{u}{y} + v \pdv{v}{y} = 0.
+    \end{equation*}
+
+    Tenemos el sistema
+
+    \begin{equation*}
+        \begin{dcases}
+            u \pdv{u}{x} + v \pdv{v}{x} = 0,\\
+            u \pdv{u}{y} + v \pdv{v}{y} = 0.
+        \end{dcases}
+    \end{equation*}
+
+    Como \(f\) es analítica, satisface Cauchy-Riemann. Entonces podemos reescribir el
+    sistema, usando \(\pdv{u}!{x} = \pdv{v}!{y}\) y \(\pdv{u}!{y} = - \pdv{v}!{x}\),
+
+    \begin{equation*}
+        \begin{dcases}
+            u\pdv{u}{x} - v\pdv{u}{y} = 0,\\
+            v\pdv{u}{x} + u\pdv{u}{y} = 0.
+        \end{dcases}
+    \end{equation*}
+
+    Esto lo podríamos escribir de forma matricial,
+
+    \begin{equation*}
+        \begin{pNiceMatrix}
+            u & -v\\
+            v & u\\
+        \end{pNiceMatrix}
+        \begin{pNiceMatrix}
+            \pdv{u}{x}\\
+            \pdv{v}{y}\\
+        \end{pNiceMatrix} =
+        \begin{pNiceMatrix}
+            0\\
+            0\\
+        \end{pNiceMatrix}.
+    \end{equation*}
+
+    Tal que,
+
+    \begin{equation*}
+        \det
+        \begin{pNiceMatrix}
+            u & -v\\
+            v & u\\
+        \end{pNiceMatrix}
+        = u^{2} + v^{2} = c > 0.
+    \end{equation*}
+
+    Por lo que
+    \begin{equation*}
+        \pdv{u}{x} = 0\quad \wedge \quad \pdv{v}{y} = 0.
+    \end{equation*}
+
+    Pero por Cauchy-Riemann, \(\pdv{v}{x} = 0 = \pdv{v}{y}\).
+
+    Como \(D\) es conexo, tenemos que \(u\) y \(v\) son constantes. Por lo que \(f\) es
+    constante en \(D\).
+
+    Sea \(A = \bigl\lbrace z\in \Omega \mid f(z) = f(z_{0}) \bigr\rbrace\).
+    Por lo anterior,
+    \(A\) es abierto. Además, \(A \neq \emptyset\) pues \(z_{0}\in  A\) y
+    \(A\) es cerrado
+    pues \(A = f^{-1}\bigl(\{f(z_{0})\}\bigr)\). Por lo que \(A\) es abierto,
+    cerrado y no
+    vacío en \(\Omega\), el cual es conexo. Y además, \(A = \Omega\). Por lo
+    tanto, \(f\) es
+    constante en \(\Omega\).
+\end{proof}
+\end{document}
