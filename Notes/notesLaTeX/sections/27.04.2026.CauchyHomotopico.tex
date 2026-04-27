@@ -1,0 +1,104 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Teorema de Cauchy homotópico}
+\classdate{2026-04-27}
+
+\begin{definition}
+    Sean \(\gamma_{0},\gamma_{1} \colon [a, b] \to \mathbb{C}\) dos curvas
+    (continuas) en
+    una región \(U\) de \(\mathbb{C}\). Una homotopía entre \(\gamma_{0}\) y
+    \(\gamma_{1}\) en \(U\) es una transformación continua \(H \colon [a, b] \mul [0, 1]
+    \to \mathbb{C}\) con las siguientes propiedades
+
+    \begin{enumerate}
+        \item \(H(t, 0) = \gamma_{0}(t),\medspace \forall t\in [a, b]\).
+        \item \(H(t, 1) = \gamma_{1}(t),\medspace \forall t\in [a, b]\).
+    \end{enumerate}
+
+    Cuando existe tal homotopía, decimos que las curvas \(\gamma_{0},\gamma_{1}\) son
+    homotópicas.
+\end{definition}
+
+En este contexto, definimos \(\gamma_{s}(t) = H(t, s)\), con \(s\in [0, 1]\) fija.
+Podemos pensar a la familia de curvas \(\{\gamma_{s}\}\) como una deformación continua
+de \(\gamma_{0}\) en \(\gamma_{1}\).
+
+\begin{remark}
+    La definición anterior requiere de varios ajustes para que nos sea realmente útil.
+    Puesto que en nuestro contexto estamos integrando usualmente funciones analítica
+    sobre curvas cerradas suaves por pedazos, por lo que tendremos los siguientes
+    requisitos adicionales:
+
+    \begin{itemize}
+        \item Si \(\gamma_{0}\) y \(\gamma_{1}\) son curvas cerradas, es decir,
+
+            \begin{equation*}
+                \gamma_{0}(a) = \gamma_{0}(b)\quad \text{y}\quad
+                \gamma_{1}(a) = \gamma_{1}(b)
+            \end{equation*}
+
+            pediremos que las curvas \(\gamma_{s}, \forall s\in [0, 1]\)
+            también lo sean.
+
+        \item Si \(\gamma_{0}\) y \(\gamma_{1}\) son curvas suaves por
+            pedazos, queremos que
+            \(\gamma_{s}, \forall s\in [0, 1]\) sean curvas cerradas por pedazos.
+    \end{itemize}
+\end{remark}
+
+\begin{definition}
+    Decimos que \(U \subseteq \mathbb{C}\) es simplemente conexa si y solo si toda curva
+    cerrada \(\gamma \subseteq U\) es homotópica a algún \(z_{0} \in U\).
+\end{definition}
+
+\begin{theorem}[de Cauchy para homotopías]\label{thm:Cauchy-Homotopies}
+    Sea \(U \subseteq \mathbb{C}\) una región, \(f \colon U \to \mathbb{C}\) una función
+    analítica y \(\gamma_{0}, \gamma_{1} \colon [a, b] \to \mathbb{C}\) dos curvas
+    cerradas suaves por pedazos. Si \(\gamma_{0}, \gamma_{1}\) son homotópicas, entonces
+
+    \begin{equation*}
+        \int_{\gamma_{0}}^{}f(z)\odif{z} = \int_{\gamma_{1}}^{}f(z)\odif{z}.
+    \end{equation*}
+\end{theorem}
+
+Andas de dar la prueba, enunciaremos un resultado
+
+\begin{corollary}
+    Sea \(f \colon U \to \mathbb{C}\) analítica, \(U\) simplemente
+    conexa\footnote{Si toda
+    curva cerrada en \(U\) es homotópica.} y \(\gamma \colon [a, b] \to U\)
+    cerrada suave
+    por pedazos. Entonces,
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(z)\odif{z} = 0.
+    \end{equation*}
+\end{corollary}
+
+\begin{proof}[\zcref{thm:Cauchy-Homotopies}]
+    Sea \(H \colon [a, b] \mul [0, 1] \to U\) una homotopía entre \(\gamma_{0}\) y
+    \(\gamma_{1}\) y, para simplificar, asumiremos que \(H\) es de clase \(C^{2}\).
+    Definimos \(h \colon [0, 1] \to \mathbb{C}\) como
+
+    \begin{equation*}
+        h(s) = \int_{\gamma_{0}}^{}f(z)\odif{z} = \int_{a}^{b}f(H(t, s))\pdv{H(s,
+        t)}{t}\odif{t}
+    \end{equation*}
+
+    con \(\gamma_{s}(t) = H(t, s)\).
+
+    Queremos demostrar que \(h\) es constante en \([0, 1]\). Para esto, mostraremos que
+    su derivada en idénticamente igual a 0:
+
+    \begin{align*}
+        \odv{h}{s} &= \odv{}{s}\int_{a}^{b}f(H(t, s))\pdv{H(t, s)}{t}\odif{t} =
+        \int_{a}^{b}\pdv*{\biggl(f(H(t, s))\pdv{H(t, s)}{t}\biggr)}{s}\odif{t},\\
+        &= \int_{a}^{b}\Biggl[f^{\prime}(H(t, s))\pdv{H(t, s)}{s}\pdv{H(t, s)}{t} +
+        f(H(t, s))\pdv{H(t, s)}{s, t}\Biggr]\odif{t},\\
+        &= \int_{a}^{b}\Biggl[f^{\prime}(H(t, s))\pdv{H(t, s)}{t}\pdv{H(t, s)}{s} +
+        f(H(t, s))\pdv{H(t, s)}{t,s}\Biggr]\odif{t},\\
+        &= \Biggl[f(H(t, s))\pdv{H(t, s)}{s}\Biggr]_{t = a}^{t = b} = 0.
+    \end{align*}
+\end{proof}
+\end{document}
