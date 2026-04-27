@@ -19,4 +19,40 @@
             constante en \(\Omega\).
     \end{enumerate}
 \end{problema}
+
+\startsolution
+
+\begin{enumerate}
+    \item Como \(\Omega\) es simplemente conexo, \(u = \Re f\) para una función \(f
+        \colon \Omega \to \mathbb{C}\) analítica y aplicando la fórmula
+        integral de Cauchy,
+
+        \begin{equation*}
+            u(z_{0}) = \dfrac{1}{2\pi}\int_{0}^{2\pi}u(z_{0} + r
+            \mathrm{e}^{it})\odif{t}.
+        \end{equation*}
+
+    \item Consideremos un disco abierto \(B_{r}(z_{0}) \subseteq \Omega\). Como \(B\) es
+        simplemente conexo, entonces existe \(f\) analítica en
+        \(B_{r}(z_{0})\) tal que \(u = \Re f\).
+        Entonces la función \(\mathrm{e}^{f(z)}\) también es analítica y
+        \(\abs{\mathrm{e}^{f(z)}} = \mathrm{e}^{u(z)}\). Como \(u\) alcanza un máximo en
+        \(z_{0}\) y la función exponencial real es creciente,
+        \(\abs{\mathrm{e}^{f(z)}}\)
+        también alcanza un máximo en \(z_{0}\). Por el principio del módulo máximo,
+        \(\mathrm{e}^{f(z)}\) es constante en \(B_{r}(z_{0})\) y por lo tanto
+        \(\mathrm{e}^{u(z)}\)
+        también lo es, por lo que \(u\) es constante en \(B_{r}(z_{0})\).
+        Podemos aplicar este
+        argumento a cualquier punto del conjunto
+
+        \begin{equation*}
+            A = \bigl\lbrace z\in \Omega \mid u(z) = u(z_{0})\bigr\rbrace
+        \end{equation*}
+
+        lo que implica que \(A\) es abierto en \(\Omega\). Pero claramente
+        \(A\) también es
+        cerrado y no vacío. Como \(\Omega\) es conexo, \(A = \Omega\)  y
+        \(u\) es constante.
+\end{enumerate}
 \end{document}
