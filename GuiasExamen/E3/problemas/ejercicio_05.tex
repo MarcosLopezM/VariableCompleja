@@ -14,4 +14,52 @@
             \mathbb{C}\) tal que \(f(z) = cz\) para toda \(z\in \mathbb{C}\).
     \end{enumerate}
 \end{problema}
+
+\startsolution
+
+\begin{enumerate}
+    \item
+        Notemos que
+
+        \begin{equation*}
+            f(z) = f\bigl(\dfrac{1}{2^{n}}z\bigr).
+        \end{equation*}
+
+        Tomando \(n \to \infty\) obtenemos que
+
+        \begin{equation*}
+            f(z) = f(0),\quad \forall z\in \mathbb{C}.
+        \end{equation*}
+
+        Por lo que \(f\) es constante.
+
+    \item
+        Derivando la igualdad que nos dan
+
+        \begin{align*}
+            \bigl(f(2z)\bigr)^{\prime} &= \bigl(2f(z)\bigr)^{\prime},\\
+            2f^{\prime}(2z) &= 2f^{\prime}(z),\\
+            f^{\prime}(2z) &= f^{\prime}(z).
+        \end{align*}
+
+        Y como \(f^{\prime}\) es continua en 0, tenemos que la igualdad
+        anterior se satisface si
+
+        \begin{align*}
+            f^{\prime}(z) &= c,\\
+            \implies f(z) &= cz + d.
+        \end{align*}
+
+        Por lo que,
+
+        \begin{align*}
+            f(2z) &= 2f(z),\\
+            c(2z) + d &= 2(cz + d),\\
+            2cz - 2cz - 2d + d &= 0,\\
+            \therefore d &= 0.
+        \end{align*}
+
+        Y por lo tanto, \(f(z) = cz,\medspace \forall z\in \mathbb{C}\).
+
+\end{enumerate}
 \end{document}
