@@ -331,4 +331,69 @@ si \(z = 0\), \(f(z) = 0 = c \cdot 0 = cz\). Por lo tanto,
 \begin{equation*}
     f(z) = cz\; \forall z\in D.
 \end{equation*}
+
+\classdate{2026-04-27}
+
+Antes de continuar los temas del curso, vamos a concluir con la versión más general de
+la fórmula integral de Cauchy.
+
+\begin{theorem}[Fórmula Integral de Cauchy con singularidades]
+    Sean \(z_{0}\in  \mathbb{C}, r > 0, z_{1},\dots, z_{n}\in B_{r}(z_{0})\) y \(f
+        \colon B_{r}(z_{0})\setminus \bigl\lbrace z_{1},\dots,z_{n}
+        \bigr\rbrace \subseteq
+    \mathbb{C} \to \mathbb{C}\) analítica. Si
+
+    \begin{equation*}
+        \lim_{z \to z_{k}} \bigl(z - z_{k}\bigr)f(z) = 0
+    \end{equation*}
+
+    \(\forall k\in \bigl\lbrace 1,\dots,N \bigr\rbrace\) y \(\gamma \colon [a, b] \to
+    B_{r}(z_{0})\setminus \bigl\lbrace z_{1},\dots,z_{n} \bigr\rbrace\) es
+    cualquier curva
+    cerrada suave por pedazos, entonces
+
+    \begin{equation*}
+        n(\gamma, z)f(z) = \dfrac{1}{2\pi i}\int_{\gamma}^{}\dfrac{f(w)}{w - z}\odif{w}
+    \end{equation*}
+
+    \(\forall z\in B_{r}(z_{0})\setminus \bigl\lbrace z_{1},\dots,z_{n} \bigr\rbrace\).
+\end{theorem}
+
+\begin{proof}
+    Sea \(B_{r}(z_{0})\setminus \bigl(\bigl\lbrace z_{1},\dots,z_{n} \bigr\rbrace\cup
+    \gamma\bigr)\). Definimos \(F \colon B_{r}(z_{0})\setminus \bigl\lbrace
+    z_{1},\dots,z_{n} \bigr\rbrace \to \mathbb{C}\) como
+
+    \begin{equation*}
+        F(w) = \dfrac{f(w) - f(z)}{w - z}
+    \end{equation*}
+
+    analítica.
+
+    Notemos que
+
+    \begin{align*}
+        \lim_{w \to z} \bigl(w - z\bigr)f(z) &= \lim_{w \to z} \bigl(w -
+        z\bigr)\dfrac{f(w) -
+        f(z)}{w - z},\\
+        &= \lim_{w \to z} f(w) - f(z) = 0.
+    \end{align*}
+
+    y \(\gamma \subseteq B_{r}(z_{0})\setminus \bigl\lbrace z_{1},\dots,z_{n}
+    \bigr\rbrace\). De modo que
+
+    \begin{align*}
+        0 = \int_{\gamma}^{}F(w)\odif{w} &= \int_{\gamma}^{}\dfrac{f(w) - f(z)}{w -
+        z}\odif{w},\\
+        &= \int_{\gamma}^{}\dfrac{f(w)}{w - z}\odif{w} -
+        \int_{\gamma}^{}\dfrac{f(z)}{w -
+        z}\odif{w},\\
+        \implies \int_{\gamma}^{}\dfrac{f(w)}{w - z}\odif{w} &= f(z)
+        \int_{\gamma}^{}\dfrac{1}{w - z}\odif{w},\\
+        &= f(z)2\pi i n(\gamma, z),\\
+        \therefore f(z)n(\gamma, z) &= \dfrac{1}{2\pi i}\int_{\gamma}^{}\dfrac{f(w)}{w -
+        z}\odif{w}.
+    \end{align*}
+\end{proof}
+
 \end{document}
