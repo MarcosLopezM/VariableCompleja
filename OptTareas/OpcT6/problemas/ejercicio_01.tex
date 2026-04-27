@@ -14,4 +14,32 @@
 
 \startsolution
 
+Notamos que el lado izquierdo de la igualdad es la definición de integral de línea por
+longitud de arco, por lo que \(\abs{\odif{z}} = \abs{\gamma^{\prime}(t)}\odif{t}\). Así,
+
+\begin{align*}
+    \int_{\gamma}^{}f(z)\abs{\odif{z}} &=
+    \int_{0}^{2\pi}f(\gamma(t))\abs{\gamma^{\prime}(t)}\odif{t},\nonumber\\
+    &= \int_{0}^{2\pi}f(r \mathrm{e}^{it})\underbrace{\abs{ri
+    \mathrm{e}^{it}}}_{= r}\odif{t},\nonumber\\
+    &= \int_{0}^{2\pi}f(r \mathrm{e}^{it})r\odif{t}.
+\end{align*}
+
+Ahora, desarrollamos el lado derecho de la igualdad, tal que
+
+\begin{align*}
+    -ir \int_{\gamma}^{}\dfrac{f(z)}{z}\odif{z} &= -ir
+    \int_{0}^{2\pi}\dfrac{f(\gamma(t))}{\gamma(t)}\gamma^{\prime}(t)\odif{t},\\
+    &= -ir \int_{0}^{2\pi}\dfrac{f(r \mathrm{e}^{it})}{r \mathrm{e}^{it}}\bigl(ri
+    \mathrm{e}^{it}\bigr)\odif{t},\\
+    &= -ir \int_{0}^{2\pi}f(r \mathrm{e}^{it})(i)\odif{t},\\
+    &= \int_{0}^{2\pi}f(r \mathrm{e}^{it})r\odif{t}.
+\end{align*}
+
+Por lo tanto,
+
+\begin{equation*}
+    \int_{\gamma}^{}f(z)\abs{\odif{z}} = -ir
+    \int_{\gamma}^{}\dfrac{f(z)}{z}\odif{z}.
+\end{equation*}
 \end{document}
