@@ -101,4 +101,139 @@ Andas de dar la prueba, enunciaremos un resultado
         &= \Biggl[f(H(t, s))\pdv{H(t, s)}{s}\Biggr]_{t = a}^{t = b} = 0.
     \end{align*}
 \end{proof}
+
+\classdate{2026-04-28}
+
+Enunciamos los siguientes corolarios de la versión homotópica del teorema de Cauchy.
+
+\begin{corollary}
+    Sean \(U \subseteq \mathbb{C}\) una región y \(f \colon \mathbb{C} \to \mathbb{C}\)
+    analítica y \(\gamma \colon [a, b] \to U\) una curva cerrada suave por pedazos
+    homotópica a una curva constante en \(U\), entonces
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(z)\odif{z} = 0.
+    \end{equation*}
+\end{corollary}
+
+\begin{corollary}
+    Sean \(U \subseteq \mathbb{C}\) una región simplemente conexa\footnote{Toda curva es
+    homotópica a un punto.} y \(f \colon  U  \subseteq \mathbb{C} \to \mathbb{C}\)
+    analítica. Entonces, \( \forall \gamma\colon [a, b] \to U\) cerrada suave
+    por pedazos,
+
+    \begin{equation}
+        \int_{\gamma}^{}f(z)\odif{z} = 0.
+    \end{equation}
+\end{corollary}
+
+\begin{theorem}[Fórmula Integral de Cauchy]
+    Sea \(U \subseteq \mathbb{C}\) una región y \(f \colon U \subseteq \mathbb{C} \to
+    \mathbb{C}\) una función analítica. Sea \(\gamma \colon [a, b] \to U\) una curva
+    cerrada suave por pedazos y sea \(z_{0}\in  U\setminus \gamma([a, b])\). Si
+    \(\gamma\) es homotópica a una constante en \(U\), entonces
+
+    \begin{equation*}
+        n(\gamma, z_{0})f(z_{0}) = \dfrac{1}{2\pi i} \int_{\gamma}^{}\dfrac{f(z)}{z -
+        z_{0}}\odif{z}.
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    Sea \(g \colon U \subseteq \mathbb{C} \to \mathbb{C}\) una función
+    auxiliar dada como
+
+    \begin{equation*}
+        g(z) =
+        \begin{dcases}
+            \dfrac{f(z) - f(z_{0})}{z - z_{0}}, &\text{si}\; z \neq z_{0},\\
+            f^{\prime}(z_{0}), &\text{si}\; z = z_{0}
+        \end{dcases}
+    \end{equation*}
+
+    ¿Y qué podemos decir de la función?
+
+    \(g\) es continua en \(z_{0}\), pues
+
+    \begin{equation*}
+        \lim_{z \to z_{0}} g(z) = \lim_{z \to z_{0}} \dfrac{f(z) -
+        f(z_{0})}{z - z_{0}} =
+        f^{\prime}(z_{0}).
+    \end{equation*}
+
+    Y tiene una singularidad removible en \(z_{0}\),
+
+    \begin{equation*}
+        \lim_{z \to z_{0}} \bigl(z - z_{0}\bigr)\dfrac{f(z) - f(z_{0})}{z - z_{0}} = 0.
+    \end{equation*}
+
+    Y por lo tanto,  la función admite una extensión analítica, que por
+    continuidad, debe
+    coincidir con \(g\). Por lo que \(g\) es analítica.
+
+    Entonces por el teorema de Cauchy,
+
+    \begin{equation*}
+        \int_{\gamma}^{}g(z)\odif{z} = 0.
+    \end{equation*}
+
+    Como \(z\notin \gamma([a, b])\), entonces \(\forall z\in \gamma([a, b])\),
+
+    \begin{equation*}
+        \int_{\gamma}^{}\dfrac{f(z)}{z - z_{0}}\odif{z} =
+        f(z_{0})\underbrace{\int_{\gamma}^{}\dfrac{1}{z - z_{0}}\odif{z}}_{=
+            2\pi i n(\gamma,
+        z_{0})}.
+    \end{equation*}
+\end{proof}
+
+\begin{corollary}
+    Si \(U\) es una región simplemente conexa y \(F \colon U \subseteq \mathbb{C} \to
+    \mathbb{C}\) ese analítica, tal que \(F^{\prime} = f\) en \(U\).
+\end{corollary}
+
+\begin{proof}
+    Sea \(\gamma \colon [a, b] \to U\) una curva cerrada suave por pedazos. Como
+    \(\gamma\) es homotópica a una constante en \(U\), pues \(U\) es simplemente conexa;
+    por el teorema de Cauchy,
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(z)\odif{z} = 0.
+    \end{equation*}
+
+    Y por el teorema e la primitiva, \(f\) admite una primitiva \(F\) en \(U\).
+\end{proof}
+
+Ahora, desviamos un poco nuestra atención, para hablar un poco acerca de las funciones
+armónicas.
+
+Nuestro objetivo en esta parte es dar un principio del módulo máximo para funciones
+armónicas; es decir, si \(U \subseteq \mathbb{C}\) una región y \(u \colon U \to
+\mathbb{R}\) es una función armónica que alcanza su máximo en \(z_{0}\in  U\), entonces
+\(u\) es constante.
+La motivación detrás de esto se debe a que la parte real de una función analítica es
+armónica. Si \(f = u + iv\), pues es analítica, satisface Cauchy-Riemann
+
+\begin{equation*}
+    \pdv{u}{x} = \pdv{v}{y}\quad \text{y}\quad \pdv{u}{y} = - \pdv{v}{x}.
+\end{equation*}
+
+Entonces,
+
+\begin{equation*}
+    \pdv{u}{x,x} = \pdv{v}{x,y}\quad \text{y}\quad \pdv{u}{y,y} = - \pdv{v}{y,x} = -
+    \pdv{v}{x,y}.
+\end{equation*}
+
+Sumándolas,
+
+\begin{equation*}
+    \Delta{u} = \pdv{u}{x,x} + \pdv{u}{y,y} = 0.
+\end{equation*}
+
+Una pregunta que nos podemos hacer es: ¿se vale el recíproco? En caso de que sí,  para
+\(u \colon U \to \mathbb{C}\) armónica tendríamos \(f \colon U \subseteq \mathbb{C} \to
+\mathbb{C}\) analítica, tal que \(\Re(f) = u\). Entonces, \(\abs{\mathrm{e}^{f(z)}} =
+\mathrm{e}^{\Re(f(z))} = e^{u(z)}\), y como \(\mathrm{e}^{x}\) es creciente,
+\(\abs{\mathrm{e}^{f(z)}}\) alcanza su máximo en \(z_{0}\).
 \end{document}
