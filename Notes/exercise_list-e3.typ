@@ -60,15 +60,15 @@
 - [x] Problema 11
 - [x] Problema 12
 - [x] Problema 13
-- [ ] Problema 14
-- [ ] Problema 15
-- [ ] Problema 16
-- [ ] Problema 17
-- [ ] Problema 18
-- [ ] Problema 19
+- [x] Problema 14
+- [/] Problema 15
+- [x] Problema 16
+- [/] Problema 17
+- [x] Problema 18
+- [x] Problema 19
 - [ ] Problema 20
 - [ ] Problema 21
 - [ ] Problema 22
 - [ ] Problema 23
 - [x] Problema 24
-- [ ] Problema 25
+- [/] Problema 25
