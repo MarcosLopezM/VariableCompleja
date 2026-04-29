@@ -13,4 +13,30 @@
         \int_{\sigma}^{}f(g(\zeta))g^{\prime}(\zeta)\odif{\zeta}.
     \end{equation*}
 \end{problema}
+
+\startsolution
+
+Comenzamos desarrollando el lado izquierdo de la ecuación, tal que
+
+\begin{align*}
+    \int_{\gamma}^{}f(z)\odif{z} &=
+    \int_{a}^{b}f(\gamma(t))\gamma^{\prime}(t)\odif{t},\\
+    &=\int_{a}^{b}f\bigl(g\bigl(\sigma(t)\bigr)\bigr)\bigl(g\bigl(\sigma(t)\bigr)\bigr)^{\prime}\odif{t},\\
+    &=
+    \int_{a}^{b}f\bigl(g\bigl(\sigma(t)\bigr)\bigr)g^{\prime}\bigl(\sigma(t)\bigr)\sigma^{\prime}(t)\odif{t}.
+\end{align*}
+
+Ahora desarrollamos el lado derecho de la expresión,
+
+\begin{equation*}
+    \int_{\sigma}^{}f\bigl(g(t)\bigr)g^{\prime}(t)\odif{t} =
+    \int_{a}^{b}f\bigl(g\bigl(\sigma(t)\bigr)\bigr)g^{\prime}\bigl(\sigma(t)\bigr)\sigma^{\prime}(t)\odif{t}.
+\end{equation*}
+
+Por lo tanto,
+
+\begin{equation*}
+    \int_{\gamma}^{}f(z)\odif{z} =
+    \int_{\sigma}^{}f(g(\zeta))g^{\prime}(\zeta)\odif{\zeta}.
+\end{equation*}
 \end{document}
