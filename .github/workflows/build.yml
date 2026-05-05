@@ -27,7 +27,9 @@ jobs:
       - name: Build PDF with LuaLaTeX
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: Notes/notesLaTeX/main.tex
+          root_file: |
+            Notes/notesLaTeX/main.tex
+            GuiasExamen/E3/main.tex
           texlive_version: 2026
           work_in_root_file_dir: true
           latexmk_shell_escape: true
@@ -38,10 +40,35 @@ jobs:
         id: build
         run: |
           mkdir -p build/
-          mv Notes/notesLaTeX/main.pdf build/main.pdf
-          echo '<meta http-equiv="refresh" content="0; URL=main.pdf">' > build/index.html
+          mv Notes/notesLaTeX/main.pdf build/notas.pdf
+          mv GuiasExamen/E3/main.pdf build/guiaE3.pdf
+          cat <<EOF > build/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>My Compiled Documents</title>
+              <style>
+                  body { font-family: sans-serif; padding: 2rem; max-width: 600px; margin: auto; }
+                  ul { line-height: 1.6; }
+                  a { text-decoration: none; color: #0366d6; font-size: 1.2rem; }
+                  a:hover { text-decoration: underline; }
+              </style>
+          </head>
+          <body>
+              <h1>Available Documents</h1>
+              <ul>
+                  <li><a href="notas.pdf">Notas de clase</a></li>
+                  <li><a href="guiaE3.pdf">Guía del Tercer Examen Parcial</a></li>
+              </ul>
+          </body>
+          </html>
+          EOF
       - name: Ensure PDF was compiled
-        run: test -f build/main.pdf
+        run: |
+          test -f build/notas.pdf
+          test -f build/guiaE3.pdf
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
