@@ -29,8 +29,8 @@ jobs:
           latexmk_use_lualatex: true
           post_compile: "latexmk -c"
           extra_fonts: |
-            ../hw-template/fonts/linux-libertine/*.otf
-            ../hw-template/fonts/linux-biolinum/*.otf
+            ${{github.workspace}}/hw-template/fonts/linux-libertine/*.otf
+            ${{github.workspace}}/hw-template/fonts/linux-biolinum/*.otf
         env:
           TEXINPUTS: ".:${{github.workspace}}/hw-template//:"
       - name: Create output folder
