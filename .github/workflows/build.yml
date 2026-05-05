@@ -32,7 +32,7 @@ jobs:
             ../hw-template/fonts/linux-libertine/*.otf
             ../hw-template/fonts/linux-biolinum/*.otf
         env:
-          TEXINPUTS: ".:../hw-template//:"
+          TEXINPUTS: ".:${{github.workspace}}/hw-template//:"
       - name: Create output folder
         id: build
         run: |
