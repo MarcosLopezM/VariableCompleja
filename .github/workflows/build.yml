@@ -19,6 +19,9 @@ jobs:
         with:
           repository: MarcosLopezM/HomeworkTemplate
           path: hw-template
+      - name: Move template
+        run: |
+          mv hw-template Notes/notesLaTeX/
       - name: Build PDF with LuaLaTeX
         uses: xu-cheng/latex-action@v4
         with:
@@ -29,10 +32,10 @@ jobs:
           latexmk_use_lualatex: true
           post_compile: "latexmk -c"
           extra_fonts: |
-            ${{github.workspace}}/hw-template/fonts/linux-libertine/*.otf
-            ${{github.workspace}}/hw-template/fonts/linux-biolinum/*.otf
+            hw-template/fonts/linux-libertine/*.otf
+            hw-template/fonts/linux-biolinum/*.otf
         env:
-          TEXINPUTS: ".:${{github.workspace}}/hw-template//:"
+          TEXINPUTS: ".:./hw-template//:"
       - name: Create output folder
         id: build
         run: |
