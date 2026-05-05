@@ -22,9 +22,8 @@ jobs:
       - name: Build PDF with LuaLaTeX
         uses: xu-cheng/latex-action@v4
         with:
-          root_file: main.tex
+          root_file: Notes/notesLaTeX/main.tex
           texlive_version: 2026
-          working_directory: Notes/notesLaTeX
           work_in_root_file_dir: true
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
@@ -38,7 +37,7 @@ jobs:
         id: build
         run: |
           mkdir -p build/
-          mv main.pdf build/main.pdf
+          mv Notes/notesLaTeX/main.pdf build/main.pdf
           echo '<meta http-equiv="refresh" content="0; URL=main.pdf">' > build/index.html
       - name: Ensure PDF was compiled
         run: test -f build/main.pdf
