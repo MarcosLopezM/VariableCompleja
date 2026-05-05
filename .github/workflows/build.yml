@@ -22,8 +22,10 @@ jobs:
           path: hw-template
       - name: Move template
         run: |
-          mv hw-template Notes/notesLaTeX/
-          mv Notes/notesLaTeX/hw-template/fonts Notes/notesLaTeX/
+          cp -r hw-template Notes/notesLaTeX/
+          cp -r hw-template GuiasExamen/E3/
+          cp -r Notes/notesLaTeX/hw-template/fonts Notes/notesLaTeX/
+          cp -r GuiasExamen/E3/hw-template/fonts GuiasExamen/E3/
       - name: Build PDF with LuaLaTeX
         uses: xu-cheng/latex-action@v4
         with:
