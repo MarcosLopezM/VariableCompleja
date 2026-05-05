@@ -30,10 +30,10 @@ jobs:
           latexmk_use_lualatex: true
           post_compile: "latexmk -c"
           extra_fonts: |
-            ../../hw-template/fonts/linux-libertine/*.otf
-            ../../hw-template/fonts/linux-biolinum/*.otf
+            ../hw-template/fonts/linux-libertine/*.otf
+            ../hw-template/fonts/linux-biolinum/*.otf
         env:
-          TEXINPUTS: ".:../../hw-template//:"
+          TEXINPUTS: ".:../hw-template//:"
       - name: Create output folder
         id: build
         run: |
