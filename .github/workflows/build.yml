@@ -22,6 +22,7 @@ jobs:
       - name: Move template
         run: |
           mv hw-template Notes/notesLaTeX/
+          mv Notes/notesLaTeX/hw-template/fonts Notes/notesLaTeX/
       - name: Build PDF with LuaLaTeX
         uses: xu-cheng/latex-action@v4
         with:
@@ -30,11 +31,7 @@ jobs:
           work_in_root_file_dir: true
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
-          pre_compile: "mktexlsr && luaotfload-tool -fu && fc-cache -fv"
           post_compile: "latexmk -c"
-          extra_fonts: |
-            hw-template/fonts/linux-libertine/*.otf
-            hw-template/fonts/linux-biolinum/*.otf
         env:
           TEXINPUTS: ".:./hw-template//:"
       - name: Create output folder
