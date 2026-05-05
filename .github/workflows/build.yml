@@ -31,7 +31,6 @@ jobs:
           work_in_root_file_dir: true
           latexmk_shell_escape: true
           latexmk_use_lualatex: true
-          post_compile: "latexmk -c"
         env:
           TEXINPUTS: ".:./hw-template//:"
       - name: Create output folder
