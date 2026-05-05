@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'Notes/notesLaTeX/**'
+      - 'GuiasExamen/E3/**'
   workflow_dispatch:
 permissions:
   contents: write
