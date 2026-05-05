@@ -1,0 +1,48 @@
+name: Compile LaTeX with LuaLaTeX
+on:
+  push:
+    paths:
+      - 'Notes/notesLaTeX/**'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  builNotes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project repo
+        uses: actions/checkout@v6
+      - name: Checkout HomeworkTemplate
+        uses: actions/checkout@v6
+        with:
+          repository: MarcosLopezM/HomeworkTemplate
+          path: hw-template
+      - name: Build PDF with LuaLaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          texlive_version: 2026
+          work_in_root_file_dir: true
+          latexmk_shell_escape: true
+          latexmk_use_lualatex: true
+          post_compile: "latexmk -c"
+          extra_fonts: |
+            ./hw-template/fonts/linux-libertine/*.otf
+            ./hw-template/fonts/linux-biolinum/*.otf
+        env:
+          TEXINPUTS: ".:./hw-template//:"
+      - name: Create output folder
+        id: build
+        run: |
+          mkdir -p build/
+          mv main.pdf build/main.pdf
+          echo '<meta http-equiv="refresh" content="0; URL=main.pdf">' > build/index.html
+      - name: Ensure PDF was compiled
+        run: test -f build/main.pdf
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          branch: gh-pages
