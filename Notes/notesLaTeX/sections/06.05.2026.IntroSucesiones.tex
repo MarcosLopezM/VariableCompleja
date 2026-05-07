@@ -22,7 +22,7 @@
     \(\abs{f_{n}(z) - f(z)} < \varepsilon\; \forall z\in U\).
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}\label{prop:convergenciaLimit}
     Sea \(\{f_{n} \colon U \subseteq \mathbb{C} \to \mathbb{C}\}_{n\in \mathbb{N}}\) una
     sucesión de funciones tal que \(\{f_{n}\}\) converge uniformemente a \(f \colon U
     \subseteq \mathbb{C} \to \mathbb{C}\) y sea \(\gamma \subseteq U\) una curva suave
@@ -59,5 +59,138 @@
     Notemos que \(z\in U\) tal que \(\abs{z - z_{0}} < \delta\) y \(\abs{f(z)
         - f(z_{0})}
     \leq \abs{f(z) - f_{N}(z_{0})}\).
+
+    \classdate{2026-05-07}
+
+    Para la segunda, queremos mostrar que \(\lim_{n \to \infty}
+    \int_{\gamma}^{}f_{n}(z)\odif{z} = \int_{\gamma}^{}f(z)\odif{z}\). Es decir, que
+    \(\forall \varepsilon > 0\; \exists N\in \mathbb{N}\) tal que \( \forall n \geq N\),
+
+    \begin{equation*}
+        \abs`\Bigg{\int_{\gamma}^{}f_{n}(z)\odif{z} - \int_{\gamma}^{}f(z)\odif{z}}
+        < \varepsilon.
+    \end{equation*}
+
+    Sea \(\varepsilon > 0\). Como \(f_{n}\) converge uniformemente a \(f\), i.e. \(f_{n}
+    \xlongrightarrow[]{u} f (f_{n} \rightrightarrows f)\) existe \(N\in \mathbb{N}\;
+    \forall n \geq N\)
+
+    \begin{equation*}
+        \abs{f_{n}(z) - f(z)} <
+        \dfrac{\varepsilon}{\mathrm{long}(\gamma)}\quad \forall z\in
+        U.
+    \end{equation*}
+
+    Entonces
+
+    \begin{align*}
+        \abs`\Bigg{\int_{\gamma}^{}f_{n}(z)\odif{z} - \int_{\gamma}^{}f(z)\odif{z}} &=
+        \abs`\Bigg{\int_{\gamma}^{}f_{n}(z) - f(z)\odif{z}},\\
+        &\leq \int_{\gamma}^{}\abs{f_{n}(z) - f(z)}\abs{\odif{z}},\\
+        &\leq
+        \dfrac{\varepsilon}{\mathrm{long}(\gamma)}\int_{\gamma}^{}\abs{\odif{z}},\\
+        &= \dfrac{\varepsilon}{\mathrm{long}(\gamma)}\mathrm{long}(\gamma),\\
+        &= \varepsilon.
+    \end{align*}
 \end{proof}
+
+\begin{proposition}
+    Sea \(\{f_{n} \colon U \subseteq \mathbb{C} \to \mathbb{C}\}_{n\in \mathbb{N}}\) una
+    sucesión de funciones que converge uniformemente a \(f \colon U \subseteq \mathbb{C}
+    \to \mathbb{C}\) sobre cualquier bola cerrada contenida en \(U\). Si \(f_{n}\) es
+    analítica \(\forall n\in \mathbb{N}\), entonces \(f\) es analítica y mas aún para
+    cualquier bola cerrada
+
+    \begin{equation*}
+        \lim_{n \to \infty} f_{n}^{(k)}(z) = f^{(k)}(z)\qquad \forall z\in U.
+    \end{equation*}
+\end{proposition}
+
+\begin{proof}
+    Como \(\forall n\in \mathbb{N}\) \(f_{n}\) es analítica, entonces \(\forall n\in
+    \mathbb{N}\) \(f_{n}\) es continua, entonces por (a) de
+    \zcref{prop:convergenciaLimit}, \(f\) es
+    continua y sea \(\gamma \subseteq U\) una curva cerrada suave por pedazos. Como
+    \(f_{n}\) es analítica \(\forall n\in \mathbb{N}\),
+
+    \begin{equation}
+        \int_{\gamma}^{}f_{n}(z)\odif{z} = 0.
+        \label{eq:curvaCerradaCero}
+    \end{equation}
+
+    Ahora, por (b) de la \zcref{prop:convergenciaLimit},
+
+    \begin{equation*}
+        \lim_{n \to \infty} \int_{\gamma}^{}f_{n}(z)\odif{z} =
+        \int_{\gamma}^{}f(z)\odif{z}
+    \end{equation*}
+
+    pero por \zcref[noname]{eq:curvaCerradaCero},
+
+    \begin{equation*}
+        \int_{\gamma}^{}f(z)\odif{z} = 0
+    \end{equation*}
+
+    \(\forall \gamma\in U \) curva cerrada suave por pedazos. Entonces por el
+    \zcref{theorem:Morera}, \(f\) es analítica en
+    \(U\).
+
+    Sea \(z_{0}\in  U\), \(r > 0\) ``pequeña'' tal que \(\bar{B}_{r}(z_{0}) \subseteq
+    U\) y \(R > 0\) tal que \(\partial B_{R}(z_{0}) \subseteq U\).
+    Sea \(\gamma \colon [0, 2\pi] \to U\) una parametrización en sentido antihorario de
+    \(\partial B_{R}(z_{0})\) que la recorra solo una vez.
+
+    Sea \( z\in \bar{B}_{r}(z_{0})\), entonces
+
+    \begin{align*}
+        f_{n}^{(k)}(z) &= \dfrac{k!}{2\pi i}\int_{\gamma}^{}\dfrac{f_{n}(w)}{\bigl(w -
+        z\bigr)^{k + 1}}\odif{w},\\
+        f^{(k)}(z) &= \dfrac{k!}{2\pi i}\int_{\gamma}^{}\dfrac{f(w)}{\bigl(w
+            - z\bigr)^{k +
+        1}}\odif{w}.
+    \end{align*}
+
+    Sea \(\varepsilon > 0\), entonces existe \(N\in \mathbb{N}\) tal que
+    \(\forall n \geq
+    N\),
+
+    \begin{equation*}
+        \abs{f_{n}(z) - f(z)} < \varepsilon\quad \forall z\in \bar{B}_{R}(z_{0}).
+    \end{equation*}
+
+    Notemos que
+
+    \begin{align*}
+        \abs{f_{n}^{(k)}(z) - f^{(k)}(z)} &=
+        \dfrac{k!}{2\pi}\abs`\Bigg{\int_{\gamma}^{}\dfrac{f_{n}(w) -
+            f(w)}{\bigl(w - z\bigr)^{k +
+        1}}\odif{w}},\\
+        &\leq \dfrac{k!}{2\pi}\int_{\gamma}^{}\dfrac{\abs{f_{n}(w) - f(w)}}{\abs{w -
+        z}^{k + 1}}\abs{\odif{w}},\\
+        &< \dfrac{k!}{2\pi}\int_{\gamma}^{}\dfrac{\varepsilon}{\abs{w - z}^{k +
+        1}}\abs{\odif{w}},\\
+        \intertext{Además que \(\forall w\in \partial B_{R}(z_{0}), \forall z\in
+            \bar{B}_{r}(z_{0})\) se tiene que \(\abs{w - z} \geq R - r\), lo
+            cual implica
+        que \(\tfrac{1}{\abs{w - z}} \leq \tfrac{1}{R - r}\), entonces}
+        &\leq \dfrac{k!}{2\pi}\int_{\gamma}^{}\dfrac{\varepsilon}{\bigl(R - r\bigr)^{k +
+        1}}\abs{\odif{w}},\\
+        &= \dfrac{k!}{2\pi}\dfrac{\varepsilon}{\bigl(R - r\bigr)^{k +
+        1}}\int_{\gamma}^{}\abs{\odif{w}},\\
+        &= \dfrac{k! R}{\bigl(R - r\bigr)^{k + 1}}\varepsilon.
+    \end{align*}
+
+    Por lo que,
+
+    \begin{equation*}
+        \lim_{n \to \infty} f_{n}^{(k)}(z) = f^{(k)}(z),\medspace \forall z\in
+        \bar{B}_{r}(z_{0}).
+    \end{equation*}
+\end{proof}
+
+\begin{definition}
+    Decimos que una serie de funciones \(\sum\limits_{n = 1}^{\infty}f_{n}\) converge
+    uniformemente a \(f\), si la sucesión de funciones \(g_{n} = \sum\limits_{i =
+    1}^{n}f_{i}\) converge uniformemente a \(f\).
+\end{definition}
 \end{document}
