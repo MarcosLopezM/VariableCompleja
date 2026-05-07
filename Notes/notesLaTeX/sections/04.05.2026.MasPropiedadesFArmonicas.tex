@@ -1,0 +1,255 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Más sobre funciones armónicas}
+\classdate{2026-05-04}
+
+\begin{theorem}[Principio del módulo máximo estricto para funciones
+    armónicas]\label{thm:ppmarmonicas}
+    Sea \(u \colon U \subseteq \mathbb{C} \to \mathbb{R}\) una función
+    armónica y \(U\) una región abierta y
+    conexa. Si \(u\) alcanza su valor máximo, entonces \(u\) es una función constante.
+\end{theorem}
+
+\begin{proof}
+    Sea \(u \colon U \subseteq \mathbb{C} \to \mathbb{R}\) como en el enunciado
+    anterior, entonces \(\exists z_{0}\in U\) tal que \(u(z_{0}) \geq u(z) \forall z\in
+    U\). Definimos el conjunto \(S \coloneqq \set{z\in U  \given u(z) = u(z_{0})}\).
+    Notemos que \(S\) es cerrado en \(U\), ya que \(S = u^{-1}(\{u(z_{0})\})\).
+
+    \begin{remark}
+        Para \(A \subseteq \mathbb{C}\), decimos que \(V \subseteq A\), es
+        abierto (cerrado)
+        en \(A\) si existe \(U \subseteq \mathbb{C}\) abierto (cerrado) tal
+        que \(U \cap A =
+        V\).
+    \end{remark}
+
+    Probaremos que \(S\) también es un conjunto abierto mostrando que \(S =
+    \mathrm{int}(S)\).
+
+    Sea \(z\in S\), entonces por defniición \(u(z) = u(z_{0})\). Ahora como
+    \(S \subseteq
+    U\), entonces \(z\in U\) y como \(U\) es abierto \(\exists R > 0\) tal
+    que \(B_{R}(z)
+    \subseteq U\). Sea \(0 \leq r < R\). Claramente \(\partial B_{r}(z) \subseteq
+    B_{R}(z)\).
+
+    Y sea \(\gamma \colon [0, 2\pi] \to U\) la parametrización de \(\partial B_{r}(z)\).
+    Además, de
+
+    \begin{equation*}
+        u(z) = \dfrac{1}{2\pi}\int_{0}^{2\pi}u(r \mathrm{e}^{it} + z)\odif{t}
+    \end{equation*}
+
+    se sigue que
+
+    \begin{equation*}
+        \int_{0}^{2\pi}u(r \mathrm{e}^{it} + z)\odif{t} = 2\pi u(z) =
+        \int_{0}^{2\pi}u(z)\odif{t}.
+    \end{equation*}
+
+    Y por tanto que
+
+    \begin{equation*}
+        \int_{0}^{2\pi}u(z) - u(r \mathrm{e}^{it} + z)\odif{t} = 0.
+    \end{equation*}
+
+    Ahora como \(u(z) = u(z_{0}) \geq u(r \mathrm{e}^{it} + z)\), implica que
+    \(u(z) - u(r
+    \mathrm{e}^{it} + z) \geq 0\), tal que
+
+    \begin{equation*}
+        \int_{0}^{2\pi}u(z) - u(r \mathrm{e}^{it} + z)\odif{t} \geq 0
+    \end{equation*}
+
+    pero de la igualdad anterior esto es \(0\), por lo que necesariamente \(u(z) - u(r
+    \mathrm{e}^{it} + z) = 0\), i.e. \(u(z) = u(r \mathrm{e}^{it} + z) \forall t\in [0,
+    2\pi]\).
+
+    Esto implia que \(\partial B_{r}(z) \subseteq S \forall 0 \leq r < R\) y
+
+    \begin{equation*}
+        B_{R}(z) = \bigcup_{0 \leq r < R}\partial B_{r}(z) \subseteq S.
+    \end{equation*}
+
+    Lo cual prueba que \(S\) es abierto en \(U\) y, por lo tanto, \(U\) es
+    conexo, con \(S \neq
+    \emptyset\), pues \(z_{0}\in  S\) y necesariamente \(U = S\), lo cual
+    implica que \(u
+    \equiv u(z_{0})\).
+\end{proof}
+
+\begin{theorem}[Principio del módulo máximo estricto para funciones analíticas]
+    Sea \(f \colon U \subseteq \mathbb{C} \to \mathbb{C}\) analítica con \(U\) abierto y
+    conexo. Si \(\abs{f} \colon U \subseteq \mathbb{C} \to \mathbb{C}\) alcanza su valor
+    máximo, entonces \(f\) es una función constante.
+\end{theorem}
+
+\begin{proof}
+    Sea \(f \colon U \subseteq \mathbb{C} \to \mathbb{C}\) como en el enunciado
+    anterior. Recordemos que para una función analítica \(f\) existen \(u,v \colon U
+    \subseteq \mathbb{C} \to \mathbb{R}\) conjugados armónicas tales que \(f = u + iv\).
+
+    Sea \(z_{0}\in U\) tal que \(\abs{f(z_{0})} \geq \abs{f(z)} \forall z\in
+    U\). Claramente
+    \(f(z_{0}) = \abs{f(z_{0})}\mathrm{e}^{i\theta}\) donde \(\theta = \arg(f(z_{0}))\).
+    Definimos \(g \colon U \subseteq \mathbb{C} \to \mathbb{C}\) como la función dada
+    por \(g(z) = f(z) \mathrm{e}^{-i\theta}\). \(g\) es analítica y satisfce que
+    \(\forall z\in U\),
+
+    \begin{equation*}
+        \abs{g(z)} \leq \abs{g(z_{0})}
+    \end{equation*}
+
+    pues \(\abs{g(z)} = \abs{f(z)}\).
+
+    Ahora sean \(u,v \colon U \subseteq \mathbb{C} \to \mathbb{C}\) los
+    conjugados armónicos
+    tales que \(g = u + iv\). Notemos que \(g(z_{0}) = f(z_{0})\mathrm{e}^{-i\theta} =
+    \abs{f(z_{0})}\mathrm{e}^{i\theta}\mathrm{e}^{-i\theta} = \abs{f(z_{0})}\) y como
+    \(u(z_{0}) = \Re(g(z_{0}))\) y \(g(z_{0})\in \mathbb{R}\), entonces \(u(z_{0}) =
+    g(z_{0}) = \abs{f(z_{0})}\). Nótese que para \(z\in U\),
+
+    \begin{equation*}
+        u(z) \leq \abs{u(z)} \leq \abs{g(z)} \leq \abs{g(z_{0})} =
+        \abs{\abs{f(z_{0})}} =
+        \abs{f(z_{0})} = u(z_{0}).
+    \end{equation*}
+
+    Por lo tanto, \(u\) alcanza su máximo en \(z_{0}\) y por el
+    \zcref{thm:ppmarmonicas}, \(u\) es una
+    función constante, i.e. \(u \equiv \abs{f(z_{0})}\).
+
+    Finalmente, para \(z\in U\),
+
+    \begin{equation*}
+        \abs{f(z_{0})}^{2} + v^{2}(z) = u^{2}(z) + v^{2}(z) = \abs{g(z)}^{2} \leq
+        \abs{g(z_{0})}^{2} = \abs{f(z_{0})}^{2}
+    \end{equation*}
+
+    lo que implica para toda \(z\) en \(U\), \(v^{2}(z) \leq 0\) y a su vez
+    que \(v \equiv
+    0\), de tal manera
+
+    \begin{equation*}
+        g = u \equiv \abs{f(z_{0})}.
+    \end{equation*}
+
+    Y como \(g\) es una función constante, entonces \(f\) también lo es.
+\end{proof}
+
+\begin{theorem}[Principio del módulo máximo para funciones armónicas]
+    Sea \(U \subseteq \mathbb{C}\) un conjunto abierto, conexo y acotado. Sea \( u
+    \colon \bar{U} \subseteq \mathbb{C}  \to \mathbb{R}\) una función continua en
+    \(\bar{U}\) y armónica en \(U\). Entonces sucede alguna de las siguientes dos
+    afiermaciones:
+
+    \begin{enumerate}
+        \item \(u\) alcanza su valor máximo en \(\mathrm{Fr}(U)\).
+        \item Si \(u\) alcanza su valor máximo en \(U\), entonces \(u\) es una función
+            constante.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Notemos por ser \(U\) acotado, \(\bar{U}\) es compacto, por lo que \(u\) alcanza su
+    valor máximo en \(z_{0}\in \bar{U}\), recordando que \(\bar{U} = \mathrm{Fr}(U) \cup
+    \mathrm{int}(U)\), lo cual implica que \(z_{0}\in \mathrm{Fr}(U)\) o \(z_{0}\in
+    \mathrm{int}(U)\).
+
+    Si ocurre lo primero, \(z_{0}\in \mathrm{Fr}(U)\), se cumple el caso (a).
+    Mientras que si \(z_{0}\in
+    \mathrm{int}(U)\), pero \(U\) es abierto entonces \(\mathrm{int}(U)\), y por el
+    \zcref{thm:ppmarmonicas}, \(u\) es una
+    función constante.
+\end{proof}
+
+\begin{theorem}[Principio del módulo máximo para funciones analíticas]
+    Sea \(U \subseteq \mathbb{C}\) un conjunto abierto conexo y acotado. Sea \(f \colon
+    \bar{U} \subseteq \mathbb{C}\to \mathbb{C}\) una función continua en \(\bar{U}\) y
+    analítica en \(U\). Entonces sucede alguna de las siguientes dos afirmaciones:
+
+    \begin{enumerate}
+        \item \(\abs{f}\) alcanza su valor máximo en \(\mathrm{Fr}(U)\).
+        \item Si \(\abs{f}\) alcanza su valor máximo en \(U\), entonces \(f\)
+            es una función
+            constante.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    La prueba es la misma que la del teorema anterior, únicamente se cambia \(u\) por
+    \(\abs{f}\).
+\end{proof}
+
+\begin{theorem}[Principio del módulo mínimo para funciones armónicas]
+    Sea \(U \subseteq \mathbb{C}\) un conjunto abierto, conexo y acotado. Sea \(u \colon
+    \bar{U} \subseteq \mathbb{C}\to \mathbb{R}\) una función continua en \(\bar{U}\) y
+    armónica en \(U\). Entonces suce alguna de las siguientes dos afirmaciones:
+
+    \begin{enumerate}
+        \item \(u\) alcanza su valor mínimo en \(\mathrm{Fr}(U)\).
+        \item Si \(u\) alcanza su valor mínimo en \(U\), entonces \(u\) es
+            una función constante.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Como \(u \colon \bar{U} \subseteq \mathbb{C} \to \mathbb{R}\) es continua y
+    \(\bar{U}\) compacto, entonces \(u\) alcanza su mínimo en un \(z_{0}\in \bar{U}\) y
+    como \(\bar{U} = \mathrm{Fr}(U) \cup \mathrm{int}(U)\) entonces \(z_{0}\in
+    \mathrm{Fr}(U)\) o \(z_{0}\in \mathrm{int}(U)\).
+
+    Si ocurre que \(z_{0}\in
+    \mathrm{Fr}(U)\), entonces inmediatamente se cumple lo que se nos pide. Ahora bien,
+    si ocurre que \(z_{0}\in \mathrm{int}(U)\), debemos considerar \(v \colon \bar{U}
+    \subseteq \mathbb{C} \to \mathbb{R}\) dada por \(v(z) = -u(z) \forall z\in
+    \bar{U}\), lo que nos dice que \(z_{0}\) es un valor máximo de \(v\) y por un
+    teorema anterior, como \(z_{0}\in  U\), \(v\) es constante, tal que \(u\) también lo
+    es.
+\end{proof}
+
+\begin{theorem}[Principio del módulo mínimo para funcioness analíticas]
+    Sea \(U \subseteq \mathbb{C}\) un conjunto abierto, conexo y acotado. Sea \(f \colon
+    \bar{U} \subseteq \mathbb{C}\to \mathbb{C}\) una función continua en \(\bar{U}\) y
+    analítica en \(U\). Enontces sucede alguna de las siguientes tres afirmaciones:
+
+    \begin{enumerate}
+        \item \(\abs{f}\) alcanza su valor mínimo en \(\mathrm{Fr}(U)\).
+        \item \(\abs{f}\) alcanza su valor mínimo en algún \(z_{0}\in  U\) y
+            \(\abs{f(z_{0})}
+            = 0\).
+        \item Si \(\abs{f}\) alcanza su valor mínimo en algún \(z_{0}\in U\) con
+            \(\abs{f(z_{0})} > 0\), entonces \(f\) es constante.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Como \(\bar{U}\) es compacto y \(f\) continua, entonces \(\abs{f}\) alcanza su valor
+    mínimo para un \(z_{0}\in \bar{U}\) y debido a esto \(z_{0}\in \mathrm{Fr}(U)\) o
+    \(z_{0}\in  U\).
+
+    Si ocurre lo primero, ya tendríamos lo que queríamos. Mientras que si ocurre lo
+    segundo, \(\abs{f(z_{0})} = 0\). Ahora si \(z_{0}\in  U\) y \(\abs{f(z_{0})} > 0\),
+    definimos \(g \colon \bar{U}\subseteq \mathbb{C} \to \mathbb{C}\) como \(g(z) =
+    \tfrac{1}{f(z)} \forall z\in \bar{U}\).
+    Notemos que \(g\) está bien definida, pues \(\abs{f(z)} \geq
+        \abs{f(z_{0})} > 0 \forall
+    z\in U\), entonces \(f(z) \neq 0 \forall z\in U\), de lo contrario \(0 =
+        \abs{f(z)} >
+    0\), lo cual es una contradicción.
+    Ahora, como \(\abs{f(z)} \geq \abs{f(z_{0})} > 0 \forall z\in \bar{U}\), enotnces
+
+    \begin{equation*}
+        0 < \dfrac{1}{\abs{f(z)}} \leq \dfrac{1}{\abs{f(z_{0})}}\quad \forall
+        z\in \bar{U},
+    \end{equation*}
+
+    i.e. \(0 < \abs{g(z)} \leq \abs{g(z_{0})}, \forall z\in \bar{U}\).
+    Entonces \(\abs{g}\)
+    alcanza su mínimo en \(z_{0} \in U\) y por un teorema anterior, \(g\) es una función
+    constante, lo cual implica que \(f\) también lo es. Por lo tanto, se
+    cumple este caso.
+\end{proof}
+\end{document}
