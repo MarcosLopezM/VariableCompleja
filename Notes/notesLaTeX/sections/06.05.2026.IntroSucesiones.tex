@@ -1,0 +1,63 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Sucesiones de funciones}
+\classdate{2026-05-06}
+
+\begin{definition}[Convergencia puntual]
+    Sea \(\set{f_{n} \colon U \subseteq \mathbb{C} \to \mathbb{C} \given f\;
+    \text{función}}_{n\in \mathbb{N}}\) una sucesión de funciones. Decimos que
+    \(\{f_{n}\}\) converge putualmente a \(f\) si \(\forall \varepsilon > 0\) y
+    \(\forall z\in U \exists N\in \mathbb{N}\) tal que \(\forall n \geq N\),
+
+    \begin{equation*}
+        \abs{f_{n}(z) - f(z)} < \varepsilon.
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Convergencia uniforme]
+    SEa \(\{f_{n} \colon U \subseteq \mathbb{C} \to \mathbb{C}\}_{n\in \mathbb{N}}\) una
+    sucesión de funciones. Decimos que \(\{f_{n}\}\) converge uniformemente a \(f\) si
+    \(\forall \varepsilon > 0\) existe \(N\in \mathbb{N}\) tal que \(n \geq N\)
+    \(\abs{f_{n}(z) - f(z)} < \varepsilon\; \forall z\in U\).
+\end{definition}
+
+\begin{proposition}
+    Sea \(\{f_{n} \colon U \subseteq \mathbb{C} \to \mathbb{C}\}_{n\in \mathbb{N}}\) una
+    sucesión de funciones tal que \(\{f_{n}\}\) converge uniformemente a \(f \colon U
+    \subseteq \mathbb{C} \to \mathbb{C}\) y sea \(\gamma \subseteq U\) una curva suave
+    por pedazos, entonces
+
+    \begin{enumerate}
+        \item Si \(\forall n\in \mathbb{N}\) \(f_{n}\) es continua, entonces
+            \(f\) es continua.
+        \item \(\lim_{n \to \infty} \int_{\gamma}^{}f_{n}(z)\odif{z} =
+                \int_{\gamma}^{}\lim_{n \to \infty} f_{n}(z)\odif{z} =
+            \int_{\gamma}^{}f(z)\odif{z}\) con \(f_{n}\) continuas.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Debemos mostrar que \(\forall z_{0}\in U\) y \(\forall \varepsilon > 0 \;\exists
+    \delta > 0\) tal que \(\abs{z - z_{0}} < \delta\), entonces \(\abs{f(z) - f(z_{0})}
+    < \varepsilon\). Sea \(\varepsilon > 0\) y \(z_{0}\in U\), \(\exists N\in
+    \mathbb{N}\) tal que \(\forall n \geq N \abs{f_{n}(z_{0}) - f(z_{0})} <
+    \tfrac{\varepsilon}{3}\), en particular \(\abs{f_{N}(z) - f(z_{0})} <
+    \tfrac{\varepsilon}{3}\).
+
+    Como \(f_{N}\) es continua \(\exists\delta > 0\) tal que cumple
+    continuidad. Sea \(z\in
+    U\) tal que \(\abs{z - z_{0}}  \delta\) se cumple que \(\abs{f_{N}(z) -
+        f_{N}(z_{0})} <
+    \tfrac{\varepsilon}{3}\).
+    Y nuevamente por convergencia uniforme,
+
+    \begin{equation*}
+        \abs{f_{N}(z) - f(z)} < \dfrac{\varepsilon}{3}.
+    \end{equation*}
+
+    Notemos que \(z\in U\) tal que \(\abs{z - z_{0}} < \delta\) y \(\abs{f(z)
+        - f(z_{0})}
+    \leq \abs{f(z) - f_{N}(z_{0})}\).
+\end{proof}
+\end{document}
