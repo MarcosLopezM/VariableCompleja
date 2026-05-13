@@ -198,4 +198,129 @@
     uniformemente a \(f\), si la sucesión de funciones \(g_{n} = \sum\limits_{i =
     1}^{n}f_{i}\) converge uniformemente a \(f\).
 \end{definition}
+
+\classdate{2026-05-12}
+
+\begin{theorem}[Criterio de Cauchy]
+    Sean \(A \subseteq \mathbb{C}\), \(f_{n} \colon A \subseteq \mathbb{C} \to
+    \mathbb{C}\) una sucesión de funciones. Entonces \(\exists f \colon A \subseteq
+    \mathbb{C} \to \mathbb{C}\) tal que \(f_{n}
+    \xlongrightarrow[]{u} f\;\) en \(A\) si y solo si \(\forall \varepsilon > 0,\;
+    \exists N\in \mathbb{N}\) tal que si \(m, n \geq N\), entonces \(\abs{f_{n}(z) -
+    f_{m}(z)} < \varepsilon\; \forall z\in A\). (\(f_{n}\) es uniformemente de Cauchy).
+\end{theorem}
+
+\begin{proof}
+    La primera implicación es directa. Por lo que probaremos que si la sucesión
+    \(f_{n}\) es uniformemente de Cauchy implica que converge uniformemente a \(f\) A.
+
+    Sea \(\varepsilon > 0\). Por hipótesis \(\exists N\in \mathbb{N}\) tal que si \(n,m
+    \geq N\), entonces \(\abs{f_{n}(z) - f_{m}(z)} <
+        \tfrac{\varepsilon}{2},\; \forall z\in
+    A\).
+    En particular, \(\forall z\in A\), \(\{f_{n}(z)\}\) es de Cauchy. Como
+    \(\mathbb{C}\) es completo, \(\exists f(z)\in \mathbb{C}\) tal que \(\lim_{n \to
+    \infty} f_{n}(z) = f(z)\). Por lo que definimos \(f \colon A \subseteq \mathbb{C}
+    \to \mathbb{C}\) como \(f(z) \coloneqq \lim_{n \to \infty} f_{n}(z)\).
+
+    \textcolor{JungleGreen}{Afirmación.} \(f_{n}
+    \xlongrightarrow[]{u} f\) en \(A\).
+
+    Como \(f(z) \coloneqq \lim_{n \to \infty} f_{n}(z)\), para cada \(z\in A,\; \exists
+    m_{z}\in \mathbb{N}\) tal que \(\abs{f(z) - f_{n + m_{z}}(z)} <
+    \tfrac{\varepsilon}{2}\).
+    Sea \(z\in A,\; n \geq N\),
+
+    \begin{align*}
+        \abs{f(z) - f_{n}(z)} &= \abs{f(z) - f_{N + m_{z}}(z) + f_{N + m_{z}}(z) -
+        f_{n}(z)},\\
+        &\leq \abs{f(z) - f_{N + m_{z}}(z)} + \abs{f_{N + m_{z}}(z) -
+        f_{n}(z)},\\
+        &< \dfrac{\varepsilon}{2} + \dfrac{\varepsilon}{2} =
+        \varepsilon.
+    \end{align*}
+
+    Por lo tanto, \(f_{n} \xlongrightarrow[]{u} f \) en \(A\).
+\end{proof}
+
+\begin{remark}
+    Si \(f_{k} \colon A \subseteq \mathbb{C} \to \mathbb{C}\) es tal que \(f_{n}
+    \xlongrightarrow[]{u} f\), con \(f \colon A \subseteq \mathbb{C} \to \mathbb{C}\) y
+    \(f_{k}\) es continua \(\forall k\in \mathbb{N}\), entonces \(f\) es continua.
+\end{remark}
+
+\begin{corollary}
+    Si \(f_{k} \colon A \subseteq \mathbb{C} \to \mathbb{C}\) es una sucesión de
+    funciones continuas tales que \(\sum_{k = 1}^{\infty}f_{k}\) converge uniformemente,
+    entonces \(\sum_{k = 1}^{\infty}f_{k}\) es continua.
+\end{corollary}
+
+\begin{definition}
+    Sea \(f_{k} \colon A \subseteq \mathbb{C} \to \mathbb{C}\) una sucesión de
+    funciones. Decimos que \(\sum_{k = 1}^{\infty}f_{k}\) converge absoluta y
+    uniformemente en \(A\), si \(\sum_{k = 1}^{\infty}\abs{f_{k}}\) converge
+    uniformemente.
+\end{definition}
+
+\begin{remark}
+    Por el criterio uniformemente de Cauchy,
+
+    \begin{equation*}
+        \abs`\Bigg{\sum_{k = n + 1}^{n + m}f_{k}(z)} \leq \sum_{k = n + 1}^{n +
+        m}\abs{f_{k}(z)},
+    \end{equation*}
+
+    \(\forall z\in A,\; \forall n,m\in \mathbb{N}\).
+    Si \(\sum_{k = 1}^{\infty}f_{k}(z)\) converge absoluta y uniformemente, entonces
+    \(\sum_{k = 1}^{\infty}f_{k}\) converge uniformemente.
+\end{remark}
+
+\begin{theorem}[Prueba M de Weierstrass]\label{thm:MTestWeierstrass}
+    Sean \(A \subseteq \mathbb{C}\) y \(f_{n} \colon A \subseteq \mathbb{C} \to
+    \mathbb{C}\) una sucesión de funciones. Supongamos que existen \(M_{n} \geq 0\),
+    \(n\in \mathbb{N}\) tales que
+
+    \begin{enumerate}
+        \item \(\abs{f_{n}(z)} \leq M_{n},\; \forall z\in A\).
+        \item \(\sum_{n = 1}^{\infty}M_{n}\) converge, \(\sum_{n = 1}^{\infty}f_{n}\)
+            converge absoluta y uniformemente en \(A\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Como \(\sum_{n = 1}^{\infty}M_{n}\) converge, dada \(\varepsilon > 0, \;
+        \exists N\in
+    \mathbb{N}\) tal que \(\forall m\in \mathbb{N}\), \(\forall m \geq N\),
+
+    \begin{equation*}
+        \abs`\Bigg{\sum_{k = n + 2}^{n + m}M_{k}} < \varepsilon.
+    \end{equation*}
+
+    Sean \(n \geq N, \; m\in \mathbb{N}\),
+
+    \begin{align*}
+        \sum_{k = n + 1}^{n + m}\abs{f_{k}(z)} &\leq \sum_{k = n + 1}^{n + m}M_{k},\\
+        &= \abs`\Bigg{\sum_{k = n + 1}^{n + m}M_{k}} < \varepsilon.
+    \end{align*}
+
+    Por lo que \(\sum_{k = 1}^{\infty}\abs{f_{k}}\) es uniformemente de Cauchy y, por lo
+    tanto, \(\sum_{k = 1}^{\infty}f_{k}\) converge absoluta y uniformemente en \(A\).
+\end{proof}
+
+\begin{example}
+    Consideremos \(\sum_{n = 1}^{\infty}\frac{z^{n}}{n}\).
+
+    Notemos que esta serie converge absoluta y uniformemente en
+    \(\overline{B_{r}(0)}\) con
+    \(r < 1\).
+    Sea \(f_{n}(z) = \frac{z^{n}}{n}\),
+
+    \begin{equation*}
+        \abs{f_{n}(z)} = \dfrac{\abs{z}^{n}}{n} \leq \dfrac{r^{n}}{n} \leq r^{n}.
+    \end{equation*}
+
+    Como \(0 < r < 1\), \(\sum_{n = 1}^{\infty}r^{n}\) converge. Por el
+    \zcref{thm:MTestWeierstrass}, \(\sum_{n =
+    1}^{\infty}f_{n}\) converge absoluta y uniformemente en \(\overline{B_{r}(0)}\).
+\end{example}
 \end{document}
