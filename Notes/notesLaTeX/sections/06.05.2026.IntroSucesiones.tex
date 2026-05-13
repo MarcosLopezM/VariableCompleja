@@ -56,9 +56,14 @@
         \abs{f_{N}(z) - f(z)} < \dfrac{\varepsilon}{3}.
     \end{equation*}
 
-    Notemos que \(z\in U\) tal que \(\abs{z - z_{0}} < \delta\) y \(\abs{f(z)
-        - f(z_{0})}
-    \leq \abs{f(z) - f_{N}(z_{0})}\).
+    Notemos que \(z\in U\) tal que \(\abs{z - z_{0}} < \delta\) y
+    \begin{align*}
+        \abs{f(z) - f(z_{0})} \leq \abs{f(z) - f_{N}(z)} + \abs{f_{N}(z) - f_{N}(z_{0})}
+        + \abs{f_{N}(z_{0}) - f(z_{0})} \leq \dfrac{\varepsilon}{3} +
+        \dfrac{\varepsilon}{3} + \dfrac{\varepsilon}{3} = \varepsilon.
+    \end{align*}
+
+    Por lo tanto, \(f\) es continua en \(z_{0},\; \forall z_{0}\in U\).
 
     \classdate{2026-05-07}
 
