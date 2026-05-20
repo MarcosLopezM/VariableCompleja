@@ -496,4 +496,135 @@
     converge para toda
     \(z\) en \(B_{s}(z_{0})\), lo cual es una contradicción pues \(s > R\).
 \end{proof}
+
+\classdate{2026-05-18}
+
+\begin{theorem}[de los coeficientes de Taylor]
+    Sea \(\sum_{n = 0}^{\infty}a_{n}(z - z_{0})^{n}\) una serie de potencias con un
+    radio de convergencia \(R\) y definimos \(f \colon B_{R}(z_{0}) \subseteq \mathbb{C}
+    \to \mathbb{C}\) dada por
+
+    \begin{equation*}
+        f(z) = \sum_{n = 0}^{\infty}a_{n}(z - z_{0})^{n}.
+    \end{equation*}
+
+    Entonces \(\forall n\in \mathbb{N}\)
+
+    \begin{equation*}
+        a_{n} = \dfrac{f^{(n)}(z_{0})}{n!}
+    \end{equation*}
+
+    y
+
+    \begin{equation*}
+        f^{\prime}(z_{0}) = \sum_{n = 0}^{\infty}n a_{n}(z - z_{0})^{n - 1}
+    \end{equation*}
+
+    tiene también a \(R\) como radio de convergencia.
+\end{theorem}
+
+\begin{remark}
+    Una serie de potencias convergente \(f(z) = \sum a_{n}(z - z_{0})^{n}\) es analítica
+    en el dominio de su radio de convergencia.
+\end{remark}
+
+\begin{proof}
+    El \zcref{thm:deWeierstrass}afierma que
+    \(f^{\prime}(z) = \sum_{n = 1}^{\infty}n a_{n}(z - z_{0})^{n - 1}\) para toda \(z\in
+    \bar{B}_{r}(z_{0})\) y para toda \(z\in B_{R}(z_{0})\) con \(0 \leq r < R\).
+    Suponemos que \(\exists z_{1}\in \mathbb{C}\) tal que \(\abs{z_{1} - z_{0}} > R\),
+    por lo que \(\sum_{n = 1}^{\infty}n a_{n}(z - z_{0})^{n - 1}\) converge; tomando
+    \(r_{1} = \abs{z_{1} - z_{0}}\), entonces \(\sum_{n = 1}^{\infty}n a_{n}r_{1}^{n -
+    1}\), lo cual implica que \(n \abs{a_{n}}r_{1}^{n - 1} \to 0\). Por lo tanto,
+    \(\exists M > 0\) \(n \abs{a_{n}}r_{1}^{n - 1} < M\) para toda \(n\) en
+    los naturales, tal que
+
+    \begin{equation*}
+        \abs{a_{n}}r_{1}^{n} < \dfrac{M}{n} \leq M\; \forall n\in \mathbb{N}
+    \end{equation*}
+
+    y \(\abs{a_{n}}r_{1}^{n} \to 0\).
+
+    Y, por el \zcref{lemma:abel}, \(\sum_{n =
+    1}^{\infty}a_{n}r_{1}^{n}\) converge en \(\bar{B}_{r_{2}}(z_{0})\) con \(r_{1} >
+    r_{2} > R\); sin embargo, esto nos lleva a una contradicción pues \(R\) es el
+    radio de convergencia.
+
+    Por lo tanto, el radio de convergencia de \(f^{\prime}\) debe de ser también \(R\).
+\end{proof}
+
+\begin{theorem}[Criterio de radio de convergencia]
+    Sea \(\sum_{n = 0}^{\infty}a_{n}(z - z_{0})^{n}\) una serie de potencias y \(R\) el
+    radio de convergencia.
+
+    \begin{enumerate}
+        \item Si \(\lim_{n \to \infty} \tfrac{\abs{n}}{\abs{a_{n + 1}}}\)
+            existe y es \(L\),
+            entonces el radio de convergencia es igual a este, i.e. \(R = L\).
+        \item Si \(\lim_{n \to \infty} \sqrt[n]{\abs{a_{n}}}\) existe y es
+            \(L\), entonces
+
+            \begin{equation*}
+                R =
+                \begin{dcases}
+                    \dfrac{1}{L} & \text{si}\; L \neq 0\; \wedge\; L \neq \infty,\\
+                    0 & \text{si}\;  L = \infty,\\
+                    \infty & \text{si}\; L = 0.
+                \end{dcases}
+            \end{equation*}
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Recordando que
+
+    \begin{equation*}
+        R = \sup\set{r \geq 0 \given \sum_{n = 0}^{\infty}\abs{a_{n}}r^{n}\;
+        \text{convere}}
+    \end{equation*}
+
+    \begin{enumerate}
+        \item Sea \(L = \lim_{n \to \infty} \tfrac{\abs{a_{n}}}{\abs{a_{n + 1}}}\) y
+            suponiendo que \(0 < L < \infty\).
+            Sea \(0 < r < L\), por lo que
+
+            \begin{equation*}
+                \lim_{n \to \infty} \dfrac{\abs{a_{n +
+                1}}}{\abs{a_{n}}}\dfrac{r^{n + 1}}{r^{n}} =
+                \dfrac{r}{L} < 1.
+            \end{equation*}
+
+            Por lo tanto, \(\sum_{n = 0}^{\infty}a_{n}r^{n}\) converge, en cambio si \(r
+            > L\), lo cual implica que \(\tfrac{r}{L} > 1\), de tal forma que la serie
+            anterior diverge, i.e. \(L = R\).
+
+        \item Sea \(L = \lim_{n \to \infty} \sqrt[n]{\abs{a_{n}}}\). Suponiendo que
+            \(0 < L < \infty\) y \(r > 0\). Notemos entonces que \(\lim_{n \to \infty}
+                \sqrt[n]{\abs{a_{n}}r^{n}} = \lim_{n \to \infty}
+            \sqrt[n]{\abs{a_{n}}}r = Lr\).
+            Por el criterio de convergencia, si \(r > \tfrac{1}{L}\) la serie diverge y
+            si \(r < \tfrac{1}{L}\), la serie converge.
+            Por lo tanto, \(R = \tfrac{1}{L}\), tal que \(L = 0\) y \(L = \infty\).
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    Sea \(\mathrm{e}^{z} = \sum_{n = 0}^{\infty} \tfrac{z^{n}}{n!}\), con \(a_{n} =
+    \tfrac{1}{n!}\).
+
+    \begin{equation*}
+        \lim_{n \to \infty} \dfrac{\abs{a_{n}}}{\abs{a_{n + 1}}} = \lim_{n \to \infty}
+        \dfrac{\tfrac{1}{n!}}{\tfrac{1}{(n + 1)!}} = \lim_{n \to \infty}
+        \dfrac{(n + 1)!}{n!}
+        = \lim_{n \to \infty} n + 1 = \infty.
+    \end{equation*}
+
+    Sea \(\sum_{n = 0}^{\infty}n^{n}z^{n}\) con \(a_{n} = n^{n}\), tal que
+
+    \begin{equation*}
+        \lim_{n \to \infty} \sqrt[n]{\abs{a_{n}}} = \lim_{n \to \infty} n = \infty
+    \end{equation*}
+
+    con \(R = 0\).
+\end{example}
 \end{document}
