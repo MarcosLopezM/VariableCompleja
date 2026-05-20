@@ -627,4 +627,188 @@
 
     con \(R = 0\).
 \end{example}
+
+\pagebreak
+\classdate{2026-05-19}
+\begin{lemma}[1]\label{lemma:lem1}
+    La serie de potencias \(\sum_{n = 0}^{\infty}z^{n}\) converge normal y absolutamente
+    en \(B_{1}(0)\) a \(\tfrac{1}{1 - z}\).
+\end{lemma}
+
+\begin{proof}
+    Recordamos que
+
+    \begin{equation*}
+        s_{n} = 1 + z + z^{2} + \cdots + z^{n} = \dfrac{1 - z^{n + 1}}{1 - z}.
+    \end{equation*}
+
+    Entonces
+
+    \begin{align*}
+        \sum_{n = 0}^{\infty}z^{n} &= \lim_{n \to \infty} s_{n} = \lim_{n \to
+        \infty} 1 + z +
+        \cdots + z^{n},\\
+        &= \lim_{n \to \infty} \dfrac{1 - z^{n + 1}}{1 - z},
+    \end{align*}
+
+    como \(z\in B_{1}(0)\), i.e. \(\abs{z} < 1\) entonces
+
+    \begin{equation*}
+        \lim_{n \to \infty} \abs{z^{n + 1}} = \lim_{n \to \infty} \abs{z}^{n + 1} = 0.
+    \end{equation*}
+
+    Por lo que,
+
+    \begin{equation*}
+        \lim_{n \to \infty} \dfrac{1 - z^{n + 1}}{1 - z} = \lim_{n \to
+        \infty} \dfrac{1}{1 -
+        z} - \lim_{n \to \infty} \dfrac{z^{n + 1}}{1 - z} = \dfrac{1}{1 - z}.
+    \end{equation*}
+
+    Por lo tanto,
+
+    \begin{equation*}
+        \sum_{n = 0}^{\infty}z^{n} = \dfrac{1}{1 - z}.
+    \end{equation*}
+\end{proof}
+
+\begin{lemma}[2]\label{lemma:lem2}
+    Si \(\sum_{n = 0}^{\infty}f_{n}\) converge uniformemente a \(f\) (\(f_{n},\; f
+    \colon U \subseteq \mathbb{C} \to \mathbb{C}\; \forall n\in \mathbb{N}\)) y \(g
+    \colon U \subseteq \mathbb{C} \to \mathbb{C}\) acotada. Entonces \(\sum_{n =
+    0}^{\infty}g f_{n}\) converge uniformemente a \(gf\).
+\end{lemma}
+
+\begin{proof}
+    Como \(g\) está acotada \(\exists n > 0\) tal que \(\abs{g(z)} < M\) para toda \(z\)
+    en \(U\). Y, además, la serie \(\sum_{n = 0}^{\infty}f_{n}\) converge uniformemente
+    y es uniformemente de Cauchy.
+
+    Sea \(\varepsilon > 0\) entonces \(\exists N\in \mathbb{N}\) tal que
+    \(\forall m \geq k
+    > N\),
+
+    \begin{equation*}
+        \abs`\bigg{\sum_{n = k}^{m}f_{n}(z)} < \dfrac{\varepsilon}{M}\; \forall z\in U.
+    \end{equation*}
+
+    Notemos que
+
+    \begin{align*}
+        \abs`\bigg{\sum_{n = k}^{m}g(z)f_{n}(z)} &\leq \abs`\bigg{g(z)\sum_{n
+        = k}^{m}f_{n}(z)},\\
+        &= \abs{g(z)}\abs`\bigg{\sum_{n = k}^{m}f_{n}(z)},\\
+        &\leq M \abs`\bigg{\sum_{n = k}^{m}f_{n}(z)},\\
+        &< M\dfrac{\varepsilon}{M} = \varepsilon.
+    \end{align*}
+\end{proof}
+
+\begin{theorem}[de Taylor]
+    Sea \(f \colon U \subseteq \mathbb{C} \to \mathbb{C}\) analítica, entonces \(\exists
+    r > 0\) tal que \(\bar{B}_{r}(z_{0}) \subseteq U\) y \(\forall z\in B_{r}(z_{0})\),
+
+    \begin{equation*}
+        f(z) = \sum_{n = 0}^{\infty}\dfrac{f^{(n)}(z_{0})}{n!}(z - z_{0})^{n}.
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    Como \(U\) es abierto dado \(z_{0}\in  U\) \(\exists r > 0\) ``pequeño'' tal que
+    \(\bar{B}_{r}(z_{0}) \subseteq U\). Sea \(t > r\) tal que \(\bar{B}_{t}(z_{0})\) y
+    \(\gamma \colon [0, 2\pi] \to \mathbb{C}\) dada por \(\gamma(s) = z_{0} + t
+    \mathrm{e}^{is}\), \(\gamma = C_{t}(z_{0})\). Por la fórmula integral de Cauchy, si
+    \(z\in \bar{B}_{r}(z_{0})\) entonces
+
+    \begin{equation*}
+        f(z) = \dfrac{1}{2\pi i} \int_{\gamma}^{}\dfrac{f(z)}{w - z}\odif{w}
+    \end{equation*}
+
+    con \(\abs{z - z_{0}} \leq r < t\) y, además, \(w\in \gamma\) tal que \(\abs{w -
+    z_{0}}\),
+
+    \begin{equation*}
+        \abs{\dfrac{z - z_{0}}{w - z_{0}}} = \dfrac{\abs{z - z_{0}}}{\abs{w -
+        z_{0}}} \leq
+        \dfrac{r}{t} < 1.
+    \end{equation*}
+
+    Notemos que
+
+    \begin{align*}
+        \dfrac{1}{w - z} &= \dfrac{1}{w - z_{0} - (z - z_{0})},\\
+        &= \dfrac{1}{w - z_{0}}\dfrac{1}{1 - \tfrac{z - z_{0}}{w - z_{0}}},\\
+        \intertext{Por el \zcref{lemma:lem1},}
+        &= \dfrac{1}{w - z_{0}}\sum_{n = 0}^{\infty}\bigl(\tfrac{z - z_{0}}{w -
+        z_{0}}\bigr)^{n}.
+    \end{align*}
+
+    Ahora, sea \(g \colon \gamma \to U\) dada por \(g(w) = \tfrac{f(w)}{w - z_{0}}\) con
+    \(g\) continua y \(\gamma\) compacta, lo cual implica que \(g\) es compacta.
+    Y dado que
+    \begin{equation*}
+        \sum_{n = 0}^{\infty}\bigl(\tfrac{z - z_{0}}{w - z_{0}}\bigr)^{n}
+    \end{equation*}
+
+    converge uniformemente, entonces
+
+    \begin{equation*}
+        \sum_{n = 0}^{\infty}\dfrac{f(w)(z - z_{0})^{n}}{(w - z_{0})^{n + 1}}
+    \end{equation*}
+
+    converge. Por lo tanto,
+
+    \begin{equation*}
+        \dfrac{f(w)}{w - z_{0}}\dfrac{1}{1 - \tfrac{z - z_{0}}{w - z_{0}}} =
+        \dfrac{f(w)}{w -
+        z}.
+    \end{equation*}
+
+    Por convergencia uniforme,
+
+    \begin{equation*}
+        \int_{\gamma}^{}\dfrac{f(w)}{w - z}\odif{w} = \int_{\gamma}^{}\sum_{n =
+        0}^{\infty}\dfrac{f(z)(z - z_{0})^{n}}{(w - z_{0})^{n + 1}}\odif{w} = \sum_{n =
+        0}^{\infty}\int_{\gamma}^{}\dfrac{f(z)(z - z_{0})^{n}}{(w - z_{0})^{n
+        + 1}}\odif{w}.
+    \end{equation*}
+
+    Por lo que
+
+    \begin{align*}
+        f(z) &= \dfrac{1}{2\pi i}\int_{\gamma}^{}\dfrac{f(z)}{w - z}\odif{z}
+        = \dfrac{1}{2\pi
+        i}\int_{\gamma}^{}\dfrac{f(w)(z - z_{0})^{n}}{(w - z_{0})^{n + 1}}\odif{w},\\
+        &= \sum_{n = 0}^{\infty}\dfrac{(z - z_{0})^{n}}{2\pi
+        i}\int_{\gamma}^{}\dfrac{f(w)}{(w
+        - z_{0})^{n + 1}}\odif{w},\\
+        \intertext{Por el la fórmula integral de Cacuchy generalizada,}
+        &= \sum_{n = 0}^{\infty}\dfrac{(z - z_{0})^{n}}{n!}f^{(n)}(z_{0}),\\
+        &=\sum_{n = 0}^{\infty} \dfrac{f^{(n)}(z_{0})}{n!}(z - z_{0})^{n}
+    \end{align*}
+
+    para toda \(z\) en \(\bar{B}_{r}(z_{0})\).
+\end{proof}
+
+\begin{example}
+    Sea \(f(z) = \log(z + 1)\), entonces
+
+    \begin{align*}
+        f^{\prime}(z) &= \dfrac{1}{z + 1},\\
+        f^{\prime\prime} &= - \dfrac{1}{(z + 1)^{2}},\\
+        &\vdotswithin{ = }\\
+        f^{(n)}(z) &= \dfrac{(n - 1)!(-1)^{n + 1}}{(z + 1)^{n}}.
+    \end{align*}
+
+    Por lo que
+
+    \begin{align*}
+        \log(z + 1) &= \sum_{n = 0}^{\infty}\dfrac{(n - 1)!(-1)^{n + 1}}{n!}z^{n},\\
+        &= \sum_{n = 0}^{\infty}\dfrac{(-1)^{n + 1}}{n}z^{n}.\\
+        \intertext{Y por el criterio de convergencia donde \(a_{n} = \tfrac{(-1)^{n +
+        1}}{n}\),}
+        &= \lim_{n \to \infty} \dfrac{\tfrac{1}{n}}{\tfrac{1}{n + 1}},\\
+        &= \dfrac{n + 1}{n},\\
+        &= 1.
+    \end{align*}
+\end{example}
 \end{document}
