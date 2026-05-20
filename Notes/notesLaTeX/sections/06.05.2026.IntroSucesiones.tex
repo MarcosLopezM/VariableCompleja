@@ -323,4 +323,177 @@
     \zcref{thm:MTestWeierstrass}, \(\sum_{n =
     1}^{\infty}f_{n}\) converge absoluta y uniformemente en \(\overline{B_{r}(0)}\).
 \end{example}
+
+\classdate{2026-05-14}
+
+\begin{theorem}[de Weierstrass]\label{thm:deWeierstrass}
+    Sea \(\{f_{n} \colon U \subseteq \mathbb{C} \to \mathbb{C}\}\) una sucesión de
+    funciones.
+
+    \begin{enumerate}
+        \item Si \(f_{n} \xlongrightarrow[]{u} f\) en bolas cerrada y
+            \(f_{n}\) es analítica
+            \(\forall n\in \mathbb{N}\), entonces \(f\) es analítica y
+            \(\lim_{n \to \infty}
+            f_{n}^{(k)}(z) = f^{(k)}(z)\; \forall k\in \mathbb{N}\) y \(\forall z\in
+            \overline{B}\).
+        \item Si \(\sum_{n = 0}^{\infty}f_{n}\) converge uniformemente a \(f\) en bolas
+            cerraddas y \(f_{n}\) es analítica \(\forall n\in \mathbb{N}\),
+            entonces \(f\)
+            es analítica y \(\sum_{n = 0}^{\infty}f_{n}^{(k)}(z) =
+                f^{(k)}(z)\; \forall k\in
+            \mathbb{N}\) y \(\forall z\in \overline{B}\).
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    Decimos que \(\{f_{n} \colon U \subseteq \mathbb{C} \to \mathbb{C}\}\) converge
+    normalmente a \(f \colon U \subseteq \mathbb{C} \to \mathbb{C}\) si \(f_{n}\)
+    converge uniformemente a \(f\; \forall k \subseteq U\) compacto. Y si \( U\) es
+    compacto, la convergencia normal implica convergencia uniforme.
+\end{definition}
+
+\begin{example}
+    Sea \(f(z) = \sum_{n = 0}^{\infty}\tfrac{z^{n}}{e^{n}}\) con \(f \colon
+        \bar{B}_{1}(0)
+    \to \mathbb{C}\).
+
+    Notemos que
+
+    \begin{equation*}
+        \abs{\dfrac{z^{n}}{e^{n}}} \leq \dfrac{1}{e^{n}}
+    \end{equation*}
+
+    Recordando que \(n^{2} \leq e^{n}\; \forall n\in \mathbb{N}\), tal que
+    \(\dfrac{1}{e^{n}} \leq \dfrac{1}{n^{2}}\) y como \(\sum_{n =
+    1}^{\infty}\tfrac{1}{n^{2}}\) converge, \(\sum_{n = 0}^{\infty}\tfrac{1}{e^{n}}\)
+    también converge.
+    Y por la prueba M de Weierstrass, \(\sum_{n =
+    0}^{\infty}\tfrac{z^{n}}{e^{n}}\) converge
+    uniforme y absolutamente, además por el \zcref{thm:deWeierstrass}
+    \(f\) es analítica en \(\bar{B}_{1}(0)\) y, además,
+
+    \begin{equation*}
+        f^{\prime}(z) = \sum_{n = 0}^{\infty}\dfrac{n z^{n - 1}}{e^{n}}.
+    \end{equation*}
+\end{example}
+
+\begin{definition}
+    Sea \(\{f_{n} \colon \mathbb{C} \to \mathbb{C}\}\) una sucesión de funciones tal que
+    \(\exists z_{0}\in \mathbb{C}\) y \(\forall n\in \mathbb{N}\; \exists a_{n}\in
+    \mathbb{C}\) tal que \(f_{n}(z) = a_{n}\bigl(z - z_{0}\bigr)^{n}\). En cuyo caso a
+    la sucesión \(\{f_{n}\}\) se le llama sucesión de potencias y a su respectiva serie
+
+    \begin{equation*}
+        f(z) = \sum_{n = 0}^{\infty}f_{n}(z) = \sum_{n = 0}^{\infty}a_{n}(z - z_{0})^{n}
+    \end{equation*}
+
+    se le llama serie de potencias.
+\end{definition}
+
+\begin{remark}
+    Recordemos ahora que significaba que una función fuese analítica en
+    \(\mathbb{R}\). Es
+    decir, sea \(f \colon U \subseteq \mathbb{R} \to \mathbb{R}\) analítica si \(\forall
+    x_{0}\in U\; \exists \delta > 0\) tal que
+
+    \begin{equation*}
+        f(x) = \sum_{n = 0}^{\infty}\dfrac{f^{(n)}(x_{0})}{n!}(x -
+        x_{0})^{n}\quad \forall
+        x\in (x_{0} - \delta, x_{0} + \delta).
+    \end{equation*}
+
+    En \(\mathbb{C}\) sabemos que si una función es derivable y satisface las
+    ecuaciones de
+    Cauchy-Riemman la función analítica. Sin embargo, para el caso real, esto
+    no siempre el
+    caso. Por lo que veremos una función que es de clase \(C^{\infty}\), pero no es
+    analítica.
+
+    \begin{example}
+        Sea
+
+        \begin{equation*}
+            f(x) =
+            \begin{dcases}
+                \mathrm{e}^{-\tfrac{1}{x^{2}}} & x \neq 0,\\
+                0 & x = 0.
+            \end{dcases}
+        \end{equation*}
+
+        pues \(f^{(k)}(0) = 0,\; \forall k\in \mathbb{N}\), lo cual implica que
+
+        \begin{equation}
+            g(x) = \sum_{n = 0}^{\infty}\dfrac{f^{(k)}(0)}{n!}x^{n} = 0,\;
+            \forall \delta > 0,
+        \end{equation}
+
+        por lo que \(f(x) \neq g(x) = 0\; \forall x\in (-\delta, \delta)\).
+    \end{example}
+\end{remark}
+
+\begin{lemma}[Abel]\label{lemma:abel}
+    Si existe \(z_{1}\in \mathbb{C}\) tal que la serie \(\sum_{n =
+    0}^{\infty}a_{n}(z_{1} - z_{0}) ^{n}\) converge, entonces la serie \(\sum_{n =
+    0}^{\infty}a_{n}(z - z_{0})^{n}\) converge normal y absolutamente \(\forall z\in
+    B_{R}(z_{0})\), donde \(R = \abs{z_{1} - z_{0}}\).
+\end{lemma}
+
+\begin{proof}
+    Sea \(R = \abs{z_{1} - z_{0}}\). Es claro que \(\abs{a_{n}}R^{n} \xlongrightarrow[n
+    \to \infty]{} 0\) y, por tanto, está acotada por algún \(M > 0\). Ahora, sea \(r <
+    R\) y sea la sucesión
+
+    \begin{equation*}
+        M_{n} = M\bigl(\dfrac{r}{R}\bigr)^{n}.
+    \end{equation*}
+
+    Como \(\tfrac{r}{R} < 1\), la serie geométrica \(\sum_{n =
+    0}^{\infty}M(\tfrac{r}{R})^{n}\) converge, i.e. \(\sum_{n =
+    0}^{\infty}M_{n}\) converge.
+    Además en \(z\in \bar{B}_{r}(z_{0})\):
+
+    \begin{align*}
+        \abs{a_{n}(z_{1} - z_{0})^{n}} &\leq \abs{a_{n}}r^{n},\\
+        &= \abs{a_{n}}\dfrac{R^{n}r^{n}}{R^{n}},\\
+        &\leq M \dfrac{r^{n}}{R^{n}}.
+    \end{align*}
+
+    Y por la prueba M de Weierstrass concluimos que \(\sum_{n = 0}^{\infty}a_{n}(z -
+    z_{0})^{n}\) converge uniforme y absolutamente para toda \(z\) en
+    \(\bar{B}_{r}(z_{0})\) y \(r < R\). Por tanto, la serie converge normal y
+    absolutamente
+    para toda \(z\) en \(B_{r}(z_{0})\).
+\end{proof}
+
+\begin{proposition}[Radio de convergencia]\label{prop:radius-of-convergence}
+    Sea \(\sum_{n = 0}^{\infty}a_{n}(z - z_{0})^{n}\) una serie de potencias, entonces
+    \(\exists R\in [0, \infty]\)\footnote{El radio de convergencia es infinito, lo cual
+    implica que la serie de potencias converge en todo \(\mathbb{C}\)} tal que si \(
+    \abs{z - z_{0}} > R\) la serie diverge. Además, la serie es normal y absoluta en
+    \(B_{R}(z_{0})\). A \(R\) se le llama el radio de convergencia de la
+    serie de potencias.
+\end{proposition}
+
+\begin{proof}
+    Sea \(R = \sup\set{r \geq 0 \given \sum_{n = 0}^{\infty}\abs{a_{n}}r^{n}\;
+    \text{convere}}\). Sea \(r < R\), entonces la también converge, por lo que \(\sum_{n
+    = 0}^{\infty}a_{n}(r_{1} + z_{0} - z_{0}) ^{n}\) converge.
+    Usando el \zcref{lemma:abel} para \(r_{1} +
+    z_{0} = z_{1}\), la serie \(\sum_{n = 0}^{\infty}a_{n}(z - z_{0})^{n}\) converge
+    uniformemente para toda \(z\) en \(\bar{B}_{r_{1}}(z_{0})\) donde \(r_{1} =
+    \abs{z_{1} - z_{0}} = \abs{r_{1} + z_{0} - z_{0}}\) y esto ocurre para toda \(r <
+    r_{1} < R\). Por lo tanto, \(\forall z\in B_{R}(z_{0})\) converge normal y
+    absolutamente.
+
+    Ahora, suponemos que para \(z_{2}\in \mathbb{C}\) \(\abs{z_{2} - z_{0}} >
+    R\), la serie
+    \(\sum_{n = 0}^{\infty}a_{n}(z_{2} - z_{0})^{n} = \sum_{n =
+    0}^{\infty}a_{n}s^{n}\), con
+    \(s = \abs{z_{2} - z_{0}}\). De esta manera, notemos que \(\sum_{n =
+        0}^{\infty}a_{n}(s
+    + z_{0} - z_{0})^{n}\), con \(z_{2} = s + z_{0}\), la serie anterior
+    converge para toda
+    \(z\) en \(B_{s}(z_{0})\), lo cual es una contradicción pues \(s > R\).
+\end{proof}
 \end{document}
