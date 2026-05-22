@@ -811,4 +811,163 @@
         &= 1.
     \end{align*}
 \end{example}
+
+\classdate{2026-05-20}
+
+\begin{example}
+    \begin{itemize}
+        \item Sea \(f(z) = \mathrm{e}^{z}\) entera (analítica en
+            \(\mathbb{C}\))
+
+            Consideremos \(z_{0} = 0\). Sea \(n\in \mathbb{N},\; f^{(n)}(z) =
+            \mathrm{e}^{z}\),
+            tal que
+
+            \begin{equation*}
+                f^{(n)}(0) = \mathrm{e}^{0} = 1.
+            \end{equation*}
+
+            Y por Taylor,
+
+            \begin{equation*}
+                f(z) = \sum_{n = 0}^{\infty}\tfrac{1}{n!}z^{n},\; \forall z\in
+                \bar{B}_{r}(0)\; \forall r > 0.
+            \end{equation*}
+
+            En particular, el radio de convergencia de
+
+            \begin{equation*}
+                \sum_{n = 0}^{\infty}\dfrac{1}{n!}z^{n}
+            \end{equation*}
+
+            es infinito.
+
+        \item Sea \(\log\) la rama prinicipal del logaritmo (analítica en
+                \(C\setminus (-\infty,
+            0]\)). Definimos \(f(z) = \log(z + 1)\).
+
+            Notemos que \(f\) es analítica en \(C\setminus (-\infty,
+            -1] = U\). Sea \(0 < r < 1\). NOtemos que \(\bar{B}_{r}(0)
+            \subseteq U\). Por Taylor,
+            \(\forall z\in \bar{B}_{r}(0)\),
+
+            \begin{equation*}
+                f(z) = \sum_{n = 0}^{\infty}\dfrac{f^{(n)}(0)}{n!}z^{n}.
+            \end{equation*}
+
+            Entonces,
+
+            \begin{align*}
+                f^{\prime}(z) &= \dfrac{1}{z + 1},\\
+                f^{\prime\prime}(z) &= - \dfrac{1}{(z + 1)^{2}},\\
+                f^{(3)}(z) &= (-1)(2)\dfrac{1}{(z + 1)^{3}} =
+                (-1)^{2}(2!)\dfrac{1}{(z + 1)^{3}},\\
+                &\vdotswithin{ = }\\
+                f^{(n)}(z) = \dfrac{(-1)^{n - 1}(n - 1)!}{(z + 1)^{n}}.
+            \end{align*}
+
+            Y como esta serie está centrada en \(z_{0} = 0\),
+
+            \begin{equation*}
+                f^{(n)}(0) = (-1)^{n - 1}(n - 1)!.
+            \end{equation*}
+
+            Recordando que \(f^{(0)}(0) = \log(1)\), tal que
+
+            \begin{equation*}
+                \log(z + 1) = \sum_{n = 1}^{\infty}\dfrac{(n - 1)!(-1)^{n -
+                1}}{n!}z^{n} = \sum_{n =
+                1}^{\infty}\dfrac{(-1)^{n - 1}}{n}z^{n}\; \forall z\in
+                \bar{B}_{r}(0)\; \forall r\in
+                (0, 1).
+            \end{equation*}
+
+            Por lo que
+
+            \begin{equation*}
+                \log(z + 1) = \sum_{n = 1}^{\infty}\dfrac{(-1)^{n -
+                1}}{n}z^{n}\; \forall z\in
+                B_{1}(0).
+            \end{equation*}
+
+            \begin{remark}
+                Si \(z = -1\), la serie es
+
+                \begin{equation*}
+                    -\sum_{n = 1}^{\infty}\dfrac{1}{n}
+                \end{equation*}
+
+                la cual diverge.
+            \end{remark}
+
+            Po lo tanto, por la observación \(R \ngtr 1\) pues diverge y
+            tampoco puede ser menor a \(1\) por que contradice el hecho de
+            que \(R\) esté dado en términos del supremo. Lo anterior  nos
+            indica que el radio de convergencia de la serie es \(1\).
+    \end{itemize}
+\end{example}
+
+\begin{lemma}
+    \begin{equation*}
+        (fg)^{n}(z) = \sum_{n = 0}^{\infty}
+        \begin{pNiceMatrix}
+            n\\
+            k\\
+        \end{pNiceMatrix}
+        f^{k}(z)g^{n - k}(z).
+    \end{equation*}
+\end{lemma}
+
+Veamos cómo se ven los coeficientes de la serie de Taylor del producto de funciones,
+
+\begin{align*}
+    \dfrac{(fg)^{(n)}(z_{0})}{n!} &= \dfrac{1}{n!}\sum_{k = 0}^{n}
+    \begin{pNiceMatrix}
+        n\\
+        k\\
+    \end{pNiceMatrix}
+    f^{(k)}(z_{0})g^{(n - k)}(z_{0}),\\
+    &= \sum_{k = 0}^{n}\dfrac{f^{(k)}(z_{0})}{k!}\dfrac{g^{(n - k)}(z_{0})}{(n -
+    k)!} = c_{n}.
+\end{align*}
+
+Por lo tanto, la serie de Taylor del producto se ve como
+
+\begin{equation*}
+    (fg)(z) = \sum_{n = 0}^{\infty}(z - z_{0})^{n}.
+\end{equation*}
+
+\begin{example}
+    Encuentra la serie de Taylor de \(\tfrac{z^{3}}{z - 1}\) en \(0\).
+
+    Sea \(f(z) = z^{3}\) y \(g(z) = \tfrac{1}{z - 1}\). Entonces,
+
+    \begin{equation*}
+        f(z) = \sum_{n = 0}^{a_{n}z^{n}}\quad \wedge\quad g(z) = \sum_{n =
+        0}^{\infty}b_{n}z^{n} = - \sum_{n = 0}^{\infty}z^{n}, \abs{z} < 1,
+    \end{equation*}
+
+    tal que
+
+    \begin{equation*}
+        a_{n} =
+        \begin{dcases}
+            1 & n = 3,\\
+            0 & n \neq 3.
+        \end{dcases}
+        \quad
+        \wedge
+        \quad
+        b_{n} = 1\; \forall n\in \mathbb{N}.
+    \end{equation*}
+
+    Por lo anterior,
+
+    \begin{align*}
+        \dfrac{z^{3}}{z - 1} &= \sum_{n = 0}^{\infty}\Bigl[\sum_{k = 0}^{n}a_{k}b_{n -
+        k}\Bigr]z^{n},\\
+        &= \sum_{n = 3}^{\infty}\Bigl[\sum_{k = 0}^{n}a_{k}(-1)\Bigr]z^{n},\\
+        &= - \sum_{n = 3}^{\infty}z^{n}.
+    \end{align*}
+\end{example}
 \end{document}
