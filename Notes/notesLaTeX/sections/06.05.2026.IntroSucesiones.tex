@@ -863,7 +863,7 @@
                 f^{(3)}(z) &= (-1)(2)\dfrac{1}{(z + 1)^{3}} =
                 (-1)^{2}(2!)\dfrac{1}{(z + 1)^{3}},\\
                 &\vdotswithin{ = }\\
-                f^{(n)}(z) = \dfrac{(-1)^{n - 1}(n - 1)!}{(z + 1)^{n}}.
+                f^{(n)}(z) &= \dfrac{(-1)^{n - 1}(n - 1)!}{(z + 1)^{n}}.
             \end{align*}
 
             Y como esta serie está centrada en \(z_{0} = 0\),
@@ -969,5 +969,180 @@ Por lo tanto, la serie de Taylor del producto se ve como
         &= \sum_{n = 3}^{\infty}\Bigl[\sum_{k = 0}^{n}a_{k}(-1)\Bigr]z^{n},\\
         &= - \sum_{n = 3}^{\infty}z^{n}.
     \end{align*}
+\end{example}
+
+\classdate{2026-05-21}
+
+\begin{lemma}[Dual de Abel]
+    Sea \(\{b_{n}\} \subseteq \mathbb{C}\). Si
+
+    \begin{equation*}
+        \sum_{n = 1}^{\infty}\dfrac{b_{n}}{(z - z_{0})^{n}}
+    \end{equation*}
+
+    converge en \(z_{1}\in \mathbb{C}\), entonces la serie converge absolutamente en
+    \(\set{z\in \mathbb{C} \given \abs{z - z_{0}} > r_{1}}\) donde \(r_{1} =
+        \abs{z_{1} -
+    z_{0}}\). Además, converge uniformemente en \(\set{z\in \mathbb{C} \given \abs{z -
+    z_{0}} \geq r}\; \forall r > r_{1}\).
+\end{lemma}
+
+\begin{proof}
+    Como la serie
+
+    \begin{equation*}
+        \sum_{n = 1}^{\infty}\dfrac{b_{n}}{(z - z_{0})^{n}}
+    \end{equation*}
+
+    converge en \(z_{1}\), la sucesión \(\{\tfrac{\abs{b_{n}}}{r_{1}^{n}}\}\)
+    es acotada, es decir, \(\exists M > 0\) tal que \(\forall n\in
+    \mathbb{N},\; \tfrac{\abs{b_{n}}}{r_{1}^{n}} < M\). Por lo que basta
+    mostrar que si \(r > r_{1}\), la serie
+
+    \begin{equation*}
+        \sum_{n = 1}^{\infty}\dfrac{b_{n}}{(z - z_{0})^{n}}
+    \end{equation*}
+
+    converge uniforme y absolutamente en \(\set{z\in \mathbb{C} \given \abs{z
+    - z_{0}} \geq r}\),
+
+    \begin{equation*}
+        \abs`\bigg{\dfrac{b_{n}}{(z - z_{0})^{n}}} \leq \dfrac{\abs{b_{n}}}{r^{n}} =
+        \dfrac{\abs{b_{n}}}{r_{1}^{n}}\dfrac{r_{1}^{n}}{r^{n}} \leq M
+        \bigl(\underbrace{\dfrac{r_{1}}{r}}_{\in (0, 1)}\bigr)^{n}.
+    \end{equation*}
+
+    Por lo tanto,
+
+    \begin{equation*}
+        \sum_{n = 0}^{\infty}\bigl(\dfrac{r_{1}}{r}\bigr)^{n}
+    \end{equation*}
+
+    converge.
+
+    Y por la prueba M de Weierstrass converge uniforme y absolutamente.
+\end{proof}
+
+\begin{lemma}
+    Sea \(f\) una función analítica en el anillo
+
+    \begin{equation*}
+        A_{r_{1}}^{r_{2}} = \set{z\in \mathbb{C} \given r_{1} < \abs{z - z_{0}} < r_{2}}
+    \end{equation*}
+
+    con \(r_{1} < r_{2}\) y \(\gamma_{j}(\theta) = z_{0}t +
+    t_{j}\mathrm{e}^{i\theta}\), \(j = {1, 2},\; r_{1} < t_{1} < t_{2} <
+    r_{2},\; \theta\in [0, 2\pi]\). Entonces \(\forall z\in A_{t_{1}}^{t_{2}}\),
+
+    \begin{equation*}
+        f(z) = \dfrac{1}{2\pi i}\int_{\gamma_{2}}^{}\dfrac{f(w)}{w - z}\odif{w} -
+        \dfrac{1}{2\pi i}\int_{\gamma_{1}}^{}\dfrac{f(w)}{w - z}\odif{w}.
+    \end{equation*}
+\end{lemma}
+
+\begin{proof}
+    Sea \(z\in A_{t_{1}}^{t_{2}}\).
+    Definimos la función auxiliar
+
+    \begin{equation*}
+        g(w) =
+        \begin{dcases}
+            \dfrac{f(w) - f(z)}{w - z}, & w \neq z,\\
+            f^{\prime}(z), & w = z
+        \end{dcases}
+    \end{equation*}
+
+    analítica en \(A\).
+
+    Y como \(\gamma_{1}\) es homotópica a \(\gamma_{2}\) en \(A\),
+
+    \begin{equation*}
+        \int_{\gamma_{2}}^{}g(w)\odif{w} - \int_{\gamma_{1}}^{}g(w)\odif{w} = 0.
+    \end{equation*}
+
+    Por lo que,
+
+    \begin{equation*}
+        \int_{\gamma_{2}}^{}\dfrac{f(w)}{w - z}\odif{w} -
+        f(z)\int_{\gamma_{2}}^{}\dfrac{1}{w
+        - 1}\odif{w} - \int_{\gamma_{1}}^{}\dfrac{f(w)}{w - z}\odif{w} + f(z)
+        \int_{\gamma_{1}}^{}\dfrac{1}{w - z}\odif{w} = 0,
+    \end{equation*}
+
+    donde la última integral es \(0\) por el teorema de Cauchy y por el
+    número de vueltas
+    \(n(\gamma_{2}, z)\),
+
+    \begin{equation*}
+        -f(z) = \int_{\gamma_{2}}^{}\dfrac{1}{w - z}\odif{w} = -f(z)2\pi i.
+    \end{equation*}
+
+    Por lo tanto,
+
+    \begin{equation*}
+        f(z) = \dfrac{1}{2\pi i}\int_{\gamma_{2}}^{}\dfrac{f(w)}{w - z}\odif{w} -
+        \dfrac{1}{2\pi i}\int_{\gamma_{1}}^{}\dfrac{f(w)}{w - z}\odif{w}.
+    \end{equation*}
+\end{proof}
+
+\begin{theorem}[de Laurent]
+    Sea \(f\) analítica en \(A_{r_{1}}^{r_{2}}\). Entonces \(\forall z\in
+    A_{r_{1}}^{r_{2}}\),
+
+    \begin{equation*}
+        f(z) = \sum_{n = 0}^{\infty}a_{n}(z - z_{0})^{n} + \sum_{n =
+        1}^{\infty}\dfrac{b_{n}}{(z - z_{0})^{n}}
+    \end{equation*}
+
+    converge absolutamente.
+
+    A
+
+    \begin{equation*}
+        \sum_{n = 0}^{\infty}a_{n}(z - z_{0})^{n} + \sum_{n =
+        1}^{\infty}\dfrac{b_{n}}{(z - z_{0})^{n}}
+    \end{equation*}
+
+    se le conce como serie de Laurent y en ocasiones por ``abuso de
+    notación'' se escribe
+    como
+
+    \begin{equation*}
+        \sum_{n = -\infty}^{\infty}c_{n}(z - z_{0})^{n},
+    \end{equation*}
+
+    donde
+
+    \begin{equation*}
+        c_{n} =
+        \begin{dcases}
+            a_{n} & n \geq 0,\\
+            b_{n} & n < 0.
+        \end{dcases}
+    \end{equation*}
+
+    Además la convergencia uniforme en subanillos
+
+    \begin{equation*}
+        A_{s_{1}}^{s_{2}} = \set{z\in \mathbb{C} \given s_{1} \leq \abs{z -
+        z_{0}} \leq s_{2}}
+    \end{equation*}
+
+    con \(r_{1} < s_{1} < s_{2} < r_{2}\).
+\end{theorem}
+
+Antes de continar con la prueba del teorema, veamos un ejemplo.
+
+\begin{example}
+    Encuentre la serie de Laurent \(f(z) = \tfrac{1}{z^{2} - z^{3}}\) en \(0\).
+
+    Notemos que \(f(z) = \tfrac{1}{1 - z}\tfrac{1}{z^{2}}\) y para \(\abs{z} < 1\),
+    \(\tfrac{1}{1 - z} = \sum_{n = 0}^{\infty}z^{n}\). Por lo tanto,
+
+    \begin{equation*}
+        \dfrac{1}{1 - z}\dfrac{1}{z^{2}} = \dfrac{1}{z^{2}} + \dfrac{1}{z} +
+        1 + z + z^{2} +
+        \cdots
+    \end{equation*}
 \end{example}
 \end{document}
