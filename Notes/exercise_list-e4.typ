@@ -53,13 +53,13 @@
 - [x] Problema 6
 - [ ] Problema 7
 - [ ] Problema 8
-- [/] Problema 9
-- [ ] Problema 10
+- [x] Problema 9
+- [x] Problema 10
 - [-] Problema 11
-- [ ] Problema 12
-- [ ] Problema 13
+- [x] Problema 12
+- [x] Problema 13
 - [ ] Problema 14
-- [ ] Problema 15
+- [/] Problema 15
 - [ ] Problema 16
 - [ ] Problema 17
 - [ ] Problema 18
