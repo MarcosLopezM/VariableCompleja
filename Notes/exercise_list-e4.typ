@@ -59,9 +59,9 @@
 - [x] Problema 12
 - [x] Problema 13
 - [ ] Problema 14
-- [/] Problema 15
+- [x] Problema 15
 - [ ] Problema 16
-- [ ] Problema 17
+- [x] Problema 17
 - [ ] Problema 18
-- [ ] Problema 19
-- [ ] Problema 20
+- [x] Problema 19
+- [x] Problema 20
