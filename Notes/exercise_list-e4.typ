@@ -49,11 +49,11 @@
 - [x] Problema 2
 - [x] Problema 3
 - [x] Problema 4
-- [/] Problema 5
-- [ ] Problema 6
+- [x] Problema 5
+- [x] Problema 6
 - [ ] Problema 7
 - [ ] Problema 8
-- [ ] Problema 9
+- [/] Problema 9
 - [ ] Problema 10
 - [-] Problema 11
 - [ ] Problema 12
